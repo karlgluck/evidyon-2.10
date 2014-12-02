@@ -1,0 +1,5 @@
+#include <d3dx9.h>
+#include "dcxd3d.h"
+#include "dcxwin32dialogcontroller.h"
+#include "dcxd3ddialogcontroller.h"
+#include "dcxd3dcolor.h"

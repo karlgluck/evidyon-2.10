@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{1581a4df-f057-4632-b91d-017c96ead2c3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\updater-monitor">
+      <UniqueIdentifier>{4ddff145-d108-4a99-96bd-c4d9caf88bbb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\updater">
+      <UniqueIdentifier>{15417185-4c5f-4266-a2d2-96d9606f26d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\updater-launcher">
+      <UniqueIdentifier>{fa7de54f-e95d-43bc-b3d0-8fe15e0efc8b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{c4f4d8b2-12b6-45f1-9cf9-dd489d7266c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\md5">
+      <UniqueIdentifier>{0cff9557-6026-4fcb-936c-ee5b5bf11f0d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\updater\updatefile.cpp">
+      <Filter>Shared\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\md5\md5.cpp">
+      <Filter>Common\md5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\md5\md5wrapper.cpp">
+      <Filter>Common\md5</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\shared\updater-monitor\serverupdatefile.h">
+      <Filter>Shared\updater-monitor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\updater\updatefile.h">
+      <Filter>Shared\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\updater-launcher\clientupdatefile.h">
+      <Filter>Shared\updater-launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\md5\md5.h">
+      <Filter>Common\md5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\md5\md5wrapper.h">
+      <Filter>Common\md5</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

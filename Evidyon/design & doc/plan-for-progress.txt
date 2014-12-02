@@ -1,0 +1,104 @@
+High Priority
+  Footstep Sounds - for some reason this adds a lot to the immersion...
+Medium Priority
+  Merchants & Bazaar
+  Geosids
+  Parties
+  make unseen animation format use quaternions/vectors instead of matrices
+  add "name:" label to top bar on CC screen
+Low Priority
+  implement fog
+  random background sounds in addition to constant sound loop
+  sound attenuation
+  change items on ground to send item indices instead of scenery indices
+    client interpret item on ground -> scenery index
+
+If I feel like it
+  Copy code from "create character" screen to implement stats screen
+  Compress strings in network messages
+  make areas around geosids restore HP/MP
+  make personal/mouse lights into overhead spotlights: i.e. fix lighting
+  redo character attack animations: slash, stab, overhead strike, spin
+  light allocator in rendering manager + add lights for special effects
+  define day/night cycles in editor with color sequence of ambient light
+  buffer network on ENet using separate thread and SISO async buffers (?)
+
+  evidyon "mail":  let characters send items, messages, gold to each other without being present
+  Completely New Website
+  Art Overhaul before Stage 1
+  npcs/quests (capabilities + basic ones,
+               content pack for spells/monsters,
+               a new area or 2)
+  content spam $$$
+  lots of areas to explore
+  make sure it has a focus
+  1 week free unlimited, limited to 45 minutes per day after that
+    notify of impending kick (you'll be logged off in 5 minutes!)
+    log kickoffs, then analyze to see if people are cheating.
+  record 10-second video clip with directshow, like screenshot
+  general-release editor : summer project?  how to grow the game without me
+    arena: create a monster, fight it!
+    map ideas
+  npc "helper" like in xen?
+
+
+
+
+Art Overhaul
+============
+"Just Be Superficial"
+Make a tool
+Animations and items; character customization; colors
+Item attachment
+Fix character lighting issues
+
+
+
+
+neat idea:  have server send chat and statistics log to Karl every day (sometime late at night) via email (or just upload it!)
+
+
+Beta:
+  beta - hook xenimites!
+  this is key! lots of people here leads to good release + paying players
+  let people play free, and give proportional time during live game on same
+    account for playing during beta (2 hrs = 5 days of free time)
+
+stage 2 - release after spring break, lots of VISIBLE stuff!
+
+town center, enough people to be reasonably active, 
+
+while in stage 2: preparing for May
+    fixing bugs!
+    add some content, tweak and work on full release design
+    time to do design work, because people are happy playing
+    ...world creation
+
+
+
+
+full release 1 by May (everybody!)
+  lots of areas to explore
+  make sure it has a focus
+  1 week free unlimited, limited to 45 minutes per day after that
+    notify of impending kick (you'll be logged off in 5 minutes!)
+    log kickoffs, then analyze to see if people are cheating.
+
+
+"critical mass" by August
+self-sustaining community
+maintainance
+adding content
+
+
+
+
+
+design concepts:
+  "centered" world (nexus)
+
+  
+  
+  server tools
+
+

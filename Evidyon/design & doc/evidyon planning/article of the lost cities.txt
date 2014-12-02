@@ -1,0 +1,33 @@
+of the Lost Cities
+
+Two cities of Gendra and Derval were annihilated in the Evidyon.
+Bodies were buried in graveyards, but weeks later the graveyards began to live.
+Skeletons of the dead arose with power unlike any seen before
+
+
+gendran (skeletons 0-3; blue)
+
+   archer (archer)
+   cleaver (axes)
+   magi (caster)
+   executor (sword)
+   groundclaw (zombie)
+
+skeleton 0:  novice
+skeleton 1:  
+skeleton 2:  oldguard
+skeleton 3:  master 
+
+
+dervali (skeletons 4-7; red)
+
+   bowman (archer)
+   wretch (axes)
+   conjurer (caster)
+   slicer (sword)
+   wrath (zombie)
+
+skeleton 4:  apprentice
+skeleton 5:  
+skeleton 6:  guardian
+skeleton 7:  expert

@@ -1,0 +1,20 @@
+
+material LichMAT
+{
+	technique
+	{
+		pass
+		{
+			ambient 0.752941 0.752941 0.752941 1
+			diffuse 0.752941 0.752941 0.752941 1
+
+			texture_unit
+			{
+				texture_alias 0
+				texture .\undcloack.jpg
+			}
+		}
+
+	}
+
+}

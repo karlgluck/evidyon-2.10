@@ -1,0 +1,23 @@
+instead of buying account time, users could buy platinum.  platinum can be used to purchase
+things in-game such as special titles for your character, new armor effects, and other
+fun stuff that doesn't really affect the game but is kinda cool.
+
+$1 = 367 platinum
+
+platinum is only rarely obtained by killing monsters.
+
+to obtain new items players must barter.  they put up items in the
+bazaar, list a price (in pecnia/pesnia or platinum), and people can buy them.
+
+occasionally, the system will "buy" items listed in the bazaar.  This causes
+the items to be recycled into the system; they are removed from circulation entirely.
+
+
+
+
+
+
+
+this "bazaar" could tie in nicely to the system of deaths:  if a player is killed, whomever
+loots their "ear" could take this item to the bazaar and obtain one of the items the player
+is saleing at a steep discount

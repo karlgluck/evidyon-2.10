@@ -1,0 +1,775 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{2afb857f-5e6b-49c4-b084-7603dbffe264}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{553e8613-1f38-4ee7-a66e-51fa2bc32d14}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Client">
+      <UniqueIdentifier>{2d74b381-593b-423c-92e1-d41b85da5fbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Server">
+      <UniqueIdentifier>{a2e63a24-4b93-4b77-b37d-c826cf7b2547}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{aa83ca5d-12bf-4559-8449-7d3e998f7d8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\unseenskinnedmesh">
+      <UniqueIdentifier>{529811f4-72d4-4586-bbd2-573b803cf690}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\lzf">
+      <UniqueIdentifier>{6cd542f7-b238-470a-8675-8b2c2a410ea5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\vld10">
+      <UniqueIdentifier>{f55af3a1-d1cf-4e07-93f4-774d9c75c159}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0460239d-de3b-4a53-aff9-331832d56e0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;cpp</Extensions>
+    </Filter>
+    <Filter Include="Editor Types\Media">
+      <UniqueIdentifier>{8c000dcd-66c7-4141-9d93-fa8610e40599}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Gameplay">
+      <UniqueIdentifier>{e33dbac2-f47c-4e28-9199-e4415a00110b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Gameplay\Magic">
+      <UniqueIdentifier>{cd0adf8e-7888-4349-998b-5f065d705bbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Gameplay\Treasure">
+      <UniqueIdentifier>{397ecbe6-f042-4188-9ba3-d191211fe35f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Gameplay\Items">
+      <UniqueIdentifier>{85eb749b-2b7b-4e09-8c26-9dc368b7f79e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Gameplay\AI">
+      <UniqueIdentifier>{ec8f8c39-e68a-47ae-a04f-b0944ebd679c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Map">
+      <UniqueIdentifier>{f23d5995-c9c2-4d22-b0d3-bf930f35f3dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Editor Types\Special FX">
+      <UniqueIdentifier>{1f83177a-070f-4522-bda9-3cbfe127b11c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="actordescriptiontemplatecompiler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="allgameresources.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="compileproject.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="contributor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="credits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="editresourcedialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="projectvolucris.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="projectvolucriseditor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="rescalemeshesdialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resourceactions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\actordescriptiontemplate.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\compiledatlasformat.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_accounts.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_actor.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatar.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_enchantments.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_gamefile.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_magic.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_map.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_network.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_npc.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_server_map.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_version.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_world.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\geometry.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\networkdecl.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\client_gamefile.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientenchantmentdescription.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientprojectiledescription.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientspelldescription.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\compiledtreasure.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\evidyon_gameplay_design.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\lifeformaidescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\magicdescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\server_gamefile.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\serverprojectiledescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\serverspelldescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\swarmspawndescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\isometriccamera.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\null.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\safemacros.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\unseenskinnedmesh\unseenskinnedmesh.h">
+      <Filter>Common\unseenskinnedmesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\lzf\lzf.h">
+      <Filter>Common\lzf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\lzf\lzfP.h">
+      <Filter>Common\lzf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\vld-10\vld.h">
+      <Filter>Common\vld10</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\vld-10\vldapi.h">
+      <Filter>Common\vld10</Filter>
+    </ClInclude>
+    <ClInclude Include="animatedtexture.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="circlingtexture.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="colorkey.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="compositeimage.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="d3dximage.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="image.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="mdjmesh.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="mesh.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="packimage.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="packmesh.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="resourcepack.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="scenery.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="skin.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="skinnedmeshattachmentpoint.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="slidingtexture.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="statictexture.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="texture.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="unseenkeyframeanimation.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="unseenskinnedmeshresource.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="wavsound.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="xmesh.h">
+      <Filter>Editor Types\Media</Filter>
+    </ClInclude>
+    <ClInclude Include="actortype.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="avatarclasslist.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="avatarmodifier.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="avatarracelist.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="leveldefinitions.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="playercharacterclass.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="playercharacterclasslevelspells.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="playercharacterrace.h">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="detailedmagic.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="enchantment.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="enchantmentclass.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="enchantmentclassimpl.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="enchantmentclasslist.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="magic.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="projectile.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="spell.h">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClInclude>
+    <ClInclude Include="rarityscale.h">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClInclude>
+    <ClInclude Include="treasure.h">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClInclude>
+    <ClInclude Include="treasureclass.h">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClInclude>
+    <ClInclude Include="treasuregeneration.h">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="itemavataractortypemodifier.h">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="itemavatarmodifier.h">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="itemavatarmodifierfield.h">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClInclude>
+    <ClInclude Include="aicharactertype.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="aimeleeattack.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="interactivenpclifeformai.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="lifeformai.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="normalmeleemonsterlifeformai.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="normalmeleemonsterlifeformaiactortype.h">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClInclude>
+    <ClInclude Include="atlas.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="atlascompilationcontext.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="atlaseditdialog.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="atlasterrainmesh.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="location.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="mapcolormask.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="maplayer.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="maplink.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="maplocationspecialfunction.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="spawndensity.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="spawnlevel.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="swarmspawn.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="swarmspawner.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="terrainrule.h">
+      <Filter>Editor Types\Map</Filter>
+    </ClInclude>
+    <ClInclude Include="magicfx.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClInclude>
+    <ClInclude Include="visualfx_orbitingparticles.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClInclude>
+    <ClInclude Include="visualfx_particletrail.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClInclude>
+    <ClInclude Include="visualfx_swirlingparticles.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClInclude>
+    <ClInclude Include="visualfximage.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bitmap1.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="black.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="blue.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="darkblue.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="darkred.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="green.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="red.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="white.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="worldeditoricon.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+    <None Include="resource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\shared\evidyon_avatar.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\evidyon_world.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\geometry.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\server-editor\evidyon_gameplay_design.cpp">
+      <Filter>Shared\with Server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\server-editor\server_gamefile.cpp">
+      <Filter>Shared\with Server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\server-editor\swarmspawndescription.cpp">
+      <Filter>Shared\with Server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\dclib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\isometriccamera.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\unseenskinnedmesh\unseenskinnedmesh.cpp">
+      <Filter>Common\unseenskinnedmesh</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\lzf\lzf_c.c">
+      <Filter>Common\lzf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\lzf\lzf_d.c">
+      <Filter>Common\lzf</Filter>
+    </ClCompile>
+    <ClCompile Include="actordescriptiontemplatecompiler.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="compileproject.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="contributor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="editresourcedialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projectvolucris.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projectvolucriseditor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="rescalemeshesdialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="resourceactions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="winmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animatedtexture.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="circlingtexture.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="colorkey.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="compositeimage.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="d3dximage.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="image.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="mdjmesh.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="mesh.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="packimage.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="packmesh.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="resourcepack.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="scenery.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="skin.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="skinnedmeshattachmentpoint.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="slidingtexture.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="statictexture.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="texture.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="unseenkeyframeanimation.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="unseenskinnedmeshresource.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="wavsound.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="xmesh.cpp">
+      <Filter>Editor Types\Media</Filter>
+    </ClCompile>
+    <ClCompile Include="actortype.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="avatarclasslist.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="avatarmodifier.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="avatarracelist.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_actorattack.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_actorsound.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="leveldefinitions.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="playercharacterclass.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="playercharacterclasslevelspells.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="playercharacterrace.cpp">
+      <Filter>Editor Types\Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="detailedmagic.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enchantment.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enchantmentclass.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enchantmentclasslist.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_magicdescriptionpowertype.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_magicdescriptionstageeffecttype.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_magicdescriptionstagetargetingtype.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="magic.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="projectile.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="spell.cpp">
+      <Filter>Editor Types\Gameplay\Magic</Filter>
+    </ClCompile>
+    <ClCompile Include="treasure.cpp">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClCompile>
+    <ClCompile Include="treasureclass.cpp">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClCompile>
+    <ClCompile Include="treasuregeneration.cpp">
+      <Filter>Editor Types\Gameplay\Treasure</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_itemavatarmodifierfieldstate.cpp">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="itemavataractortypemodifier.cpp">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="itemavatarmodifier.cpp">
+      <Filter>Editor Types\Gameplay\Items</Filter>
+    </ClCompile>
+    <ClCompile Include="aicharactertype.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="aimeleeattack.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="enum_npcinteractiontype.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="interactivenpclifeformai.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="lifeformai.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="normalmeleemonsterlifeformai.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="normalmeleemonsterlifeformaiactortype.cpp">
+      <Filter>Editor Types\Gameplay\AI</Filter>
+    </ClCompile>
+    <ClCompile Include="atlas.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="atlascompilationcontext.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="atlaseditdialog.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="atlaseditdialog_createterrainmesh.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="location.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="mapcolormask.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="maplayer.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="maplink.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="maplocationspecialfunction.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="scenerymaplayer.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="spawnlevel.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="swarmspawn.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="swarmspawner.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="terrainrule.cpp">
+      <Filter>Editor Types\Map</Filter>
+    </ClCompile>
+    <ClCompile Include="beameffectvisualization.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="magicfx.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="particletraileffectvisualization.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneryeffectvisualization.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="visualfx.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="visualfx_orbitingparticles.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="visualfx_particletrail.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="visualfx_swirlingparticles.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+    <ClCompile Include="visualfximage.cpp">
+      <Filter>Editor Types\Special FX</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuildStep Include="beameffectvisualization.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="particletraileffectvisualization.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="sceneryeffectvisualization.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </CustomBuildStep>
+    <CustomBuildStep Include="visualfx.h">
+      <Filter>Editor Types\Special FX</Filter>
+    </CustomBuildStep>
+  </ItemGroup>
+</Project>

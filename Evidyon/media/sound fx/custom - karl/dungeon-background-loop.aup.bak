@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<audacityproject projname="dungeon-background-loop_data" version="1.1.0" audacityversion="1.2.6" sel0="0.0000000000" sel1="0.0000000000" vpos="0" h="0.0000000000" zoom="60.2454307133" rate="44100.000000" >
+	<tags title="" artist="" album="" track="-1" year="" genre="-1" comments="" id3v2="1" />
+	<wavetrack name="Low End Rumble Loop 02" channel="2" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="722490" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00002.au' len='181345' min='-0.912528' max='0.771218' rms='0.206554'/>
+			</waveblock>
+			<waveblock start="181345" >
+				<simpleblockfile filename='b00002.au' len='181345' min='-0.912528' max='0.771218' rms='0.206554'/>
+			</waveblock>
+			<waveblock start="362690" >
+				<simpleblockfile filename='b00002.au' len='181345' min='-0.912528' max='0.771218' rms='0.206554'/>
+			</waveblock>
+			<waveblock start="544035" >
+				<simpleblockfile filename='b00050.au' len='178455' min='-0.912528' max='0.771218' rms='0.205108'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='6'>
+			<controlpoint t='4.112126519274' val='1.000000000000'/>
+			<controlpoint t='4.112131519274' val='1.000000000000'/>
+			<controlpoint t='8.224258038549' val='1.000000000000'/>
+			<controlpoint t='8.224263038549' val='1.000000000000'/>
+			<controlpoint t='12.336389557823' val='1.000000000000'/>
+			<controlpoint t='12.336394557823' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Creature Breath 01" channel="2" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="342258" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00012.au' len='262144' min='-0.309223' max='0.303489' rms='0.066835'/>
+			</waveblock>
+			<waveblock start="262144" >
+				<simpleblockfile filename='b00013.au' len='80114' min='-0.014336' max='0.013887' rms='0.001841'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Creature Growl 01" channel="2" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="118226" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00037.au' len='118226' min='-0.238172' max='0.208154' rms='0.029286'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Creature Snarl 01" channel="2" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="673544" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00031.au' len='256586' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="256586" >
+				<simpleblockfile filename='b00035.au' len='256586' min='-0.174111' max='0.000000' rms='0.015099'/>
+			</waveblock>
+			<waveblock start="513172" >
+				<simpleblockfile filename='b00036.au' len='160372' min='-0.333206' max='0.397694' rms='0.075077'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Footsteps" channel="0" linked="1" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="700020" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00023.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="175470" >
+				<simpleblockfile filename='b00024.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="350940" >
+				<simpleblockfile filename='b00025.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="526410" >
+				<simpleblockfile filename='b00029.au' len='173610' min='-0.117591' max='0.113398' rms='0.007467'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Footsteps" channel="1" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="700020" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00026.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="175470" >
+				<simpleblockfile filename='b00027.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="350940" >
+				<simpleblockfile filename='b00028.au' len='175470' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="526410" >
+				<simpleblockfile filename='b00030.au' len='173610' min='-0.128178' max='0.146123' rms='0.005825'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="death" channel="2" linked="0" offset="0.00000000" rate="48000.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="786383" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00061.au' len='256583' min='-0.271961' max='0.208882' rms='0.066098'/>
+			</waveblock>
+			<waveblock start="256583" >
+				<simpleblockfile filename='b00062.au' len='248551' min='-0.296734' max='0.302529' rms='0.067473'/>
+			</waveblock>
+			<waveblock start="505134" >
+				<simpleblockfile filename='b00063.au' len='140624' min='-0.189419' max='0.208882' rms='0.050882'/>
+			</waveblock>
+			<waveblock start="645758" >
+				<simpleblockfile filename='b00064.au' len='140625' min='-0.271961' max='0.250153' rms='0.064821'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='2'>
+			<controlpoint t='10.523614675279' val='1.000000000000'/>
+			<controlpoint t='10.523619675279' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+</audacityproject>

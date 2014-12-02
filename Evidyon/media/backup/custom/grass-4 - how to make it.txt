@@ -1,0 +1,22 @@
+steps to making this grass texture:
+
+1 - find a good grass texture on the web
+2 - paste into photoshop
+3 - set resize sampling mode (file->preferences->general) to sample nearest, instead of bicubic (which is default)
+4 - resize to 1/2 size in each dimension
+5 - resize back to full size (picture should be slightly grainy)
+6 - create duplicate layer
+7 - copy texture into 4 quadrants of a texture 2x as big in each dimension
+8 - apply filter "Filter -> Noise -> Reduce Noise" with these settings:
+	strength: 	  	highest (10)
+	preserve details:	lowest (1%)
+	reduce color noise:	highest (100%)
+	sharpen details:	lowest (0%)
+9 - copy original sized picture from center of big image, then offset by 1/2 in each dimension (to restore original picture)
+10- using duplicate layer, copy into 4 quadrants of texture 2x as big in each dimension
+11- apply filter "Gaussian Blur" using whatever looks good
+12- copy original sized image from center of big image, but don't offset this time (makes the image more random!)
+13- now you should have a picture with the reduced-noise layer on bottom, and the blurred layer on top.
+    multiply-blend the blurred layer into the reduced-noise layer
+14- merge down, apply color balancing to achieve desired effects!  this texture should be rotationally-tileable
+    in all 4 quadrants (don't ask why this works, but it does!)

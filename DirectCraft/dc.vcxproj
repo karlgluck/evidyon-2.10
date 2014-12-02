@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{3F3DDD1C-7A66-4CD0-9C26-F8F3F6A3FDC8}</ProjectGuid>
+    <RootNamespace>dc</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DC_ENABLE_DEBUGGING;SQLITE_THREADSAFE=0;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Lib>
+      <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dcdebug.cpp" />
+    <ClCompile Include="src\dcinternal.cpp" />
+    <ClCompile Include="src\dcresourcestorage2.cpp" />
+    <ClCompile Include="src\dcresourcestoragesqlitedatabase.cpp" />
+    <ClCompile Include="src\dcbuffer.cpp" />
+    <ClCompile Include="src\dcbufferstream.cpp" />
+    <ClCompile Include="src\dcfilestream.cpp" />
+    <ClCompile Include="src\dcstream.cpp" />
+    <ClCompile Include="src\dcinterface.cpp" />
+    <ClCompile Include="src\dcreference.cpp" />
+    <ClCompile Include="src\dcresource.cpp" />
+    <ClCompile Include="src\dcresourcemanager.cpp" />
+    <ClCompile Include="src\dcresourcestorage.cpp" />
+    <ClCompile Include="src\dcresourcetrader.cpp" />
+    <ClCompile Include="src\dcboolean.cpp" />
+    <ClCompile Include="src\dcbyte.cpp" />
+    <ClCompile Include="src\dcfilename.cpp" />
+    <ClCompile Include="src\dcfloat.cpp" />
+    <ClCompile Include="src\dcindex16.cpp" />
+    <ClCompile Include="src\dcindex32.cpp" />
+    <ClCompile Include="src\dcinteger.cpp" />
+    <ClCompile Include="src\dcstring.cpp" />
+    <ClCompile Include="src\dccollection.cpp" />
+    <ClCompile Include="sqlite\sqlite3.c" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dc\dcdebug.h" />
+    <ClInclude Include="dc\dcinternal_begin.h" />
+    <ClInclude Include="dc\dcinternal_end.h" />
+    <ClInclude Include="dc\dcresourcestorage2.h" />
+    <ClInclude Include="dc\dcresourcestoragesqlitedatabase.h" />
+    <ClInclude Include="dc\dcbuffer.h" />
+    <ClInclude Include="dc\dcbufferstream.h" />
+    <ClInclude Include="dc\dcfilestream.h" />
+    <ClInclude Include="dc\dcstream.h" />
+    <ClInclude Include="dc\dcinterface.h" />
+    <ClInclude Include="dc\dcreference.h" />
+    <ClInclude Include="dc\dcresource.h" />
+    <ClInclude Include="dc\dcresourcemanager.h" />
+    <ClInclude Include="dc\dcresourcestorage.h" />
+    <ClInclude Include="dc\dcresourcetrader.h" />
+    <ClInclude Include="dc\dcboolean.h" />
+    <ClInclude Include="dc\dcbyte.h" />
+    <ClInclude Include="dc\dcenum.h" />
+    <ClInclude Include="dc\dcfilename.h" />
+    <ClInclude Include="dc\dcfloat.h" />
+    <ClInclude Include="dc\dcindex16.h" />
+    <ClInclude Include="dc\dcindex32.h" />
+    <ClInclude Include="dc\dcinteger.h" />
+    <ClInclude Include="dc\dcobject.h" />
+    <ClInclude Include="dc\dcstring.h" />
+    <ClInclude Include="dc\dccollection.h" />
+    <ClInclude Include="dc\dckeyvaluepair.h" />
+    <ClInclude Include="dc\dclist.h" />
+    <ClInclude Include="dc\dcmap.h" />
+    <ClInclude Include="dc\dcpair.h" />
+    <ClInclude Include="dc\dcrange.h" />
+    <ClInclude Include="dc\dcrangemap.h" />
+    <ClInclude Include="dc\dctable.h" />
+    <ClInclude Include="sqlite\sqlite3.h" />
+    <ClInclude Include="sqlite\sqlite3ext.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dc\buffer" />
+    <None Include="dc\bufferstream" />
+    <None Include="dc\filestream" />
+    <None Include="dc\stream" />
+    <None Include="dc\boolean" />
+    <None Include="dc\byte" />
+    <None Include="dc\filename" />
+    <None Include="dc\float" />
+    <None Include="dc\index16" />
+    <None Include="dc\index32" />
+    <None Include="dc\integer" />
+    <None Include="dc\objects" />
+    <None Include="dc\string" />
+    <None Include="dc\interface" />
+    <None Include="dc\list" />
+    <None Include="dc\map" />
+    <None Include="dc\pair" />
+    <None Include="dc\range" />
+    <None Include="dc\rangemap" />
+    <None Include="dc\table" />
+    <None Include="dc\debug" />
+    <None Include="design.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

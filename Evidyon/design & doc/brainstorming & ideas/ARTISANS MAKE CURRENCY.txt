@@ -1,0 +1,8 @@
+the currency of the world is made from "nuggets" or "ingots" or something like that (maybe these are different grades?)
+of minerals by artisans.
+
+ex.  an artisan can convert a stack of 12 silver nuggets into 240 silver pieces, which are currency that can
+be used in the bazaar.
+
+
+problem: non-artisans would all have artisan characters that were simply used to convert nuggets to cash.

@@ -1,0 +1,461 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Win32">
+      <Configuration>Profile</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{9320A036-2201-44E2-84E9-157AC5C4D82F}</ProjectGuid>
+    <RootNamespace>client</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;D3D_DEBUG_INFO;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <StructMemberAlignment>16Bytes</StructMemberAlignment>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_profile.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="acquireaudio.cpp" />
+    <ClCompile Include="acquiregraphics.cpp" />
+    <ClCompile Include="acquireinput.cpp" />
+    <ClCompile Include="acquirenetwork.cpp" />
+    <ClCompile Include="acquireresources.cpp" />
+    <ClCompile Include="acquiresystem.cpp" />
+    <ClCompile Include="actiontargeter.cpp" />
+    <ClCompile Include="actor.cpp" />
+    <ClCompile Include="animatedmeshcontroller.cpp" />
+    <ClCompile Include="bazaardisplay.cpp" />
+    <ClCompile Include="chattextline.cpp" />
+    <ClCompile Include="cleanup.cpp" />
+    <ClCompile Include="d3dscene.cpp" />
+    <ClCompile Include="debugstatesandbox.cpp" />
+    <ClCompile Include="decodepackets.cpp" />
+    <ClCompile Include="dxlib.cpp" />
+    <ClCompile Include="encodepackets.cpp" />
+    <ClCompile Include="projectiles.cpp" />
+    <ClCompile Include="sceneryrenderer.cpp" />
+    <ClCompile Include="specialfx.cpp" />
+    <ClCompile Include="spritemanager.cpp" />
+    <ClCompile Include="stateaccountlogin.cpp" />
+    <ClCompile Include="stateconnect.cpp" />
+    <ClCompile Include="statecreateaccount.cpp" />
+    <ClCompile Include="statecreatecharacter.cpp" />
+    <ClCompile Include="statedisconnect.cpp" />
+    <ClCompile Include="stateloggedintoaccount.cpp" />
+    <ClCompile Include="statelostd3ddevice.cpp" />
+    <ClCompile Include="statenoconnection.cpp" />
+    <ClCompile Include="states.cpp" />
+    <ClCompile Include="stateshutdown.cpp" />
+    <ClCompile Include="statestartup.cpp" />
+    <ClCompile Include="stateworldmain.cpp" />
+    <ClCompile Include="strings.cpp" />
+    <ClCompile Include="useractionqueue.cpp" />
+    <ClCompile Include="volucrisclient.cpp" />
+    <ClCompile Include="win32buttonmanager.cpp" />
+    <ClCompile Include="winmain.cpp" />
+    <ClCompile Include="worldinteractionmanager.cpp" />
+    <ClCompile Include="packets\tellactorfulldescriptions-decoder.cpp" />
+    <ClCompile Include="..\common\dclib.cpp" />
+    <ClCompile Include="..\server\enetlib.cpp" />
+    <ClCompile Include="..\common\isometriccamera.cpp" />
+    <ClCompile Include="..\common\templateserializer.cpp" />
+    <ClCompile Include="..\common\enet\callbacks.c" />
+    <ClCompile Include="..\common\enet\host.c" />
+    <ClCompile Include="..\common\enet\list.c" />
+    <ClCompile Include="..\common\enet\packet.c" />
+    <ClCompile Include="..\common\enet\peer.c" />
+    <ClCompile Include="..\common\enet\protocol.c" />
+    <ClCompile Include="..\common\enet\win32.c" />
+    <ClCompile Include="..\common\gui\guiborderedfillelement.cpp" />
+    <ClCompile Include="..\common\gui\guibutton.cpp" />
+    <ClCompile Include="..\common\gui\guicanvas.cpp" />
+    <ClCompile Include="..\common\gui\guicanvasrowarray.cpp" />
+    <ClCompile Include="..\common\gui\guicomponent.cpp" />
+    <ClCompile Include="..\common\gui\guicomponentset.cpp" />
+    <ClCompile Include="..\common\gui\guieditabletextline.cpp" />
+    <ClCompile Include="..\common\gui\guielement.cpp" />
+    <ClCompile Include="..\common\gui\guifont.cpp" />
+    <ClCompile Include="..\common\gui\guigenericcanvas.cpp" />
+    <ClCompile Include="..\common\gui\guikeyboard.cpp" />
+    <ClCompile Include="..\common\gui\guikeyboardinputsource.cpp" />
+    <ClCompile Include="..\common\gui\guikeyboardsentinel.cpp" />
+    <ClCompile Include="..\common\gui\guilayer.cpp" />
+    <ClCompile Include="..\common\gui\guilayerbasic.cpp" />
+    <ClCompile Include="..\common\gui\guilist.cpp" />
+    <ClCompile Include="..\common\gui\guimodule.cpp" />
+    <ClCompile Include="..\common\gui\guimouseinputsource.cpp" />
+    <ClCompile Include="..\common\gui\guimousesentinel.cpp" />
+    <ClCompile Include="..\common\gui\guipictureelement.cpp" />
+    <ClCompile Include="..\common\gui\guipoint.cpp" />
+    <ClCompile Include="..\common\gui\guiquad.cpp" />
+    <ClCompile Include="..\common\gui\guirect.cpp" />
+    <ClCompile Include="..\common\gui\guiscrollablelist.cpp" />
+    <ClCompile Include="..\common\gui\guisize.cpp" />
+    <ClCompile Include="..\common\gui\guislider.cpp" />
+    <ClCompile Include="..\common\gui\guistretchfillelement.cpp" />
+    <ClCompile Include="..\common\gui\guitextboxelement.cpp" />
+    <ClCompile Include="..\common\gui\guitextelement.cpp" />
+    <ClCompile Include="..\common\gui\guitextlabelelement.cpp" />
+    <ClCompile Include="..\common\gui\guitexture.cpp" />
+    <ClCompile Include="..\common\lzf\lzf_c.c" />
+    <ClCompile Include="..\common\lzf\lzf_d.c" />
+    <ClCompile Include="..\shared\actorid.cpp" />
+    <ClCompile Include="..\shared\evidyon_world.cpp" />
+    <ClCompile Include="..\shared\geometry.cpp" />
+    <ClCompile Include="..\shared\client-server\packetencoder.cpp" />
+    <ClCompile Include="..\shared\client-server\packets.cpp" />
+    <ClCompile Include="volucrisguibutton.cpp" />
+    <ClCompile Include="volucrisguichatlog.cpp" />
+    <ClCompile Include="volucrisguidropitemsscreen.cpp" />
+    <ClCompile Include="volucrisguieditabletextline.cpp" />
+    <ClCompile Include="volucrisguieffectkeybindinglist.cpp" />
+    <ClCompile Include="volucrisguiglobalchatdisplay.cpp" />
+    <ClCompile Include="volucrisguiinventorydisplay.cpp" />
+    <ClCompile Include="volucrisguiinventoryitemlist.cpp" />
+    <ClCompile Include="volucrisguiitemdescriptionpanel.cpp" />
+    <ClCompile Include="volucrisguiitemlist.cpp" />
+    <ClCompile Include="volucrisguikeybindingscreen.cpp" />
+    <ClCompile Include="volucrisguikeyboardinputsource.cpp" />
+    <ClCompile Include="volucrisguilist.cpp" />
+    <ClCompile Include="volucrisguilistentrybackground.cpp" />
+    <ClCompile Include="volucrisguilistentryicon.cpp" />
+    <ClCompile Include="volucrisguilistentrytext.cpp" />
+    <ClCompile Include="volucrisguimouseinputsource.cpp" />
+    <ClCompile Include="volucrisguiselectabletextlinelist.cpp" />
+    <ClCompile Include="volucrisguisideiconselement.cpp" />
+    <ClCompile Include="volucrisguislider.cpp" />
+    <ClCompile Include="volucrisguistatdisplay.cpp" />
+    <ClCompile Include="volucrisguititledpanel.cpp" />
+    <ClCompile Include="volucrisguitradedisplay.cpp" />
+    <ClCompile Include="volucrisguiuseractionkeybindinglist.cpp" />
+    <ClCompile Include="globalactormanager.cpp" />
+    <ClCompile Include="globalmapmanager.cpp" />
+    <ClCompile Include="globalrenderingmanager.cpp" />
+    <ClCompile Include="globalsoundmanager.cpp" />
+    <ClCompile Include="globalspecialfxmanager.cpp" />
+    <ClCompile Include="specialfxbinding.cpp" />
+    <ClCompile Include="specialfxbinding_actor.cpp" />
+    <ClCompile Include="specialfxbinding_location.cpp" />
+    <ClCompile Include="specialfxbinding_projectile.cpp" />
+    <ClCompile Include="specialfxcontroller.cpp" />
+    <ClCompile Include="specialfxcontroller_orbitingparticle.cpp" />
+    <ClCompile Include="specialfxcontroller_swirlingparticle.cpp" />
+    <ClCompile Include="specialfxcontroller_trailingparticle.cpp" />
+    <ClCompile Include="evidyonguiactionbindingdescription.cpp" />
+    <ClCompile Include="evidyonguienchantmenticons.cpp" />
+    <ClCompile Include="evidyonguigamedialogmenu.cpp" />
+    <ClCompile Include="evidyonguigameplaycontrols.cpp" />
+    <ClCompile Include="evidyonguiitemdescription.cpp" />
+    <ClCompile Include="evidyonguikeyboundactionssentinel.cpp" />
+    <ClCompile Include="evidyonguimodule_geosiddialog.cpp" />
+    <ClCompile Include="evidyonguimodule_inventorylist.cpp" />
+    <ClCompile Include="evidyonguimodule_spelllist.cpp" />
+    <ClCompile Include="evidyonguimodule_storagelist.cpp" />
+    <ClCompile Include="evidyonguiscrollablebuttonlist.cpp" />
+    <ClCompile Include="evidyonguiscrollablelist.cpp" />
+    <ClCompile Include="evidyonguispelldescription.cpp" />
+    <ClCompile Include="evidyonguistatusbars.cpp" />
+    <ClCompile Include="evidyonguitooltipbox.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="packets\tellactorfulldescriptions-decoder.h" />
+    <ClInclude Include="actiontargeter.h" />
+    <ClInclude Include="actor.h" />
+    <ClInclude Include="actorset.h" />
+    <ClInclude Include="actortypedescription.h" />
+    <ClInclude Include="animatedmeshcontroller.h" />
+    <ClInclude Include="bazaardisplay.h" />
+    <ClInclude Include="chattextline.h" />
+    <ClInclude Include="cleanup.h" />
+    <ClInclude Include="decodepackets.h" />
+    <ClInclude Include="encodepackets.h" />
+    <ClInclude Include="gamefiledata.h" />
+    <ClInclude Include="gamefiledata_skinnedmesh.h" />
+    <ClInclude Include="gamefiledata_texture.h" />
+    <ClInclude Include="hscenery.h" />
+    <ClInclude Include="sceneryrenderer.h" />
+    <ClInclude Include="spritemanager.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="strings.h" />
+    <ClInclude Include="useractionqueue.h" />
+    <ClInclude Include="volucrisclient.h" />
+    <ClInclude Include="win32buttonmanager.h" />
+    <ClInclude Include="winmain.h" />
+    <ClInclude Include="worldinteractionmanager.h" />
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="..\common\isometriccamera.h" />
+    <ClInclude Include="..\common\null.h" />
+    <ClInclude Include="..\common\promotedwarnings.h" />
+    <ClInclude Include="..\common\safemacros.h" />
+    <ClInclude Include="..\common\templateserializer.h" />
+    <ClInclude Include="..\common\enet\callbacks.h" />
+    <ClInclude Include="..\common\enet\enet.h" />
+    <ClInclude Include="..\common\enet\list.h" />
+    <ClInclude Include="..\common\enet\protocol.h" />
+    <ClInclude Include="..\common\enet\time.h" />
+    <ClInclude Include="..\common\enet\types.h" />
+    <ClInclude Include="..\common\enet\utility.h" />
+    <ClInclude Include="..\common\enet\win32.h" />
+    <ClInclude Include="..\common\gui\gui.h" />
+    <ClInclude Include="..\common\gui\guiborderedfillelement.h" />
+    <ClInclude Include="..\common\gui\guibutton.h" />
+    <ClInclude Include="..\common\gui\guicanvas.h" />
+    <ClInclude Include="..\common\gui\guicanvasmatrix.h" />
+    <ClInclude Include="..\common\gui\guicanvasrowarray.h" />
+    <ClInclude Include="..\common\gui\guicomponent.h" />
+    <ClInclude Include="..\common\gui\guicomponentset.h" />
+    <ClInclude Include="..\common\gui\guieditabletextline.h" />
+    <ClInclude Include="..\common\gui\guielement.h" />
+    <ClInclude Include="..\common\gui\guifont.h" />
+    <ClInclude Include="..\common\gui\guigenericcanvas.h" />
+    <ClInclude Include="..\common\gui\guiindex.h" />
+    <ClInclude Include="..\common\gui\guikeyboard.h" />
+    <ClInclude Include="..\common\gui\guikeyboardinputsource.h" />
+    <ClInclude Include="..\common\gui\guikeyboardsentinel.h" />
+    <ClInclude Include="..\common\gui\guilayer.h" />
+    <ClInclude Include="..\common\gui\guilayerbasic.h" />
+    <ClInclude Include="..\common\gui\guilist.h" />
+    <ClInclude Include="..\common\gui\guimodule.h" />
+    <ClInclude Include="..\common\gui\guimouse.h" />
+    <ClInclude Include="..\common\gui\guimouseinputsource.h" />
+    <ClInclude Include="..\common\gui\guimousesentinel.h" />
+    <ClInclude Include="..\common\gui\guipictureelement.h" />
+    <ClInclude Include="..\common\gui\guipoint.h" />
+    <ClInclude Include="..\common\gui\guiquad.h" />
+    <ClInclude Include="..\common\gui\guirect.h" />
+    <ClInclude Include="..\common\gui\guiscrollablelist.h" />
+    <ClInclude Include="..\common\gui\guisize.h" />
+    <ClInclude Include="..\common\gui\guislider.h" />
+    <ClInclude Include="..\common\gui\guistretchfillelement.h" />
+    <ClInclude Include="..\common\gui\guitextboxelement.h" />
+    <ClInclude Include="..\common\gui\guitextelement.h" />
+    <ClInclude Include="..\common\gui\guitextlabelelement.h" />
+    <ClInclude Include="..\common\gui\guitexture.h" />
+    <ClInclude Include="..\common\gui\guivertex.h" />
+    <ClInclude Include="..\common\unseenskinnedmesh\unseenskinnedmesh.h" />
+    <ClInclude Include="..\common\lzf\lzf.h" />
+    <ClInclude Include="..\common\lzf\lzfP.h" />
+    <ClInclude Include="..\common\vld-10\vld.h" />
+    <ClInclude Include="..\common\vld-10\vldapi.h" />
+    <ClInclude Include="..\shared\actordescriptiontemplate.h" />
+    <ClInclude Include="..\shared\actorid.h" />
+    <ClInclude Include="..\shared\compiledatlasformat.h" />
+    <ClInclude Include="..\shared\compiledspecialfx.h" />
+    <ClInclude Include="..\shared\evidyon_accounts.h" />
+    <ClInclude Include="..\shared\evidyon_actor.h" />
+    <ClInclude Include="..\shared\evidyon_avatar.h" />
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h" />
+    <ClInclude Include="..\shared\evidyon_clientgamefile.h" />
+    <ClInclude Include="..\shared\evidyon_enchantments.h" />
+    <ClInclude Include="..\shared\evidyon_magic.h" />
+    <ClInclude Include="..\shared\evidyon_map.h" />
+    <ClInclude Include="..\shared\evidyon_network.h" />
+    <ClInclude Include="..\shared\evidyon_storage.h" />
+    <ClInclude Include="..\shared\evidyon_version.h" />
+    <ClInclude Include="..\shared\evidyon_world.h" />
+    <ClInclude Include="..\shared\geometry.h" />
+    <ClInclude Include="..\shared\networkdecl.h" />
+    <ClInclude Include="..\shared\client-server\actordescription.h" />
+    <ClInclude Include="..\shared\client-server\actorsync.h" />
+    <ClInclude Include="..\shared\client-server\askactorfulldescriptions.h" />
+    <ClInclude Include="..\shared\client-server\fastsync.h" />
+    <ClInclude Include="..\shared\client-server\packetencoder.h" />
+    <ClInclude Include="..\shared\client-server\packets.h" />
+    <ClInclude Include="..\shared\client-server\slowsync.h" />
+    <ClInclude Include="..\shared\client-server\tellactorfulldescriptions.h" />
+    <ClInclude Include="..\shared\client-editor\client_gamefile.h" />
+    <ClInclude Include="..\shared\client-editor\clientenchantmentdescription.h" />
+    <ClInclude Include="..\shared\client-editor\clientprojectiledescription.h" />
+    <ClInclude Include="..\shared\client-editor\clientspelldescription.h" />
+    <ClInclude Include="volucrisguibutton.h" />
+    <ClInclude Include="volucrisguibuttonpanel.h" />
+    <ClInclude Include="volucrisguichatlog.h" />
+    <ClInclude Include="volucrisguidefs.h" />
+    <ClInclude Include="volucrisguidropitemsscreen.h" />
+    <ClInclude Include="volucrisguieditabletextline.h" />
+    <ClInclude Include="volucrisguieffectkeybindinglist.h" />
+    <ClInclude Include="volucrisguiglobalchatdisplay.h" />
+    <ClInclude Include="volucrisguiinventorydisplay.h" />
+    <ClInclude Include="volucrisguiinventoryitemlist.h" />
+    <ClInclude Include="volucrisguiitemdescriptionpanel.h" />
+    <ClInclude Include="volucrisguiitemlist.h" />
+    <ClInclude Include="volucrisguikeybindingscreen.h" />
+    <ClInclude Include="volucrisguikeyboardinputsource.h" />
+    <ClInclude Include="volucrisguilist.h" />
+    <ClInclude Include="volucrisguilistentrybackground.h" />
+    <ClInclude Include="volucrisguilistentryicon.h" />
+    <ClInclude Include="volucrisguilistentrytext.h" />
+    <ClInclude Include="volucrisguimouseinputsource.h" />
+    <ClInclude Include="volucrisguiselectabletextlinelist.h" />
+    <ClInclude Include="volucrisguisideiconselement.h" />
+    <ClInclude Include="volucrisguislider.h" />
+    <ClInclude Include="volucrisguistatdisplay.h" />
+    <ClInclude Include="volucrisguititledpanel.h" />
+    <ClInclude Include="volucrisguitradedisplay.h" />
+    <ClInclude Include="volucrisguiuseractionkeybindinglist.h" />
+    <ClInclude Include="globalactormanager.h" />
+    <ClInclude Include="globalmapmanager.h" />
+    <ClInclude Include="globalrenderingmanager.h" />
+    <ClInclude Include="globalsoundmanager.h" />
+    <ClInclude Include="globalspecialfxmanager.h" />
+    <ClInclude Include="specialfxbinding.h" />
+    <ClInclude Include="specialfxbinding_actor.h" />
+    <ClInclude Include="specialfxbinding_actorenchantment.h" />
+    <ClInclude Include="specialfxbinding_location.h" />
+    <ClInclude Include="specialfxbinding_projectile.h" />
+    <ClInclude Include="specialfxcontroller.h" />
+    <ClInclude Include="specialfxcontroller_orbitingparticle.h" />
+    <ClInclude Include="specialfxcontroller_swirlingparticle.h" />
+    <ClInclude Include="specialfxcontroller_trailingparticle.h" />
+    <ClInclude Include="evidyonguiactionbindingdescription.h" />
+    <ClInclude Include="evidyonguienchantmenticons.h" />
+    <ClInclude Include="evidyonguigamedialogmenu.h" />
+    <ClInclude Include="evidyonguigameplaycontrols.h" />
+    <ClInclude Include="evidyonguiitemdescription.h" />
+    <ClInclude Include="evidyonguikeyboundactionssentinel.h" />
+    <ClInclude Include="evidyonguimodule_geosiddialog.h" />
+    <ClInclude Include="evidyonguimodule_inventorylist.h" />
+    <ClInclude Include="evidyonguimodule_spelllist.h" />
+    <ClInclude Include="evidyonguimodule_storagelist.h" />
+    <ClInclude Include="evidyonguiscrollablebuttonlist.h" />
+    <ClInclude Include="evidyonguiscrollablelist.h" />
+    <ClInclude Include="evidyonguispelldescription.h" />
+    <ClInclude Include="evidyonguistatusbars.h" />
+    <ClInclude Include="evidyonguitooltipbox.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="client.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\media\images\app-icon\evidyon-icon-2-xp.ico" />
+    <None Include="..\bin\client\config.ini" />
+    <None Include="design.txt" />
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

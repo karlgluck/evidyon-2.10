@@ -1,0 +1,57 @@
+each god contributed 1/4 of the power to make the world, leaving each vulnerable.  xendra is trying
+to get genite back from the world in order to increase her own power
+
+each item has a "genite potential" and an "infused genite" value; the potential is a maximum, by
+imbuing an item with genite, it gets more abilities.  by sacrificing an item with a genite potential,
+you set the maximum genite potential you have with a certain god.
+
+the more genite your items are worth, the more genite it costs to resurrect you
+
+
+Glossary
+====================================================================================================
+Xendra		The Chaotic deity; Goddess of power/control
+Atragus		One of the three Lawful deities; the God of nature
+Faynix		One of the three Lawful deities; the Goddess of spirit
+Thronden	One of the three Lawful deities; the God of industry
+Geosid		The stones where Gods can bring new creatures into the world.  Originally developed by Xendra.
+Genite		The material everything in the world contains, which is used to power the Geosids
+
+
+- world is created in the celestial realm, and placed in the mundane plane after creation.  Normally,
+  Gods can't use their full power in this plane (just as life can't progress in the celestial realm).
+  Geosids are an extension of the celestial realm that allow the God that created the Geosid to use
+  his or her power more fully in the world.  For example, to bring new players into existence.  Other
+  effects such as removing players (i.e. logging off) or casting spells can occur anywhere, since
+  these are relatively minor effects.  Long-range transport is achieved via the Geosids.
+
+
+Of the many deities in the celestial realm, known to the people of Ertia are four.  The Creators, or
+Sources as they are sometimes called, together conceived this world and its inhabitants to test their
+skill against one another to help pass their time in eternity.  Unlike similar contests past, these
+four agreed to only act indirectly upon the world to increase the challenge.
+
+Combining their power, the four jointly forged the world each contributing their specialty.  Atragus
+covered the planet with forests and water, and bestowed life; Faynix formed the sky and bestowed
+intelligence; Thronden conjured items and implemented judgement; and Xendra bestowed rank, memories,
+history and social structure.  Finally, all four infused the planet with magic, breathing Genite into
+every part.  With that, the world began and life moved forward.  Cities blossomed; towns bustled;
+caravans and sailing ships carried goods along their trade routes.  For millenia, the world, though
+never completely at peace, was productive and the Gods were proud of their work.
+
+Xendra, however, quarrelled with the others; she wished to have more control over the world's
+inhabitants.  She began to influence leaders, speaking into their minds to do what she thought was
+best.  As she began influencing the world more and more directly, the other three Gods took exception
+and demanded she cease.  Not to be thwarted, she revealed a secret development: the Geosid.  Sending it
+to the planet, she could use her full power anywhere nearby to conjure allies, destroy enemies and
+create items.  However, the Geosids draw their power by sapping genite from the world.  To avoid
+destroying everything nearby, objects containing genite must be regularly sacrificed to a geosid
+to keep it alive.  Thus, Xendra bade her minions to sap the world of its most powerful and Genite-
+rich items so she could expand her power in the world by sustaining more Geosids.
+
+Atragus, Faynix and Thronden feared for the wellbeing of the world's inhabitants, having grown quite
+attached to them over the millenia.  In quick response, they began sending their own geosids to the
+world.  At Nexius, the largest town in the northern hemisphere, they established the Core, a trio
+of Geosids they would use to help the world resist the influx of Xendra's minions and maintain
+their magical world.  Each has the power to bring minor deities that offered to give up their
+celestial status into the mortal realm.  [[these are the client player characters]]

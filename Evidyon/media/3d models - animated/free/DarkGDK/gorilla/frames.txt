@@ -1,0 +1,10 @@
+idle 1-74
+jumptwice  75-150
+punch 150-200
+get hit 200-250
+stepback 250-300
+idle2 300-350
+die  350-400
+getup 400-450
+walk 450-550
+runattack 570-630

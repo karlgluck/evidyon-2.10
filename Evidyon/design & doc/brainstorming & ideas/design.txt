@@ -1,0 +1,250 @@
+Attributes
+=======================================
+strength	weight carried, small increase in hp, increases damage
+agility		walking speed, attack speed, casting speed, hit chance, dodge chance
+constitution	health
+intelligence	increases experience gained, magic damage, improves skill maxima, small MP effect
+wisdom		increases magic effectiveness (duration of effects, amount of effects), large MP effect
+
+
+Classes
+=======================================
+warrior		mostly constitution/strength - fighting power, a little magic
+thief		mostly agility/constitution/intelligence - a fighter with speed and some magic
+artisan		even builds are best - they can gain select abilities of any class via items
+paladin		warrior with significant magic abilities
+cleric		mage focused on lots of magic; lowest HP of any class
+summoner	mage focused on passive attacks; second-lowest HP
+warlock		battle mage with a little less HP and a little more MP than a wizard
+wizard		a battle-mage with a little more HP than a warlock, but a little less MP
+
+
+
+Special Titles
+======================================
+
+
+MALE
+
+        warrior         theif               artisan         paladin                 cleric          summoner            warlock         wizard
+        
+human                   male rogue          craftsman       male crusader                                                            
+elf                     ranger                                                      sorcerer
+dwarf                   sappor              male artificer
+giant   crusher       
+gnome                   male pickpocket     male tinkerer                                           illusionist                         
+genie                                                                                                                   mage
+
+FEMALE
+
+        warrior         theif               artisan             paladin             cleric          summoner            warlock         wizard
+
+human   amazon          female rogue        craftswoman         female crusader                                         witch
+elf                     ranger                                                      sorceress           
+dwarf                                       female artificer                                                                           
+giant   she-crusher     
+gnome                   female pickpocket   female tinkerer                                        illusioness
+genie                                                                                                                   femage
+
+
+		warrior	thief	artisan	paladin	cleric	summnr	warlock	wizard
+hp mod		1.33	0.85	0.85	1.2	0.6	0.75	0.9	0.95
+mp mod		0.15	0.25	0.75	0.4	1.5	0.95	1.1	1
+
+
+Equations
+=======================================
+current level's HP = last level's HP + (constitution + strength / 3) * classHPModifier * (level / (level+1))
+current level's MP = last level's MP + (wisdom + intelligence / 3)   * classMPModifier * (level / (level+1))
+
+
+Race Level 1 Maximum Attributes
+=======================================
+
+	str	agi	con	int	wis	total
+human	18	18	18	18	18	90
+elf	    16	22	16	19	17	90
+dwarf	20	16	19	16	19	90
+giant	21	17	23	15	14	90
+gnome	16	16	18	21	19	90
+genie	17	16	16	19	22	90
+
+human - use the basic model
+elf - use a slightly thinned version of the basic model
+dwarf - use a thick, short basic model
+giant - thick, taller
+gnome - thin, small
+genie - use a blue skin
+
+
+Spells
+======================================
+
+Latin:
+creator     sator
+cure        rememdium
+heal        vigoratus
+poison      virus, venenum, toxicum
+strong      valius, valens, potens, pollens, infragilis, fortis, firmus, durus
+magic       veneficus
+summon      voco, invit, arcesso, accerso, appello, postulo
+speed       volo, propero, festino, festinatio, celeritas, accelero
+region      tellus, situs, regio, plaga, pars, ora, humus, clima
+everywhere  undique, passim, alicubi
+all         totus, quislibet, quamtotius, omnipotens, omnis, cunctus
+friends     amicitia
+hurt        vulnero, secui, laedo, secto, sectum, ledo, laedo, noceo, misfacio, iniuria
+stun        attonitus, stupefactus
+frantic     attonbitus
+wave        undo
+kill        iugulo, interimo, caedo
+death       nex, mortalitas, letum, decessus
+missing     absentis, absens
+frozen      glacialis
+fire        incendia, ignis, flamma
+ground      terra
+rot         putesco
+flesh       viscus, pulpa, caro
+force, power - vires
+attack      incurro, irruo, invado
+advantage   oportunitas, usus
+
+increase defense, decrease defense mod duration
+for each increase in speed, decrease speed increase duration proportionally based on constitution
+
+
+fun words for spells:
+
+abyssal
+specter
+bounty
+hunt
+ritual
+dark
+death
+spark
+elvish
+hurricane
+icy
+foil
+lava
+burst
+high guard
+necro
+-clasm
+pyro
+electro
+magneto
+hydro
+dual
+shatter
+soul
+burn
+sulfurous
+spring
+blast
+ward
+ram
+thorns
+clay
+colossus
+ancient
+arctic
+aura
+death
+bomb
+draco
+exotic
+disease
+forsaken
+herald
+flay
+scorn
+growth
+raze
+scourge
+torment
+tooth
+bone
+spike
+needle
+spear
+stab
+jab
+slay
+leaf
+razor
+paradise
+berserk
+hero
+blaze
+glory
+wraith
+channel
+chaos
+orb
+lance
+rune
+rue
+boulder
+juggernaut
+jump
+force
+tap
+lure
+flare
+barb
+mask
+armageddon
+aspect of -
+pit
+predator
+angelic
+-phage
+carno-
+cataclysm
+vortex
+vorpal
+flock
+forge
+
+
+Aspect of Lightning
+
+
+
+
+
+
+
+Razorleaf
+Boulder
+Codrus
+
+
+
+Name                Target          MP Cost     Description
+Sivigo              self            5           Heals 15 + level HP
+Ravigo              actor           8           Heals +10 HP
+Sulvigo             8 near caster   35          Heals +15 HP
+Tox Multisha
+Deketotus           8 near caster               Deals 50 damage
+Omnis Mortali       near caster     75          Deals 90 damage to each target
+Arkessendia         1 target        4           Fire burn for 10 damage
+Korpusco            1 target        25          Flesh rot for  HP damage
+Viresivigo          self            35          Heals 50 + level HP
+Illumia             1 target        10          Light burn for 15 damage
+
+
+
+
+Equipment
+======================================
+
+
+
+Items
+======================================
+
+
+

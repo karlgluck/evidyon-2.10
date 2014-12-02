@@ -1,0 +1,991 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\packets">
+      <UniqueIdentifier>{bb8ab17f-9600-436f-961a-e0b6ef0c2506}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{5c52986b-5d17-4cca-805b-6858659a6284}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\enet">
+      <UniqueIdentifier>{05300a82-a331-4ab8-9b20-d3e5b67662fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\GUI">
+      <UniqueIdentifier>{77ff5c67-9692-4846-98df-a6958073ead8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\unseenskinnedmesh">
+      <UniqueIdentifier>{80a37b03-45fa-4284-82e3-d41629a75bcf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\lzf">
+      <UniqueIdentifier>{9253f3ce-c885-4b21-a735-dbf01065667b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\vld10">
+      <UniqueIdentifier>{39f3c06a-3c38-4e72-af02-4683c497daae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{37ff3c55-eda1-45b3-8cf6-fd6788f938d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Server">
+      <UniqueIdentifier>{08f5c4a1-5fd3-413c-97fa-8dce6b0bd12f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Editor">
+      <UniqueIdentifier>{0010858d-f166-42ca-bcfe-f9a55f929caa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="volucrisgui">
+      <UniqueIdentifier>{39bf40d9-a691-4178-b40c-142ff50b10c6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global Managers">
+      <UniqueIdentifier>{2c71e40d-0080-4dcb-8592-3ddd51636138}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="SpecialFX">
+      <UniqueIdentifier>{61c2c4df-2b38-4ba8-a92d-f9f88acfe8fa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="evidyongui">
+      <UniqueIdentifier>{6db8e1b7-b0a3-424e-8708-52404aafe44a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="acquireaudio.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquiregraphics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquireinput.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquirenetwork.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquireresources.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="acquiresystem.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actiontargeter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="animatedmeshcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="bazaardisplay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="chattextline.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="cleanup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="d3dscene.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="debugstatesandbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="decodepackets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="dxlib.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="encodepackets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="projectiles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sceneryrenderer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="spritemanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stateaccountlogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stateconnect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statecreateaccount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statecreatecharacter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statedisconnect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stateloggedintoaccount.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statelostd3ddevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statenoconnection.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="states.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stateshutdown.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statestartup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="stateworldmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="strings.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="useractionqueue.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisclient.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="win32buttonmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="winmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="worldinteractionmanager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="packets\tellactorfulldescriptions-decoder.cpp">
+      <Filter>Source Files\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\dclib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\server\enetlib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\isometriccamera.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\templateserializer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\callbacks.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\host.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\list.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\packet.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\peer.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\protocol.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\win32.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guiborderedfillelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guibutton.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guicanvas.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guicanvasrowarray.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guicomponent.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guicomponentset.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guieditabletextline.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guielement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guifont.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guigenericcanvas.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guikeyboard.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guikeyboardinputsource.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guikeyboardsentinel.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guilayer.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guilayerbasic.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guilist.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guimodule.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guimouseinputsource.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guimousesentinel.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guipictureelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guipoint.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guiquad.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guirect.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guiscrollablelist.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guisize.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guislider.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guistretchfillelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guitextboxelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guitextelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guitextlabelelement.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\gui\guitexture.cpp">
+      <Filter>Common\GUI</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\lzf\lzf_c.c">
+      <Filter>Common\lzf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\lzf\lzf_d.c">
+      <Filter>Common\lzf</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\actorid.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\evidyon_world.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\geometry.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\client-server\packetencoder.cpp">
+      <Filter>Shared\with Server</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\client-server\packets.cpp">
+      <Filter>Shared\with Server</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguibutton.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguichatlog.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguidropitemsscreen.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguieditabletextline.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguieffectkeybindinglist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiglobalchatdisplay.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiinventorydisplay.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiinventoryitemlist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiitemdescriptionpanel.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiitemlist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguikeybindingscreen.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguikeyboardinputsource.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguilist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguilistentrybackground.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguilistentryicon.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguilistentrytext.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguimouseinputsource.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiselectabletextlinelist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguisideiconselement.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguislider.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguistatdisplay.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguititledpanel.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguitradedisplay.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="volucrisguiuseractionkeybindinglist.cpp">
+      <Filter>volucrisgui</Filter>
+    </ClCompile>
+    <ClCompile Include="globalactormanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalmapmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalrenderingmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalsoundmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalspecialfxmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxbinding.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxbinding_actor.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxbinding_location.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxbinding_projectile.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxcontroller.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxcontroller_orbitingparticle.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxcontroller_swirlingparticle.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="specialfxcontroller_trailingparticle.cpp">
+      <Filter>SpecialFX</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguiactionbindingdescription.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguienchantmenticons.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguigamedialogmenu.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguigameplaycontrols.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguiitemdescription.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguikeyboundactionssentinel.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguimodule_geosiddialog.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguimodule_inventorylist.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguimodule_spelllist.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguimodule_storagelist.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguiscrollablebuttonlist.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguiscrollablelist.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguispelldescription.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguistatusbars.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+    <ClCompile Include="evidyonguitooltipbox.cpp">
+      <Filter>evidyongui</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="packets\tellactorfulldescriptions-decoder.h">
+      <Filter>Source Files\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="actiontargeter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actorset.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actortypedescription.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="animatedmeshcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="bazaardisplay.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="chattextline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="cleanup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decodepackets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="encodepackets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gamefiledata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gamefiledata_skinnedmesh.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gamefiledata_texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="hscenery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sceneryrenderer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="spritemanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="stdafx.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="strings.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="useractionqueue.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisclient.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="win32buttonmanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="winmain.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="worldinteractionmanager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Resource Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\isometriccamera.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\null.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\promotedwarnings.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\safemacros.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\templateserializer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\callbacks.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\enet.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\list.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\protocol.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\time.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\types.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\utility.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\win32.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\gui.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guiborderedfillelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guibutton.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guicanvas.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guicanvasmatrix.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guicanvasrowarray.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guicomponent.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guicomponentset.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guieditabletextline.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guielement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guifont.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guigenericcanvas.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guiindex.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guikeyboard.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guikeyboardinputsource.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guikeyboardsentinel.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guilayer.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guilayerbasic.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guilist.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guimodule.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guimouse.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guimouseinputsource.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guimousesentinel.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guipictureelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guipoint.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guiquad.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guirect.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guiscrollablelist.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guisize.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guislider.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guistretchfillelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guitextboxelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guitextelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guitextlabelelement.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guitexture.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\gui\guivertex.h">
+      <Filter>Common\GUI</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\unseenskinnedmesh\unseenskinnedmesh.h">
+      <Filter>Common\unseenskinnedmesh</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\lzf\lzf.h">
+      <Filter>Common\lzf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\lzf\lzfP.h">
+      <Filter>Common\lzf</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\vld-10\vld.h">
+      <Filter>Common\vld10</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\vld-10\vldapi.h">
+      <Filter>Common\vld10</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\actordescriptiontemplate.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\actorid.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\compiledatlasformat.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\compiledspecialfx.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_accounts.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_actor.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatar.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_clientgamefile.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_enchantments.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_magic.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_map.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_network.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_storage.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_version.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_world.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\geometry.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\networkdecl.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\actordescription.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\actorsync.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\askactorfulldescriptions.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\fastsync.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\packetencoder.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\packets.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\slowsync.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\tellactorfulldescriptions.h">
+      <Filter>Shared\with Server</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\client_gamefile.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientenchantmentdescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientprojectiledescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-editor\clientspelldescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguibutton.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguibuttonpanel.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguichatlog.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguidefs.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguidropitemsscreen.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguieditabletextline.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguieffectkeybindinglist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiglobalchatdisplay.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiinventorydisplay.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiinventoryitemlist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiitemdescriptionpanel.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiitemlist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguikeybindingscreen.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguikeyboardinputsource.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguilist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguilistentrybackground.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguilistentryicon.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguilistentrytext.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguimouseinputsource.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiselectabletextlinelist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguisideiconselement.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguislider.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguistatdisplay.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguititledpanel.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguitradedisplay.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="volucrisguiuseractionkeybindinglist.h">
+      <Filter>volucrisgui</Filter>
+    </ClInclude>
+    <ClInclude Include="globalactormanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalmapmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalrenderingmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalsoundmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalspecialfxmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxbinding.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxbinding_actor.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxbinding_actorenchantment.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxbinding_location.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxbinding_projectile.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxcontroller.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxcontroller_orbitingparticle.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxcontroller_swirlingparticle.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="specialfxcontroller_trailingparticle.h">
+      <Filter>SpecialFX</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguiactionbindingdescription.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguienchantmenticons.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguigamedialogmenu.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguigameplaycontrols.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguiitemdescription.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguikeyboundactionssentinel.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguimodule_geosiddialog.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguimodule_inventorylist.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguimodule_spelllist.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguimodule_storagelist.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguiscrollablebuttonlist.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguiscrollablelist.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguispelldescription.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguistatusbars.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+    <ClInclude Include="evidyonguitooltipbox.h">
+      <Filter>evidyongui</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="client.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\media\images\app-icon\evidyon-icon-2-xp.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\bin\client\config.ini" />
+    <None Include="design.txt" />
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+  </ItemGroup>
+</Project>

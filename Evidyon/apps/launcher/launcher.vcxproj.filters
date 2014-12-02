@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{dd8e5536-aca2-4717-8985-74c48ea8b733}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\updater">
+      <UniqueIdentifier>{613ec7da-de46-4052-95c9-28e4c683e4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\updater-launcher">
+      <UniqueIdentifier>{a53b9e4e-83a4-4f24-a6bf-079e9fd2a19f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{a70669f2-b930-4989-91a4-ee6f4c056ee0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\md5">
+      <UniqueIdentifier>{c64dc9f8-413d-40f6-8b36-66ea59796e31}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="winmain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\updater\updatefile.cpp">
+      <Filter>Shared\updater</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\md5\md5.cpp">
+      <Filter>Common\md5</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\md5\md5wrapper.cpp">
+      <Filter>Common\md5</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\updater\updatefile.h">
+      <Filter>Shared\updater</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\updater-launcher\clientupdatefile.h">
+      <Filter>Shared\updater-launcher</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\md5\md5.h">
+      <Filter>Common\md5</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\md5\md5wrapper.h">
+      <Filter>Common\md5</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="evidyon-bg.bmp">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\..\media\images\app-icon\evidyon-icon-2-xp.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="launcher.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

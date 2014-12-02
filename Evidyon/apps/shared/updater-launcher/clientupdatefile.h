@@ -1,0 +1,24 @@
+#ifndef __CLIENTUPDATEFILE_H__
+#define __CLIENTUPDATEFILE_H__
+
+
+#include "../updater/updatefile.h"
+
+namespace Evidyon {
+
+#define UPDATE_FILE_NAME_DEF      "update.txt"
+#define WEBADDR_UNSEENSTUDIOS   "www.unseenstudios.com"
+#define WEBADDR_DOWNLOAD_SUBFOLDER "/evidyon/download/"
+#define WEBADDR_DOWNLOAD_FOLDER "http://" WEBADDR_UNSEENSTUDIOS WEBADDR_DOWNLOAD_SUBFOLDER
+#define WEBADDR_UPDATE_FILE     WEBADDR_DOWNLOAD_FOLDER "update.txt"
+
+static const char* ONLINE_CLIENT_UPDATE_HOST   = WEBADDR_UNSEENSTUDIOS;
+static const char* ONLINE_CLIENT_UPDATE_SUBFOLDER = WEBADDR_DOWNLOAD_SUBFOLDER;
+static const char* ONLINE_CLIENT_UPDATE_FOLDER = WEBADDR_DOWNLOAD_FOLDER;
+static const char* ONLINE_CLIENT_UPDATE_FILE   = WEBADDR_UPDATE_FILE;
+static const char* CLIENT_UPDATE_FILE_NAME   = UPDATE_FILE_NAME_DEF;
+
+}
+
+
+#endif

@@ -1,0 +1,358 @@
+brainwave:
+
+#define PROFILE_LINENAME(p) __profile##p
+#define PROFILE( sectionName ) for( bool PROFILE_LINENAME(__LINE__) = true;
+                                    Profiler.section( PROFILE_LINENAME(__LINE__), sectionName ) && PROFILE_LINENAME(__LINE__) ; PROFILE_LINENAME(__LINE__) = false )
+
+class Profiler
+{
+    public:
+
+        static bool section( bool entering, const char* sectionName );
+
+    public:
+
+        bool start();
+        void end();
+
+    public:
+        
+        static Profiler* firstProfiler;
+        Profiler* nextProfiler;
+};
+
+
+ex. usage:
+
+PROFILE( "Main" )
+{
+    PROFILE( "Rendering" ) { }
+    PROFILE( "Network" ) { }
+}
+
+
+
+
+
+
+
+
+
+another idea:  for the server code!
+use "processing lists" with multithreading to speed up computation.  this is the idea:
+
+startup: load data, create memory pools for all objects and processing lists
+running:
+    start of loop: sort items into processing lists
+    middle:        release mutexes so that lists can begin processing work
+    end (triggered when an "in" box fills or a timer triggers):
+                   wait for all mutexes to be returned
+
+each processing list has an "in" box where objects place pointers that need to be
+processed by that list's manager.  ex:  the message-receiving thread pulls in
+network messages, scans the type, and pushes them into the appropriate type-handler
+list's "in" box.  if the required function list isn't active, ...meh this idea got complex & boring for now
+
+
+
+
+
+
+
+add a writeChucksum / readChecksum to dc::dcStream
+
+
+
+
+
+
+
+
+
+BUG FIXES 0.2:
+    angles now work correctly (fixed Generate Rotated Permutations)
+    animated textures now work correctly
+    projects being merged weren't closed correctly
+    projects being merged would crash unexpectedly
+
+FEATURES:
+    resource packs (images, meshes)
+    rule layers
+    transparency-enabled terrain overlays
+    global default terrain/navigability types
+    regional background terrain types
+
+
+NOTES FOR CREATING RELEASE BUILD:
+================================
+    - generate normal, SSE and SSE2 builds
+       
+TODO:  right-click on terrain types / scenery to bring up another editor from the
+       toolbox while editing the world.  Have these types update immediately to
+       the atlas!
+
+One more thing--right now pits don't work correctly (if you set the terrain element to have 
+negative height, not only does it not fade to black, every square has its edges!) I'll be fixing that too.
+
+
+
+?? can make things look weird -> ADD A FLIP HORIZONTAL/FLIP VERTICAL FLAG TO TERRAIN DEFINITIONS?
+
+need FOG SETTINGS! cause they're pimpin
+
+
+Modifications to Make
+
+
+Images:
+
+Progress dialog/confirmation during compile
+Preview image in D3D window
+Skin map add entry - name automatically, use contents instead of namepppp
+
+
+Textures:
+    Make the "animated texture" work correctly
+    Circling Texture:
+        Speed -> Period [Seconds]
+    Sliding Texture:
+        Angle -> Angle [Degrees]
+    Animated Texture:
+        Speed -> Frames Per Second
+    Add "Preview" to display the texture
+
+Meshes:
+
+    Add a "Remap Mesh Subsets" D3D dialog that loads the mesh, and allows each subset
+        to be displayed individually (multi-select list box in left panel of a tool window)
+        put radio buttons below list boxes to allow the active box to be swapped--this makes
+        the user to either select source subsets and remap or delete them, or display subset
+        groups.
+        
+    Add to mesh table element, "Create Skin..." to add a skin for this mesh with the correct
+    subsets.  Also, "Import Skin..." to add a skin, importing the images/textures for the
+    mesh and adding correctly-mapped entries to the skin table.
+
+Scenery:
+DONE    Add "Import .X Model Pack" instead of "Add .X Model Pack Scenery"
+        To elements:
+         -  Add "Generate Random Duplicates" to bring up a dialog which lets the user specify
+            how to create random entries that duplicate a given scenery element.  Allows
+            user to pick scaling range, rotation range, translation range along all axes.
+         -  Add "Generate Rotated Permutations" to bring up a dialog which creates a number of
+            rotation permutations of a scenery element; i.e. 4 = every 90 degrees, 8 = every 45
+            degrees.
+
+Terrain:
+    Add "Delete Entries..."
+    Add "Add Ground Textures..." to add height == 0 terrain elements for multiple textures
+
+    To elements:
+      -  Add "Generate Cardinal Permutations" to allow the user to create the four rotations
+         of the selected element
+      -  Make "stretch side texture" default to 'true'
+         
+
+to all REFERENCES: allow "Erase" to delete the reference!
+
+
+Map Layers:
+
+    Add "Add Terrain Layer..." to Map Layers, which lets the user enter a name, pick a bunch
+    of terrain elements and a navigability, then generates a new map layer based on the
+    selection.  The user can then edit the layer (to set other properties).
+    
+    Add "Add Scenery Layer..." to Map Layers, which does the same thing as "Add Terrain Layer..."
+    but for scenery.
+
+    Add "Delete Entries..." to Location Options
+    
+    To Map Layer entries:
+        
+        to Location Option entries (MapLocationInfo?):
+            Add dc::dcFloat "Weight"--then use it!
+
+
+
+Add a tool window to the World Atlas "Edit" method (should rename to "Preview") that lets the user
+turn on/off wireframe, renew the cache (or should that happen automatically?), turn on/off navigability
+overlay, etc.
+
+
+
+
+split resourceactions.cpp into multiple source/header files!  also, clean up the code like hell
+need to finish up merging and allow the user to select which resource to choose for conflicts;
+also, need to display log when a merge completes
+also, add myInfo in addition to myWarnings/myErrors for trader
+change the name of resource trader..thats stupid
+need to add progress bars for slow operations (imports and such): memory management is a big part of slowness!
+
+
+
+
+
+ChangeLog
+    List<Pair<Date,String>> myChanges
+
+Date
+
+
+should remove memory manager code for dc::dc...make this an extra class in dcx?
+instead, just log dc::dcGenericResource constructor/destructor calls.  add a
+getClassSize() or similar method to dc::dcResourceManager (neat, but not absolutely
+necessary).  Change the globalEditor() method to be able to deallocate the editor
+on command.  maybe make it reference a sub-routine manageGlobalEditor( EDITOR_ACQUIRE )
+which could also be called manageGlobalEditor( EDITOR_RELEASE ) by another method (releaseGlobalEditor())
+or similar...
+
+get rid of dc::dcinternal_begin.h, etc...
+
+add compiler configuration file so we can use #pragma once
+
+clean up dc::dcFileStream (it's still in old dc::dc7 format!)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+define spell effects in editor
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+potential solutions to the problem of multiple effectors:
+ - do nothing, let them stack
+ - override previous effects applied to a single actor
+    > but this could allow a very potent poison to be "cured" by self-casting a less poisonous one
+    > and this would allow heal-over-time effects to be eliminated by DOT ones
+ - make the duration of the subsequent effects be equal to the min of the period of the casted effect or the effect's duration
+    > effects that have a zero duration should have a period equal to their casting delay
+
+
+MAGICAL EFFECTS!!!
+
+enum MagicalEffectSourceBindingType
+{
+    MESOURCEBINDING_CURRENT_ACTOR,
+    MESOURCEBINDING_LOCATION,
+};
+
+
+enum MagicalEffectTargetBindingType
+{
+    METARGETBINDING_ORIGINAL_USER,
+    METARGETBINDING_CURRENT_ACTOR,
+    METARGETBINDING_LOCATION,
+    METARGETBINDING_NEARBY_ACTORS,
+    METARGETBINDING_DIRECTION,
+};
+
+
+currentActor->currentActor/currentActor->originalUser are the same &target caster
+
+                            PRIMARY                                                     SUBSEQUENT
+CA - ORIGINAL USER          caster->original caster                                     actor->original caster
+CA - CURRENT ACTOR          caster->original caster                                     actor->self
+CA - LOCATION               caster->actors near target location (instant target acq.)   actor->last source location
+CA - NEARBY ACTORS          caster->nearby actors                                       actor->nearby actors
+CA - DIRECTION              caster->current direction                                   actor->current direction
+
+LOCATION - ORIGINAL USER    target location->original caster                            location at spawn->original caster
+LOCATION - CURRENT ACTOR    target location->original caster                            location at spawn->spawning actor
+LOCATION - LOCATION         target location->location of caster when casted             location at spawn->last source location
+LOCATION - NEARBY ACTORS    target location->actors near target location                location at spawn->nearby actors
+LOCATION - DIRECTION        target location->direction that caster is facing            location at spawn->direction that last target is facing
+
+
+TODO:
+
+- maybe get rid of LOCATION as src binding type?
+- make the spread angle a MagicalEffect parameter instead of just a projectile one, and have it affect even location targets...
+
+
+Examples
+                            
+CA - ORIGINAL USER          heal
+CA - CURRENT ACTOR          heal
+CA - LOCATION               Lunae Lumen Nex, magic missle (targets!)
+CA - NEARBY ACTORS          fire ring
+CA - DIRECTION              flame wind, fireball (doesn't target!)
+LOCATION - ORIGINAL USER    
+LOCATION - CURRENT ACTOR    
+LOCATION - LOCATION         
+LOCATION - NEARBY ACTORS    poison cloud
+LOCATION - DIRECTION        summoner's flame-head spell
+

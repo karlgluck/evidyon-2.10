@@ -1,0 +1,305 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Streams">
+      <UniqueIdentifier>{4c2f91ec-42ce-42eb-b4a8-4c59874942b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Streams\Header Files">
+      <UniqueIdentifier>{a5d1f3a3-2eac-4ee8-9492-3ec63b2b9a4f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Streams\Source Files">
+      <UniqueIdentifier>{6b9c80f0-33a4-4166-beb8-fec647a2346d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Streams\Library Headers">
+      <UniqueIdentifier>{eb3c5b03-9b48-406f-923f-76a3f4b82ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources">
+      <UniqueIdentifier>{72fe5e0f-4431-4b25-8aef-fe2df0b71a03}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Objects">
+      <UniqueIdentifier>{25ec3c64-6e95-4558-bf8e-7a1dcda297e9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Objects\Header Files">
+      <UniqueIdentifier>{d43eb8af-d37c-47f2-96b8-3c7ffdf40248}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Objects\Source Files">
+      <UniqueIdentifier>{ab00e7d3-64c5-450e-9442-2775a2092d08}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Objects\Library Headers">
+      <UniqueIdentifier>{49685e0f-9ef1-406b-9cf7-b9b5ee0b3f38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Collections">
+      <UniqueIdentifier>{3b965aa8-0383-4a29-8c75-87a13a08dca5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Collections\Library Headers">
+      <UniqueIdentifier>{74500f07-28e9-40fe-97eb-4aa3496515fc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Collections\Header Files">
+      <UniqueIdentifier>{10a1d7da-8bf4-44b2-b5d8-91b819456b91}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resources\Collections\Source Files">
+      <UniqueIdentifier>{58e49675-c66b-4a53-ba71-e27b271a0823}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{9433f9b8-a360-40a0-af87-a72a012fb54f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\sqlite">
+      <UniqueIdentifier>{9d310d0c-a19a-4990-b8e0-ddee81e690f6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dcdebug.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcinternal.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresourcestorage2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresourcestoragesqlitedatabase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcbuffer.cpp">
+      <Filter>Streams\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcbufferstream.cpp">
+      <Filter>Streams\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcfilestream.cpp">
+      <Filter>Streams\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcstream.cpp">
+      <Filter>Streams\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcinterface.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcreference.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresource.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresourcemanager.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresourcestorage.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcresourcetrader.cpp">
+      <Filter>Resources</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcboolean.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcbyte.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcfilename.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcfloat.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcindex16.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcindex32.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcinteger.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcstring.cpp">
+      <Filter>Resources\Objects\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dccollection.cpp">
+      <Filter>Resources\Collections\Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="sqlite\sqlite3.c">
+      <Filter>Common\sqlite</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dc\dcdebug.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcinternal_begin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcinternal_end.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresourcestorage2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresourcestoragesqlitedatabase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcbuffer.h">
+      <Filter>Streams\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcbufferstream.h">
+      <Filter>Streams\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcfilestream.h">
+      <Filter>Streams\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcstream.h">
+      <Filter>Streams\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcinterface.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcreference.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresource.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresourcemanager.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresourcestorage.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcresourcetrader.h">
+      <Filter>Resources</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcboolean.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcbyte.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcenum.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcfilename.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcfloat.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcindex16.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcindex32.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcinteger.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcobject.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcstring.h">
+      <Filter>Resources\Objects\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dccollection.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dckeyvaluepair.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dclist.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcmap.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcpair.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcrange.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dcrangemap.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dc\dctable.h">
+      <Filter>Resources\Collections\Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3.h">
+      <Filter>Common\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="sqlite\sqlite3ext.h">
+      <Filter>Common\sqlite</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dc\buffer">
+      <Filter>Streams\Library Headers</Filter>
+    </None>
+    <None Include="dc\bufferstream">
+      <Filter>Streams\Library Headers</Filter>
+    </None>
+    <None Include="dc\filestream">
+      <Filter>Streams\Library Headers</Filter>
+    </None>
+    <None Include="dc\stream">
+      <Filter>Streams\Library Headers</Filter>
+    </None>
+    <None Include="dc\boolean">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\byte">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\filename">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\float">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\index16">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\index32">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\integer">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\objects">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\string">
+      <Filter>Resources\Objects\Library Headers</Filter>
+    </None>
+    <None Include="dc\interface">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\list">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\map">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\pair">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\range">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\rangemap">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\table">
+      <Filter>Resources\Collections\Library Headers</Filter>
+    </None>
+    <None Include="dc\debug">
+      <Filter>Streams\Library Headers</Filter>
+    </None>
+    <None Include="design.txt" />
+  </ItemGroup>
+</Project>

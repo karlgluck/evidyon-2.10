@@ -1,0 +1,38 @@
+for every level a character gains, you get 1 day of account time
+
+issues:
+=======
+
+ - high level chars will powerlevel their noobs for account time then delete them, and repeat
+ - create level 1, level to 2, delete, repeat (about 10 mins of work for 1 day of acct time = 30 days in 300 mins...)
+	* but this is a lot of work just for some account time!
+
+
+benefits:
+=========
+
+ - encourages low-level characters since they're easier to level
+ - even high-level characters will need noobs since high-level chars level more slowly
+
+
+
+
+another idea:
+=================
+gain level * level modifier
+
+
+
+
+another idea:
+==================
+when a character gains a level, your account time won't drop for that many more days:
+
+ex:  gaining level 30 on a character means the account time won't drop for 30 days
+
+
+
+
+another idea:
+==================
+when you help another person?

@@ -1,0 +1,11 @@
+# File created by luuv TSX
+# Created on: Mon May 28 11:29:33 2007 -1
+
+newmtl NoName,1
+Ns 0
+Ka 0.430000 0.430000 0.430000
+Kd 1.000000 1.000000 1.000000
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd houseB_texture.png 
+# End

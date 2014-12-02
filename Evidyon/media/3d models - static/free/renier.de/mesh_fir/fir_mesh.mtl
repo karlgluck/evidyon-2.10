@@ -1,0 +1,99 @@
+# File created by luuv TSX
+# Created on: Wed May 16 11:02:40 2007 -1
+
+newmtl NoName,2_Cylinder
+Ns 0
+Ka 0.430000 0.430000 0.430000
+Kd 1.000000 1.000000 1.000000
+Ks 0.100000 0.100000 0.100000
+d 0.996078
+map_Kd firtrunk_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,2
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,8
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,9
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,1
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,3
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,10
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,7
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,6
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,5
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,12
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+
+newmtl NoName,2_NoName,1_Solid,11
+Ns 0
+Ka 0.510000 0.510000 0.510000
+Kd 1.000000 0.525490 0.196078
+Ks 0.000000 0.000000 0.000000
+d 0.996078
+map_Kd firneedle_texture.png 
+# End

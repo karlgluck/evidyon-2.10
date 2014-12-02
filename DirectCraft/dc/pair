@@ -1,0 +1,15 @@
+#include "dcinternal_begin.h"
+#include "dcpair.h"
+#include "dcinternal_end.h"
+
+/*
+
+
+template <typename A,typename B> class PairManager : public ResourceManagerImplementation<PairManager<A,B>,Pair<A,B>>
+{
+};
+
+template <typename A,typename B> ResourceManager* Pair<A,B>::manager = &PairManager<A,B>::me;
+
+
+*/

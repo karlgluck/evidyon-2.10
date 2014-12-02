@@ -1,0 +1,4 @@
+1,25, Idle
+26,58, Death
+59,87, ClawAttack
+88,102, Move

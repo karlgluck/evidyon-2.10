@@ -1,0 +1,139 @@
+pre-beta
+inhabitants: current private forum, jan
+1- this MONDAY
+ *  items on character
+ *  error messages
+        tap the game into the client display (dcdebug->chat log)
+ *      game command "//" to add debug msg/client log message
+ *      take screenshot and save - display message in logs
+ *      show fps on screen
+ *      add "/help"
+ *      give "/stats" command to display client's debug summary
+    day/night cycle via map parameters
+ *      sync between clients/server
+ *  town square below buildings
+    When in the Drop menu, ESCAPE logs character out instead of exiting the menu.
+ *  display avatar stats
+ *  content
+ *  world design
+ *  create readme!
+(*)     make note to update each release...derf
+    change screen modes from launcher
+ *  fix key saving with logoff bug
+ *  include d3dx9_39.dll with download
+ *  basic debugging
+ *  sliding textures don't animate
+ *  the first encountered monster swarm type dominates spawn, preventing other types
+ *     from spawning in that region; several monster types also don't spawn
+ *  NEED SPELLS and AOE for fighters!!
+
+
+
+2- end of january (fixes bugs)
+    implement scroll wheel for menus
+    (get structural stuff done before visual stuff that players can see)
+        - make menus unified and smooth
+        - make editing and adding new menus, screens easy
+    consumable items
+    merch's/bazaar
+    geosids
+    parties (enough people?)
+    evidyon "mail":  let characters send items, messages, gold to each other without being present
+
+
+beta - hook xenimites!
+this is key! lots of people here leads to good release + paying players
+
+stage 1 of beta (before spring-break) includes:
+    major website work!
+        remember: website is a SALES PITCH!
+        brief game description
+            a little story
+            why would you want to play
+                ...as a casual gamer?
+                ...as a player of other games?
+                ...just to test?
+    art overhaul! - just be superficial
+        make a tool
+        animations and items; character customzation - colors!
+        item attachment
+        fix character lighting
+
+    spells - well designed & unique
+    classes - 4 classes
+    recruit, recruit, recruit
+
+stage 2 - release after spring break, lots of VISIBLE stuff!
+    npcs/quests (capabilities + basic ones,
+                 content pack for spells/monsters,
+                 a new area or 2)
+    content spam $$$
+
+town center, enough people to be reasonably active, 
+
+while in stage 2: preparing for May
+    fixing bugs!
+    add some content, tweak and work on full release design
+    time to do design work, because people are happy playing
+    ...world creation
+
+
+
+
+full release 1 by May (everybody!)
+  lots of areas to explore
+  make sure it has a focus
+  1 week free unlimited, limited to 45 minutes per day after that
+    notify of impending kick (you'll be logged off in 5 minutes!)
+    log kickoffs, then analyze to see if people are cheating.
+
+
+"critical mass" by August
+self-sustaining community
+maintainance
+adding content
+
+
+
+
+
+design concepts:
+  "centered" world (nexus)
+  record 10-second video clip with directshow, like screenshot
+
+  general-release editor : summer project?  how to grow the game without me
+    arena: create a monster, fight it!
+    map ideas
+    
+  npc "helper" like in xen?
+  
+  
+  server tools
+
+
+
+
+Beta:
+ >> business cards
+    gdev group at cornell; presentation? < for Beta!
+    eng friends, look @ student activity list
+    gamedev.net
+    invite xenimites
+    play LONGER during beta = more account time during release!
+        or give time for reports, good reports are rewarded with time
+  
+Release:
+    mary ann! (ms. batista's friend)
+    reddit
+    blogs
+    ads?
+    newspaper: grapevine, colleyville, star telegram, dallas morning news
+        grad. of grapevine
+        GHS newspaper, Cornell newspaper
+    indie games forums
+        fantasy, RP forums, story forums
+    gdmag?
+    gamasutra
+    find marketing majors / (prof: any students need practice?  contact, comission)
+    flyers at coffee houses, comsci classes
+    chalking during finals

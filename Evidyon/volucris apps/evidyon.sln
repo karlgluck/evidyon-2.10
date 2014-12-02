@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "server-monitor", "server-monitor\server-monitor.vcproj", "{381A3A27-BDEE-4891-83D1-5EAF90EA66BA}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "client-launcher", "client-launcher\client-launcher.vcproj", "{62CF72D9-E568-4C5B-A383-E706631D1CCF}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "prepare-update", "prepare-update\prepare-update.vcproj", "{FF20285A-152B-408D-98C1-0DC3788BD97B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{381A3A27-BDEE-4891-83D1-5EAF90EA66BA}.Debug|Win32.ActiveCfg = Debug|Win32
+		{381A3A27-BDEE-4891-83D1-5EAF90EA66BA}.Debug|Win32.Build.0 = Debug|Win32
+		{381A3A27-BDEE-4891-83D1-5EAF90EA66BA}.Release|Win32.ActiveCfg = Release|Win32
+		{381A3A27-BDEE-4891-83D1-5EAF90EA66BA}.Release|Win32.Build.0 = Release|Win32
+		{62CF72D9-E568-4C5B-A383-E706631D1CCF}.Debug|Win32.ActiveCfg = Debug|Win32
+		{62CF72D9-E568-4C5B-A383-E706631D1CCF}.Debug|Win32.Build.0 = Debug|Win32
+		{62CF72D9-E568-4C5B-A383-E706631D1CCF}.Release|Win32.ActiveCfg = Release|Win32
+		{62CF72D9-E568-4C5B-A383-E706631D1CCF}.Release|Win32.Build.0 = Release|Win32
+		{FF20285A-152B-408D-98C1-0DC3788BD97B}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FF20285A-152B-408D-98C1-0DC3788BD97B}.Debug|Win32.Build.0 = Debug|Win32
+		{FF20285A-152B-408D-98C1-0DC3788BD97B}.Release|Win32.ActiveCfg = Release|Win32
+		{FF20285A-152B-408D-98C1-0DC3788BD97B}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,21 @@
+#include "dcinternal_begin.h"
+#include "dcrange.h"
+#include "dcinternal_end.h"
+
+/*
+
+
+
+
+template <typename T> class RangeManager : public ResourceManagerImplementation<RangeManager<T>,Range<T>>
+{
+public:
+    RangeManager() : resource( this ) { }
+
+    Interface<Resource>::SubclassAdminLinker resource;
+};
+
+template <typename T> typename ResourceManager* Range<T>::manager = &RangeManager<T>::me;
+
+
+*/

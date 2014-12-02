@@ -1,0 +1,17 @@
+projectile spells and projectile weapons have both precision and accuracy:
+
+ precision - how much variance there is in the projectile's angle when targeted
+ accuracy - how wide the targeting range is
+
+these are governed by the mastery levels of the ability for precision/accuracy
+vs. the player's skill levels.  these could be some examples...
+
+
+Bow Precision - max affected mostly by intelligence, a little agi
+Bow Accuracy - max affected mostly by agility, a little int
+
+
+
+Projectile Precision - max affected by intellgence, a little wisdom
+Projectile Accuracy - max affected by wisdom, a little intelligence
+

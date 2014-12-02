@@ -1,0 +1,1584 @@
+//------------------------------------------------------------------------------------------------
+// File:    stateworldmain.cpp
+//
+// Desc:    
+//
+// Copyright (c) 2007-2008 Unseen Studios.   All rights reserved.
+//------------------------------------------------------------------------------------------------
+#include "stdafx.h"
+#include "worldinteractionmanager.h"
+#include <dc/filestream>
+#include "../shared/evidyon_version.h"
+#include "volucrisguidefs.h"
+#include "../common/gui/guicanvasmatrix.h"
+#include "volucrisguibuttonpanel.h"
+#include "volucrisguiglobalchatdisplay.h"
+#include "../shared/evidyon_world.h"
+#include "../shared/client-server/actorsync.h"
+#include "./packets/tellactorfulldescriptions-decoder.h"
+#include "../shared/evidyon_specialfx.h"
+#include "../shared/client-server/fastsync.h"
+#include "../shared/evidyon_network.h"
+
+
+#define STAT_BAR_WIDTH  200
+#define DOUBLE_MAX  1e+37
+
+class VolucrisPartyDisplay;
+
+
+
+#include <dcx/bitmask>
+#include "../common/gui/guiscrollablelist.h"
+
+
+
+
+class InGameMouseSentinel : public GUIMouseSentinel
+{
+    public:
+
+        InGameMouseSentinel()
+        {
+            myTrappingFlag = false;
+            myTrappingLeft = true;
+        }
+
+        /**
+         * Prevents mouse input from propogating until the mouse is released
+         */
+        void trapUntilMouseUp(bool trueLeftFalseRight)
+        {
+            myTrappingFlag = true;
+            myTrappingLeft = trueLeftFalseRight;
+        }
+
+
+    private:
+
+        /**
+         * Called by the mouse input source when the mouse moves.  The default implementation propogates
+         * the message based on the focus/hierarchy structure established for the sentinels.
+         * @return 'true' To indicate the event should stop propogating
+         */
+        bool onMouseMove(GUIPoint position, GUIPoint oldPosition, GUIMouseInputSource* mouse)
+        {
+            // Call for children
+            GUIMouseSentinel::onMouseMove(position, oldPosition, mouse);
+
+            // Don't allow the event to propagate if we are trapping input
+            return myTrappingFlag;
+        }
+
+        /**
+         * Called by the mouse input source when a mouse button alters its state.  The default implementation propogates
+         * the message based on the focus/hierarchy structure established for the sentinels.
+         * @return 'true' To indicate the event should stop propogating
+         */
+        bool onMouseButtonAction(GUIMouseButtonAction action, GUIPoint position, GUIMouseInputSource* mouse)
+        {
+            // Call for children
+            GUIMouseSentinel::onMouseButtonAction(action, position, mouse);
+
+
+            if (myTrappingFlag)
+            {
+                if ((myTrappingLeft  && action == GUIMOUSE_UP) ||
+                    ((!myTrappingLeft) && action == GUIMOUSE_ALT_UP))
+                {
+                    myTrappingFlag = false;
+                }
+                else
+                    return true;
+            }
+
+            // Don't trap input
+            return false;
+        }
+
+
+    protected:
+
+        bool myTrappingFlag;
+        bool myTrappingLeft;
+};
+
+
+
+
+
+
+
+
+
+class WorldKeyboardInputSentinel : public GUIKeyboardSentinel {
+public:
+  WorldKeyboardInputSentinel(UserActionQueue* action_queue) {
+    action_queue_ = action_queue;
+    ZeroMemory(bound_action_keys_, sizeof(bound_action_keys_));
+  }
+
+  GUIKey* getBoundActionKeys() { return bound_action_keys_; }
+
+
+  //virtual void onGotKeyboardFocus() { GUIKeyboardSentinel::onGotKeyboardFocus(); } }
+  //virtual void onLostKeyboardFocus() { if (enabled_) { GUIKeyboardSentinel::onLostKeyboardFocus(); } }
+  //virtual bool onKeyDown(GUIKey key, GUIKeyboardInputSource* keyboard) { if (enabled_) { return GUIKeyboardSentinel::onKeyDown(key, keyboard); } else return false; }
+  virtual bool onKeyUp(GUIKey key, GUIKeyboardInputSource* keyboard) {
+    if (GUIKeyboardSentinel::onKeyUp(key, keyboard)) return true; // don't process if the key was caught
+    if (key == GUIKEY_ESCAPE) { action_queue_->addTypeOnlyAction(LOG_OUT_OF_WORLD); return true; }
+    for (int i = 0; i < UserActions::NUMBER_OF_BOUND_ACTION_KEYS; ++i) {
+      if (key == bound_action_keys_[i]) {
+        action_queue_->addTypeOnlyAction(UserActions::KEY_BOUND_ACTION_LIST[i]);
+        return true;
+      }
+    }
+    return false;
+  }
+
+private:
+  GUIKey bound_action_keys_[UserActions::NUMBER_OF_BOUND_ACTION_KEYS];
+  UserActionQueue* action_queue_;
+};
+
+
+
+
+
+
+//------------------------------------------------------------------------------------------------
+// Name:  stateWorldMain
+// Desc:  
+//------------------------------------------------------------------------------------------------
+void VolucrisClient::stateWorldMain()
+{
+using namespace ::Evidyon::Network::Packet;
+using namespace ::Evidyon::Network::Packet::Client;
+    SetCursor(NULL);
+    ShowCursor(FALSE);
+
+    // DONT reset the actor manager, otherwise the client's actor disappears!
+    //global_actor_manager_.reset();
+
+    // Clear the screen
+    myItemsOnMapTable.clear();
+    mySceneryRenderer.clear();
+    if (myUsingMixedDeviceFlag)
+        CONFIRM(myD3DDevice->SetSoftwareVertexProcessing(TRUE));
+
+
+    // Build the camera
+    myIsometricCamera.rebuildXenimusCamera(myD3DParams.BackBufferWidth, myD3DParams.BackBufferHeight);
+
+    GUIFont font(VolucrisGUIDefs::WINDOW_FONT_TEXTURE_INDEX);
+    if (APP_ERROR(!font.create(myD3DDevice, "Trebuchet MS", 12))("Couldn't create font")) return;
+
+    gui_primary_layer_.setTexture(font.getTextureID(), font.getTexture());
+
+    GUIFont speechFont(VolucrisGUIDefs::TITLE_FONT_TEXTURE_INDEX);
+    { // Init the speech font from the bitmap
+      DWORD character_indices[128-32];
+      character_indices[0] = 8*11+6; // ' '
+      for (int i = 33; i < 128; ++i) {
+        character_indices[i-32] = i-33;
+      }
+      speechFont.create(myResources.images.d3dTextureFont, 16, 16, character_indices, 1.2f, 0);
+    }
+    gui_primary_layer_.setTexture(speechFont.getTextureID(), speechFont.getTexture());
+
+
+    UserActionQueue user_action_queue;
+    WorldKeyboardInputSentinel world_keyboard_input_sentinel(&user_action_queue);
+    world_keyboard_input_sentinel.setParentKeyboardSentinel(myKeyboardInputSource.getPrimarySentinel());
+
+    InGameMouseSentinel rootMouseSentinel;
+    rootMouseSentinel.setParentMouseSentinel(myMouseInputSource.getPrimarySentinel());
+
+    LPDIRECT3DTEXTURE9 guiTexture = NULL;
+
+    VolucrisGUIInventoryDisplay inventory;
+    inventory.create(myResources.items.itemDescriptionArray, myResources.items.itemDescriptionArraySize,
+        &font, &font, guiTexture, &gui_primary_layer_, myMouseInputSource.getPrimarySentinel(),
+        &world_keyboard_input_sentinel, &user_action_queue);
+
+    VolucrisGUIKeyBindingScreen keyBindingScreen;
+    keyBindingScreen.create(myResources.spells.spell_descriptions_,
+        myResources.spells.number_of_spell_descriptions,
+        &font, &font, &gui_primary_layer_,
+        myMouseInputSource.getPrimarySentinel(),
+        &world_keyboard_input_sentinel,
+        &user_action_queue);
+
+    VolucrisGUIStatDisplay statDisplay;
+    statDisplay.create(&font,
+                       &font,
+                       &gui_primary_layer_,
+                       myMouseInputSource.getPrimarySentinel(),
+                       &world_keyboard_input_sentinel,
+                       &user_action_queue);
+
+    VolucrisGUIDropItemsScreen item_drop_screen;
+    item_drop_screen.create(myResources.items.itemDescriptionArray, myResources.items.itemDescriptionArraySize,
+                            &font, myMouseInputSource.getPrimarySentinel(), &user_action_queue, &gui_primary_layer_);
+
+    BazaarDisplay bazaar_display;
+    //bazaar_display.create(myResources.items.itemDescriptionArray, myResources.items.itemDescriptionArraySize,
+    //                      &font, myMouseInputSource.getPrimarySentinel(), &world_keyboard_input_sentinel,
+    //                      &user_action_queue, &gui_primary_layer_);
+    //bazaar_display.updateMoney(myCharacter.money);
+
+    VolucrisGUIChatLog chat_log;
+    chat_log.create(&font, myMouseInputSource.getPrimarySentinel());
+    chat_log.getBackgroundCanvas()->setSourceCanvas(gui_primary_layer_.getPrimaryCanvas());
+    chat_log.getBackgroundCanvas()->alignXCenter(0);
+    chat_log.getBackgroundCanvas()->alignYTop(+10);
+    chat_log.getBackgroundCanvas()->relativeWidth(-20);
+    chat_log.getBackgroundCanvas()->absoluteHeight(220);
+    chat_log.getBackgroundCanvas()->absoluteDepth(0.5f);
+
+    VolucrisGUIGlobalChatDisplay chat_display;
+    chat_display.create(&font, guiTexture, gui_primary_layer_.getPrimaryCanvas());
+    chat_display.show(&gui_primary_layer_);
+
+    GUICanvas barBackgroundCanvas;
+    GUIBorderedFillElement barBackground;
+    {
+        barBackgroundCanvas.absoluteHeight((myD3DParams.BackBufferHeight/9) + 4);
+        barBackgroundCanvas.absoluteWidth((myD3DParams.BackBufferWidth/25)+8);
+        barBackgroundCanvas.alignXLeft(0);
+        barBackgroundCanvas.alignYBottom(+2);
+        barBackgroundCanvas.absoluteDepth(1.0f);
+        barBackgroundCanvas.setSourceCanvas(gui_primary_layer_.getPrimaryCanvas());
+
+        barBackground.setSourceCanvas(&barBackgroundCanvas);
+        barBackground.setTexture(VolucrisGUIDefs::GUI_TEXTURE_INDEX);
+
+        barBackground.setSourceRegion(&VolucrisGUIDefs::CONTENT_COMPONENT_BACKGROUND, 8, VolucrisGUIDefs::TEXTURE_SIZE);
+        gui_primary_layer_.registerElement(&barBackground);
+    }
+
+    GUICanvas hpBarCanvas, mpBarCanvas;
+    GUIStretchFillElement hpBar, mpBar;
+    {
+      hpBarCanvas.setSourceCanvas(&barBackgroundCanvas);
+      hpBarCanvas.absoluteWidth((barBackgroundCanvas.getArea()->calculateSize().width-8)/3);
+      hpBarCanvas.relativeHeight(-8);
+      hpBarCanvas.alignXLeft(+4);
+      hpBarCanvas.alignYBottom(-4);
+      hpBarCanvas.relativeDepth(-0.01f);
+      hpBar.setSourceCanvas(&hpBarCanvas);
+      hpBar.setSourceRegion(&VolucrisGUIDefs::HP_BAR_FILL, VolucrisGUIDefs::TEXTURE_SIZE);
+      hpBar.setTexture(VolucrisGUIDefs::GUI_TEXTURE_INDEX);
+      gui_primary_layer_.registerElement(&hpBar);
+
+      mpBarCanvas.setSourceCanvas(&barBackgroundCanvas);
+      mpBarCanvas.absoluteWidth((barBackgroundCanvas.getArea()->calculateSize().width-8)/3);
+      mpBarCanvas.relativeHeight(-8);
+      mpBarCanvas.alignXCenter(0);
+      mpBarCanvas.alignYBottom(-4);
+      mpBarCanvas.relativeDepth(-0.01f);
+      mpBar.setSourceCanvas(&mpBarCanvas);
+      mpBar.setSourceRegion(&VolucrisGUIDefs::MP_BAR_FILL, VolucrisGUIDefs::TEXTURE_SIZE);
+      mpBar.setTexture(VolucrisGUIDefs::GUI_TEXTURE_INDEX);
+      gui_primary_layer_.registerElement(&mpBar);
+    }
+    GUICanvas expBarCanvas;
+    GUIStretchFillElement expBar;
+    {
+        expBarCanvas.relativeHeight(-8);
+        expBarCanvas.absoluteWidth((barBackgroundCanvas.getArea()->calculateSize().width-8)/3);
+        expBarCanvas.alignXRight(-4);
+        expBarCanvas.relativeDepth(-0.01f);
+        expBarCanvas.setSourceCanvas(&barBackgroundCanvas);
+        expBarCanvas.alignYBottom(-4);
+        expBar.setSourceCanvas(&expBarCanvas);
+        expBar.setSourceRegion(&VolucrisGUIDefs::EXP_BAR_FILL, VolucrisGUIDefs::TEXTURE_SIZE);
+        expBar.setTexture(VolucrisGUIDefs::GUI_TEXTURE_INDEX);
+        gui_primary_layer_.registerElement(&expBar);
+    }
+
+    ChatTextLine chat_text_input;
+    chat_text_input.create(&font, myMouseInputSource.getPrimarySentinel(), &world_keyboard_input_sentinel,
+                           barBackgroundCanvas.getArea()->calculateSize());
+
+    // this component is used to display players' names
+    GUITextLabelElement mouse_over_name_display;
+    GUICanvas mouse_over_name_display_canvas;
+    {
+      mouse_over_name_display_canvas.setSourceCanvas(gui_primary_layer_.getPrimaryCanvas());
+      mouse_over_name_display_canvas.relativeWidth(0);
+      mouse_over_name_display_canvas.absoluteHeight(30);
+      mouse_over_name_display_canvas.alignXCenter(0);
+      mouse_over_name_display_canvas.alignYBottom(0);
+      mouse_over_name_display_canvas.absoluteDepth(0.9f);
+      mouse_over_name_display.setSourceCanvas(&mouse_over_name_display_canvas);
+      mouse_over_name_display.setFont(&myWindowFont);
+      mouse_over_name_display.setAlignment(GUIALIGN_CENTER);
+      mouse_over_name_display.setTextColor(VolucrisGUIDefs::WINDOW_TITLE_TEXT_COLOR);
+      gui_primary_layer_.registerElement(&mouse_over_name_display);
+    }
+
+/*
+    ChatAndActionsMenu inGameMenu;
+    inGameMenu.create(guiTexture, &font, &user_action_queue,
+                      myMouseInputSource.getPrimarySentinel(), &world_keyboard_input_sentinel,
+                      barBackgroundCanvas.getArea()->calculateSize());
+    inGameMenu.show(&gui_primary_layer_);
+    {
+        char text[512];
+        sprintf_s(text,"Welcome to the Evidyon Alpha!  Client version %s.  Controls:\n", VERSION_TEXT);
+        inGameMenu.getChatLog()->addSystemText(text);
+        inGameMenu.getChatLog()->addSystemText("  [ENTER]      Chat and access all menus via button");
+        inGameMenu.getChatLog()->addSystemText("  [CLICK/HOLD] Move, attack");
+        inGameMenu.getChatLog()->addSystemText("  [ALT/HOLD]   Activate magical defense and concentrate on blocking");
+        inGameMenu.getChatLog()->addSystemText("  [BOTH/HOLD]  Defensive combat: attack, block, use spells/items");
+        inGameMenu.getChatLog()->addSystemText("(click anywhere to close this display)");
+    }*/
+
+    bool take_screenshot = false;
+    int last_fast_sync_stat = 0;
+
+
+    ////////////////=======================///////////////////////
+    dcxWin32Clock clock;
+    double thisFrame = clock.getAccurateSystemTime();
+    double lastMovementUpdate = 0.0;    // the last time at which a movement update was sent to the server
+
+    bool changedHPMPEXP = true;
+    bool showPlayerNames = true;
+
+    //bool inInventory = false;
+    double lastFrameTime = clock.getAccurateSystemTime();
+    double lastRenderedFrameTime = lastFrameTime;
+
+    WorldInteractionManager worldInteractionManager;
+    worldInteractionManager.create(&myIsometricCamera, &myResources, this, guiTexture);
+    worldInteractionManager.registerInputSentinels(&rootMouseSentinel, &world_keyboard_input_sentinel);
+
+    bool overheadViewMode = false;
+    std::string last_spoken_text_line = ""; // for say again
+
+    // Read the key mapping from disk
+    {
+        unsigned int keyToEffectMapping[256];
+        char keymapName[MAX_AVATAR_NAME_LENGTH + 16];
+        sprintf_s(keymapName, sizeof(keymapName), "%s.keys", myCharacter.name);
+        dc::dcFileStream fs;
+        bool set_default_key_mapping = true;
+        if (fs.open(keymapName, 0))
+        {
+            if (fs.read(keyToEffectMapping, sizeof(unsigned int) * 256))
+                worldInteractionManager.setKeyToEffectMapping(keyToEffectMapping);
+            int action_version;
+            fs.read(&action_version, sizeof(action_version));
+            set_default_key_mapping = (action_version != UserActions::USER_ACTION_VERSION) ||
+                                      !fs.read(world_keyboard_input_sentinel.getBoundActionKeys(),UserActions::NUMBER_OF_BOUND_ACTION_KEYS*sizeof(GUIKey));
+            fs.close();
+        }
+        if (set_default_key_mapping) {
+          memcpy(world_keyboard_input_sentinel.getBoundActionKeys(),
+                 UserActions::DEFAULT_ACTION_KEYS,
+                 UserActions::NUMBER_OF_BOUND_ACTION_KEYS*sizeof(GUIKey));
+        }
+    }
+
+    enum InGameDialogType {
+      DIALOG_CHAT,
+      DIALOG_KEY_BINDINGS,
+      DIALOG_STAT_DISPLAY,
+      DIALOG_INVENTORY,
+      DIALOG_DROP_ITEMS,
+      DIALOG_BAZAAR,
+      DIALOG_NONE,
+    };
+
+    InGameDialogType currently_visible_dialog = DIALOG_NONE;
+
+    myStateMachine.jumpState(VCS_DISCONNECT);
+    myStateMachine.queueState(VCS_SHUTDOWN);
+
+    double current_fps = 0.0;
+    static const double FPS_EXP_WEIGHT = 0.1;
+
+    // Main game loop
+    bool runWorldMain = true;
+    while(windowsMessagePump() && runWorldMain) {
+
+        // Advance the current frame
+        thisFrame = clock.getAccurateSystemTime();
+
+        // Poll the connection to keep it alive
+        ENetEvent netEvent;
+        while (enet_host_service(myENetClient, &netEvent, 0) > 0) {
+          if (netEvent.type == ENET_EVENT_TYPE_DISCONNECT) {
+              myStateMachine.jumpState(VCS_CONNECT);  // Lost connection; try to reconnect
+              runWorldMain = false; // Exit to clean up
+              continue;
+          }
+          if (netEvent.type != ENET_EVENT_TYPE_RECEIVE) continue;
+
+          using namespace ::Evidyon::Network::Packet;
+          Message message;
+          decodeMessageType(netEvent.packet, &message);
+
+          if (message == NETMSG_SLOWSYNC) {
+            ActorSyncData actor_updates[128];
+            unsigned int actors = 0;
+            float time_since_last_sync;
+            if (Decode::slowSync(netEvent.packet,
+                                &time_since_last_sync,
+                                &actors,
+                                 actor_updates,
+                                 sizeof(actor_updates))) {
+              std::set<ActorID> actors_without_names;
+              for (unsigned int i = 0; i < actors; ++i) {
+                global_actor_manager_.slowSync(time_since_last_sync,
+                                               thisFrame,
+                                              &actor_updates[i],
+                                              &actors_without_names);
+              }
+              for (std::set<ActorID>::iterator i = actors_without_names.begin(); i != actors_without_names.end(); ++i) {
+                enet_peer_send(myENetServer, 1, Encode::askActorName(*i));
+              }
+            }
+
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_FASTSYNC) {
+            using namespace ::Evidyon::Network::Packet;
+            FastSyncPacket packet;
+            if (Decode::fastSync(netEvent.packet,
+                                &packet)) {
+              global_actor_manager_.fastSync(packet.time_since_last_sync,
+                                             thisFrame,
+                                             packet.x_packed * Network::FLOAT_UNPACK_MULTIPLIER,
+                                             packet.y_packed * Network::FLOAT_UNPACK_MULTIPLIER,
+                                             packet.sync_flags);
+              last_fast_sync_stat = packet.stat_type_reset ? 0 : last_fast_sync_stat + 1;
+              switch (last_fast_sync_stat) {
+                case 0:
+                case 2: myCharacter.currentHPPercent  = 1.0f / 127.0f * packet.stat_value; break;
+                case 1:
+                case 3: myCharacter.currentMPPercent  = 1.0f / 127.0f * packet.stat_value; break;
+                case 4: myCharacter.currentEXPPercent = 1.0f / 127.0f * packet.stat_value; break;
+              }
+              changedHPMPEXP = true;
+            }
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_TELLACTORFULLDESCRIPTIONS) {
+            using namespace ::Evidyon::Network::Packet;
+            TellActorFullDescriptionsPacketDecoder decoder(netEvent.packet);
+            DecodedFullActorDescription description;
+            while (decoder.read(&description)) {
+              {
+                Actor* existing = global_actor_manager_.get(description.data.sync_.id);
+                DEBUG_INFO ("Got actor description for %lu (%s)", description.data.sync_.id, existing == NULL ? NULL : existing->getName());
+              }
+              Actor* actor = global_actor_manager_.setActorDescription(&description);
+              if (actor) {
+                special_fx_manager_.setActorEnchantments(thisFrame,
+                                                         description.data.state_.enchantments,
+                                                         actor);
+
+                for (int i = 0; i < ACTORATTACHMENTPOINT_COUNT; ++i) {
+                  unsigned short scenery_index = description.data.state_.equipped_items[i];
+                  mySceneryRenderer.removeScenery(
+                      actor->getAttachmentPointScenery((ActorAttachmentPoint)i));
+                  HSCENERY scenery;
+                  if (scenery_index < myResources.scenery.sceneryArraySize) {
+                    mySceneryRenderer.addScenery(NULL,
+                                                &myResources.scenery.sceneryArray[scenery_index],
+                                                &scenery);
+                  } else {
+                    memset(&scenery, 0, sizeof(scenery));
+                  }
+
+                  actor->setAttachmentPointScenery((ActorAttachmentPoint)i, scenery);
+                }
+
+                //for (int i = 0; i < myResources.enchantments.number_of_classes; ++i) {
+                //  const ClientEnchantmentClassDescription* class_desc = &myResources.enchantments.classes[i];
+                //  int first_bit = class_desc->mask.first_bit;
+                //  int type_mask = class_desc->mask.type_mask;
+                //  int enchantment = type_mask & (description.data.state_.enchantments >> first_bit);
+                //  SpecialFXBinding* binding = enchantment == 0 ? NULL :
+                //    special_fx_manager_.createEnchantmentFX(thisFrame, (enchantment - 1) + class_desc->first_enchantment_index, actor);
+                //  actor->setEnchantment(i, binding);
+                //}
+              }
+            }
+          }
+          else if (message == ::Evidyon::Network::Packet::NETMSG_LEAVEWORLD_CONFIRMED) {
+              bool leftWorld = !APP_WARNING(!Decode::leaveWorldConfirmed(netEvent.packet))
+                                           ("Failed to decode leaveWorldConfirmed");
+              //DEBUG_INFO("Leave world confirmed");
+
+              if (leftWorld) {
+                  // Return to main menu
+              }
+              else
+              {
+                  // Something weird happened; just quit
+                  myStateMachine.jumpState(VCS_DISCONNECT);
+                  myStateMachine.queueState(VCS_NO_CONNECTION);
+              }
+
+              // Exit the main loop so we can clean up
+              runWorldMain = false;
+
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_ERASEACTORFROMWORLD) {
+            int actor_id;
+            Decode::eraseActorFromWorld(netEvent.packet, &actor_id);
+            global_actor_manager_.release(actor_id);
+          } else if (message == NETMSG_CREATEMAGICFX) {
+            int target_ids[Evidyon::MAX_SPECIALFX_TARGETS];
+            int type, src_actor_id, power, number_of_targets;
+            float src_x, src_y;
+            CONFIRM(Decode::createMagicFX(netEvent.packet,
+                                         &type,
+                                         &src_actor_id,
+                                         &src_x,
+                                         &src_y,
+                                         &power,
+                                         target_ids,
+                                         Evidyon::MAX_SPECIALFX_TARGETS,
+                                        &number_of_targets)) else continue;
+
+            // Get targets
+            Actor* src_actor = global_actor_manager_.get(src_actor_id);
+            Actor* targets[Evidyon::MAX_SPECIALFX_TARGETS];
+            for (int i = 0; i < Evidyon::MAX_SPECIALFX_TARGETS; ++i) {
+              if (i < number_of_targets) {
+                targets[i] = global_actor_manager_.get(target_ids[i]);
+              } else {
+                targets[i] = NULL;
+              }
+            }
+
+            // Generate this effect
+            special_fx_manager_.createMagicFX(thisFrame,
+                                              type,
+                                              power,
+                                              src_actor,
+                                              src_x,
+                                              src_y,
+                                              targets,
+                                              number_of_targets);
+
+          } else if (message == NETMSG_CREATEPROJECTILE) {
+            int projectile_id, projectile_type;
+            float x, y, dx, dy;
+            CONFIRM(Decode::createProjectile(netEvent.packet,
+                                            &projectile_id,
+                                            &projectile_type,
+                                            &x,
+                                            &y,
+                                            &dx,
+                                            &dy)) else continue;
+            special_fx_manager_.createProjectileFX(thisFrame,
+                                                   projectile_id,
+                                                   projectile_type,
+                                                   x,
+                                                   y,
+                                                   dx,
+                                                   dy);
+
+          } else if (message == NETMSG_DESTROYPROJECTILE) {
+            int projectile_id;
+            CONFIRM(Decode::destroyProjectile(netEvent.packet,
+                                             &projectile_id)) else continue;
+            special_fx_manager_.destroyProjectileFX(projectile_id);
+          } if (message == ::Evidyon::Network::Packet::NETMSG_UPDATEINVENTORY ||
+                message == ::Evidyon::Network::Packet::NETMSG_TELLINVENTORY) {
+            Decode::updateOrTellInventory(netEvent.packet,
+                                          myCharacter.inventory,
+                                         &myCharacter.highest_inventory_update_index_,
+                                          myCharacter.inventory_update_indices_);
+            inventory.updateInventory(myCharacter.inventory,
+                                      myCharacter.inventory_update_indices_);
+            item_drop_screen.update(myCharacter.inventory,
+                                    myCharacter.inventory_update_indices_);
+            bazaar_display.updateInventory(myCharacter.inventory,
+                                           myCharacter.inventory_update_indices_);
+          }
+          //else if (message == ::Evidyon::Network::Packet::NETMSG_REMOVEINVENTORYITEMS)
+          //{
+          //  Decode::removeInventoryItems(netEvent.packet, myCharacter.inventory);
+          //  inventory.updateInventory(myCharacter.inventory, myCharacter.inventory_update_indices_);
+          //  item_drop_screen.update(myCharacter.inventory, myCharacter.inventory_update_indices_);
+          //  bazaar_display.updateInventory(myCharacter.inventory, myCharacter.inventory_update_indices_);
+          //}
+          else if (message == ::Evidyon::Network::Packet::NETMSG_ACTORSPEAKS)
+          {
+            char speechBuffer[MAX_SPOKEN_TEXT_CHARACTERS+1];
+            int actorID;
+            char source_name_buffer[256];
+            CONFIRM(Decode::actorSpeaks(netEvent.packet,
+                                             &actorID,
+                                             source_name_buffer, sizeof(source_name_buffer),
+                                             speechBuffer, MAX_SPOKEN_TEXT_CHARACTERS+1));
+
+            // Find this actor in the table
+            if (actorID == -1) {
+              chat_log.addReceivedChatLine(source_name_buffer, speechBuffer, true);
+              chat_display.addPartyTextLine(source_name_buffer, speechBuffer);
+            } else if (actorID == 0) {
+              chat_log.addSystemText(speechBuffer);
+              chat_display.addSystemText(speechBuffer);
+            } else {
+              Actor* actor = global_actor_manager_.get(actorID);
+              if (!actor) continue;
+              actor->setSpeechText(speechBuffer, thisFrame);
+              if (speechBuffer[0] != '\0') {  // only add to the log if the text has length
+                if (actor == global_actor_manager_.getClientActor()) {
+                  chat_log.addOwnChatLine(speechBuffer);
+                } else {
+                  chat_log.addReceivedChatLine(actor->getName(), speechBuffer, false);
+                }
+              }
+            }
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_CHANGEMAP) {
+            int map_id;
+            CONFIRM(Decode::changeMap(netEvent.packet, &map_id)) else continue;
+            special_fx_manager_.onChangeMap(global_actor_manager_.getClientActor());
+            global_actor_manager_.onChangeMap();
+            global_map_manager_.changeMap(map_id);
+            { // get rid of all of the items on the map
+              ItemsOnMapTable::iterator start = myItemsOnMapTable.begin();
+              ItemsOnMapTable::iterator end = myItemsOnMapTable.end();
+              for (ItemsOnMapTable::iterator i = start; i != end; ++i)
+                  mySceneryRenderer.removeScenery(i->second);
+              myItemsOnMapTable.erase(start, end);
+            }
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_TELLITEMSONMAPLOCATION) {
+            int x, y;
+            unsigned short item_types[MAX_ITEMS_VISIBLE_PER_LOCATION];
+            int number_of_item_types;
+            CONFIRM(Decode::tellItemsOnMapLocation(netEvent.packet,
+                                                  &x,
+                                                  &y,
+                                                   item_types,
+                                                  &number_of_item_types)) else continue;
+            // update the scenery here
+            ItemsOnMapTable::key_type locationKey(x, y);
+            {
+                // Remove all of the scenery at this location
+                ItemsOnMapTable::iterator start = myItemsOnMapTable.lower_bound(locationKey);
+                ItemsOnMapTable::iterator end = myItemsOnMapTable.upper_bound(locationKey);
+                for (ItemsOnMapTable::iterator i = start; i != end; ++i)
+                    mySceneryRenderer.removeScenery(i->second);
+                myItemsOnMapTable.erase(start, end);
+            }
+
+            // Create a transformation matrix for this location
+            D3DXMATRIXA16 offsetMatrix;
+            D3DXMatrixTranslation(&offsetMatrix, 1.0f * x + 0.5f, 0.0f, 1.0f * y + 0.5f);
+
+            // Add new items
+            size_t sceneryElements = myResources.scenery.sceneryArraySize;
+            size_t itemElements = myResources.items.itemDescriptionArraySize;
+            for (size_t i = 0; i < number_of_item_types; ++i)
+            {
+                // Get the scenery element
+                //size_t itemIndex = item_types[i];
+                //if (itemIndex > itemElements) continue;
+                //ClientItemDescription* item = &myResources.items.itemDescriptionArray[itemIndex];
+                size_t sceneryIndex = item_types[i];//item->sceneryRepresentationIndex;
+                DEBUG_INFO("Adding item on map: %i", sceneryIndex);
+                if (sceneryIndex >= sceneryElements) continue;
+                GameFileData_Scenery* scenery = &myResources.scenery.sceneryArray[sceneryIndex];
+
+                // Create a random rotation matrix
+                D3DXMATRIXA16 rotationMatrix;
+                D3DXMatrixRotationY(&rotationMatrix, x * y + i * 0.674f);
+
+                // Generate this element's matrix
+                D3DXMATRIXA16 transform;
+                D3DXMatrixMultiply(&transform, &rotationMatrix, &offsetMatrix);
+
+                // Add this scenery
+                HSCENERY handle;
+                if (mySceneryRenderer.addScenery(&transform, scenery, &handle))
+                    myItemsOnMapTable.insert(ItemsOnMapTable::value_type(locationKey, handle));
+            }
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_UPDATEYOUREFFECTAVAILABILITYMASK) {
+            Decode::updateYourEffectAvailabilityMask(netEvent.packet,
+                                                    &myCharacter.effectAvailability);
+          }
+          else if (message == ::Evidyon::Network::Packet::NETMSG_TELLYOURAVATARSTATS) {
+            unsigned char level, availableAbilityPoints;
+            unsigned char abilities[5];
+            int hp, hpMax, mp, mpMax, exp, nextLevelExp, defense;
+            if (Decode::tellYourAvatarStats(netEvent.packet, &level, abilities, &availableAbilityPoints,
+                &hp, &hpMax, &mp, &mpMax, &exp, &nextLevelExp, &defense))
+            {
+                statDisplay.update(level, abilities, availableAbilityPoints, hp, hpMax, mp, mpMax, exp, nextLevelExp, defense);
+                //if (inStatDisplay) statDisplay.show();
+                DEBUG_INFO("Player stats:\n\tlevel:\t%i\n\tstr:\t%i\n\tagi:\t%i\n\tcon:\t%i\n\t:int:\t%i\n\twis:\t%i\n\thp:\t%i/%i\n\tmp:\t%i/%i\n\texp:\t%i/%i\n\tdefense:\t%i",
+                            level, abilities[0], abilities[1], abilities[2], abilities[3], abilities[4], 
+                            hp, hpMax, mp, mpMax, exp, nextLevelExp, defense);
+            }
+          } else if (message == ::Evidyon::Network::Packet::NETMSG_TELLACTORNAME) {
+            ActorID actor_id = 0;
+            std::string name;
+            if (Decode::tellActorName(netEvent.packet,
+                                      &actor_id,
+                                      &name)) {
+              Actor* actor = global_actor_manager_.get(actor_id);
+              actor->setName(name.c_str());
+            }
+          }
+        //  else if (message == ::Evidyon::Network::Packet::NETMSG_UPDATEYOURACTIVEPARTITION)
+        //  {
+        //      short px, py;
+        //      Decode::updateYourActivePartition(netEvent.packet, &px, &py);
+
+        //      // Find all nearby partitions
+        //      unsigned long activePartitions[9] = {
+        //          Evidyon::World::regionIDFromRegionCoordinates(px - 1, py - 1),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px - 1, py   ),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px - 1, py + 1),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px    , py - 1),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px    , py   ),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px    , py + 1),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px + 1, py - 1),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px + 1, py   ),
+        //          Evidyon::World::regionIDFromRegionCoordinates(px + 1, py + 1),
+        //      };
+
+
+        //      size_t removed = 0;
+
+        //      std::set<int> actorsToRemove;
+
+        //      // Look through all actors, remove those that aren't in one of these ID groups
+        //      for (ActorTable::iterator i = myActorTable.begin(); i != myActorTable.end(); ++i)
+        //      {
+        //          // Never remove our actor
+        //          if (i->second == myActor) continue;
+
+        //          int p;
+        //          for (p = 0; (p < 9) && (i->second->myCurrentPartition != activePartitions[p]); ++p);
+        //          if (p >= 9) actorsToRemove.insert(i->first);
+        //      }
+
+        //      for (std::set<int>::iterator j = actorsToRemove.begin(); j != actorsToRemove.end(); ++j)
+        //      {
+        //          int actorID = *j;
+        //          destroyActor(actorID);
+        //      }
+
+        //      // Look through all items and remove those that arent in one of these ID groups
+        //      // TODO: this is REALLY inefficient
+        //      for (ItemsOnMapTable::iterator i = myItemsOnMapTable.begin(); i != myItemsOnMapTable.end();)
+        //      {
+        //        unsigned long partitionID = Evidyon::World::regionIDFromPoint(i->first.first, i->first.second);
+        //          int p;
+        //          for (p = 0; (p < 9) && (partitionID != activePartitions[p]); ++p);
+        //          if (p >= 9)
+        //          {
+        //              ItemsOnMapTable::iterator next = i; ++next;
+        //              mySceneryRenderer.removeScenery(i->second);
+        //              myItemsOnMapTable.erase(i);
+        //              i = next;
+        //          }
+        //          else
+        //              ++i;
+        //      }
+
+        //      //DEBUG_INFO("NETMSG_UPDATEYOURACTIVEPARTITION:  %lu actors removed, %lu left", actorsToRemove.size(), myActorTable.size());
+        //  } else if (message == ::Evidyon::Network::Packet::NETMSG_TELLYOURMONEY) {
+        //    unsigned int gold;
+        //    Decode::tellYourMoney(netEvent.packet, &gold);
+        //    DEBUG_INFO("NETMSG_TELLYOURMONEY:  you have %lu gold", gold);
+        //    myCharacter.money = gold;
+        //    bazaar_display.updateMoney(gold);
+        //  } else if (message == ::Evidyon::Network::Packet::NETMSG_BAZAAR_TELLITEMSFORSALE) {
+        //    ItemForTrade items_buffer[Economy::MAX_ITEMS_PER_BAZAAR_PAGE];
+        //    unsigned int number_of_items = 0;
+        //    Decode::bazaar_tellItemsForSale(
+        //        netEvent.packet,
+        //        items_buffer,
+        //        Economy::MAX_ITEMS_PER_BAZAAR_PAGE,
+        //        &number_of_items);
+        //    /*DEBUG_INFO("NETMSG_BAZAAR_TELLITEMSFORSALE received %lu items:",number_of_items);
+        //    for (int i = 0; i < number_of_items; ++i) {
+        //      DEBUG_INFO("%4lu - Item %s : listed for %lu gold",
+        //          items_buffer[i].listing_id,
+        //          myResources.items.itemDescriptionArray[items_buffer[i].type].name,
+        //          items_buffer[i].price);
+        //    }*/
+        //    bazaar_display.updateBazaar(items_buffer, number_of_items);
+        //  } else if (message == ::Evidyon::Network::Packet::NETMSG_BAZAAR_TELLSELLERSTATUS) {
+        //    ItemForTrade items_buffer[Economy::MAX_ITEMS_PER_BAZAAR_PAGE];
+        //    unsigned int number_of_items = 0;
+        //    Decode::bazaar_tellSellerStatus(
+        //        netEvent.packet,
+        //        items_buffer,
+        //        Economy::MAX_ITEMS_PER_BAZAAR_PAGE,
+        //        &number_of_items);
+        //    /*DEBUG_INFO("NETMSG_BAZAAR_TELLSELLERSTATUS received %lu items:",number_of_items);
+        //    for (int i = 0; i < number_of_items; ++i) {
+        //      DEBUG_INFO(
+        //          "Item %s : listed for %lu gold%s",
+        //          myResources.items.itemDescriptionArray[items_buffer[i].type].name,
+        //          items_buffer[i].price,
+        //          items_buffer[i].purchased ? "(sold)" : "");
+        //    }*/
+        //    bazaar_display.updateSellerStatus(items_buffer, number_of_items);
+        //  } else if (message == ::Evidyon::Network::Packet::NETMSG_BAZAAR_REMOVEITEMLISTINGS) {
+        //    unsigned int listing_ids[Economy::MAX_ITEMS_PER_BAZAAR_PAGE];
+        //    unsigned int num_listings = 0;
+        //    Decode::bazaar_removeItemListings(netEvent.packet, listing_ids, Economy::MAX_ITEMS_PER_BAZAAR_PAGE, &num_listings);
+        //    //ASSERT(num_listings == 1);
+        //    bazaar_display.removeListing(listing_ids[0]);
+        //  } else {
+        //    DEBUG_WARNING("Invalid! %i", message);
+        //  }
+        //}
+        }
+
+
+        Actor* myActor = global_actor_manager_.getClientActor();
+        static float lastTargetX = myActor->getX(), lastTargetY=myActor->getY();
+
+        {
+            worldInteractionManager.update(thisFrame, thisFrame - lastFrameTime);
+            {
+              const WorldInteractionManager::UserAction* action;
+              while(action = worldInteractionManager.queryNextAction())
+              {
+                  switch(action->type)
+                  {
+                      case WorldInteractionManager::ACTION_MOVE: {
+                        GUIPoint destination = gui_primary_layer_.getPrimaryCanvas()->getArea()->constrain(action->move.screenPoint);
+
+                        float x, y;
+                        myIsometricCamera.getWorldLocation(destination.x, destination.y, &x, &y);
+                        lastTargetX = x;
+                        lastTargetY = y;
+
+                        //D3DXMATRIX mat;
+                        //D3DXMatrixTranslation(&mat, x, 0.0f, y);
+                        //HSCENERY handle;
+                        //mySceneryRenderer.addScenery(&mat, myResources.scenery.sceneryArray, &handle);
+
+                        ENetPacket* packet = NULL;
+                        using namespace Evidyon::Network::Packet::Client::Encode;
+
+                        // Try to find an actor here
+                        ActorID targetActorID = 0;
+                        if (!action->move.createdByDragging) {
+                          int client_actor_id = global_actor_manager_.getClientActor()->getID();
+                          global_actor_manager_.findActorNearLocation(x, y, client_actor_id, &targetActorID, true);
+                          packet = requestMove(x,
+                                               y,
+                                               targetActorID);
+                        } else {
+                          packet = requestMoveStreaming(x,
+                                                        y);
+                        }
+
+                        if (packet != NULL) {
+                          enet_peer_send(myENetServer, 1, packet);
+                        }
+
+
+                      } break;
+
+                      case WorldInteractionManager::ACTION_USEEFFECTCOMBO: {
+                        setMouseCursorNormal();
+
+                        //GUIPoint destination = myMouseInputSource.getMousePosition();
+                        //float target_x, target_y;
+                        //myIsometricCamera.getWorldLocation(destination.x, destination.y, &target_x, &target_y);
+
+                        // Make sure these effects are all usable
+                        unsigned int spell_ids[3] = { 0xFFFFFFFF,
+                                                      0xFFFFFFFF,
+                                                      0xFFFFFFFF };
+                        bool send = true;
+                        for (int i = 0; i < 3; ++i) {
+                          unsigned int spellID = action->useEffectCombo.effects[i];
+                          if (spellID < MAX_SPELL_TYPES &&
+                             !myCharacter.effectAvailability.isBitSet(spellID))
+                             send = false;
+                          spell_ids[i] = spellID;
+                        }
+
+                        if (!send) break;
+
+                        //myResources.spells.spell_descriptions_[spell_ids[0]].needs_target
+                        float target_x = action->useEffectCombo.target_x;
+                        float target_y = action->useEffectCombo.target_y;
+                        ActorID target_actor_id = action->useEffectCombo.target_actor;
+
+                        //ActorID target_actor_id;
+                        //global_actor_manager_.findActorNearLocation(target_x,
+                        //                                            target_y,
+                        //                                            0,
+                        //                                            &target_actor_id,
+                        //                                            true);
+
+                        using namespace ::Evidyon::Network::Packet::Client;
+                        enet_peer_send(myENetServer, 1,
+                          Encode::castSpell(spell_ids,
+                                            target_actor_id,
+                                            target_x,
+                                            target_y));
+
+
+                      } break;
+
+                      case WorldInteractionManager::ACTION_STARTEFFECTCOMBO: {
+                        setMouseCursorActive();
+                      } break;
+
+                      case WorldInteractionManager::ACTION_ENDEFFECTCOMBO:
+                      {
+                        setMouseCursorNormal();
+                      } break;
+                  }
+              }
+            }
+        }
+
+
+        // If the HP, MP or EXP values changed, update the canvases that visualize them
+        if (changedHPMPEXP)
+        {
+          int barSize = barBackgroundCanvas.getArea()->calculateSize().height - 4*2;
+          int hpSize = (int)(barSize * myCharacter.currentHPPercent);
+          int mpSize = (int)(barSize * myCharacter.currentMPPercent);
+          int xpSize = (int)(barSize * myCharacter.currentEXPPercent);
+          hpBarCanvas.absoluteHeight(min(hpSize, barSize));
+          mpBarCanvas.absoluteHeight(min(mpSize, barSize));
+          expBarCanvas.absoluteHeight(min(xpSize, barSize));
+          //hpBarCanvas.realign();
+          //mpBarCanvas.realign();
+          //expBarCanvas.realign();
+
+          changedHPMPEXP = false;
+        }
+
+        { // Handle input from the different menu sources
+          inventory.updateActionQueue();
+          keyBindingScreen.updateUserActions();
+          statDisplay.updateUserActions();
+          chat_text_input.updateActionQueue(&user_action_queue);
+          item_drop_screen.updateUserActions();
+          chat_display.update(thisFrame);
+          bazaar_display.updateUserActions();
+        }
+
+        UserAction action;
+        if (user_action_queue.popNextAction(&action)) {
+          InGameDialogType dialog_to_close = DIALOG_NONE; 
+          switch (action.type_) {
+            case LOG_OUT_OF_WORLD: {
+              myStateMachine.jumpState(VCS_LOGGED_INTO_ACCOUNT);
+              enet_peer_send(myENetServer, 0, ::Evidyon::Network::Packet::Client::Encode::leaveWorld());
+            } break;
+            case OPEN_CHAT: {
+              dialog_to_close = currently_visible_dialog;
+              currently_visible_dialog = DIALOG_CHAT;
+              chat_text_input.show(&gui_primary_layer_);
+              worldInteractionManager.monitorInput(false);
+            } break;
+            case CLOSE_CHAT: {
+              currently_visible_dialog = DIALOG_NONE;
+              chat_text_input.show(NULL);
+              worldInteractionManager.monitorInput(true);
+            } break;
+            case OPEN_INVENTORY: {
+              dialog_to_close = currently_visible_dialog;
+              currently_visible_dialog = DIALOG_INVENTORY;
+              worldInteractionManager.monitorInput(false);
+              inventory.updateInventory(myCharacter.inventory, myCharacter.inventory_update_indices_);
+              inventory.displayInventory();
+            } break;
+            case OPEN_KEY_BINDINGS: {
+              dialog_to_close = currently_visible_dialog;
+              currently_visible_dialog = DIALOG_KEY_BINDINGS;
+              keyBindingScreen.displayKeyBindings(&myCharacter.effectAvailability,
+                                                  worldInteractionManager.getKeyToEffectMapping(),
+                                                  world_keyboard_input_sentinel.getBoundActionKeys());
+              worldInteractionManager.monitorInput(false);
+            } break;
+            case OPEN_STAT_DISPLAY: {
+              dialog_to_close = currently_visible_dialog;
+              currently_visible_dialog = DIALOG_STAT_DISPLAY;
+              enet_peer_send(myENetServer, 0, ::Evidyon::Network::Packet::Client::Encode::askMyAvatarStats(-1));
+              statDisplay.show();
+              worldInteractionManager.monitorInput(false);
+            } break;
+            case OPEN_DROP: {
+              dialog_to_close = currently_visible_dialog;
+              currently_visible_dialog = DIALOG_DROP_ITEMS;
+              item_drop_screen.show(&gui_primary_layer_);
+              worldInteractionManager.monitorInput(false);
+            } break;
+            //case OPEN_BAZAAR: {
+            //  dialog_to_close = currently_visible_dialog;
+            //  bazaar_display.show(&gui_primary_layer_);
+            //  currently_visible_dialog = DIALOG_BAZAAR;
+            //  worldInteractionManager.monitorInput(false);
+            //  //enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::getSellerStatus());
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::getItemsForSale(0));
+            //} break;
+            //case CLOSE_BAZAAR: {
+            //  currently_visible_dialog = DIALOG_NONE;
+            //  bazaar_display.hide();
+            //  worldInteractionManager.monitorInput(true);
+            //} break;
+            case CLOSE_DROP: {
+              currently_visible_dialog = DIALOG_NONE;
+              item_drop_screen.hide();
+              worldInteractionManager.monitorInput(true);
+            } break;
+            case DROP_ITEM: {
+              unsigned char itemIndex = action.data_.drop_item_.inventory_index_;
+              enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::dropInventoryItems(&itemIndex, 1));
+              myCharacter.inventory[itemIndex].quantity = 0;
+              item_drop_screen.update(myCharacter.inventory, myCharacter.inventory_update_indices_);
+            } break;
+            //case BAZAAR_BUY_ITEM: {
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::buyItem(action.data_.bazaar_buy_item_.listing_id_));
+            //} break;
+            //case BAZAAR_LIST_ITEM: {
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::listItemsForSale(
+            //    &action.data_.bazaar_list_item_.inventory_index_,
+            //    &action.data_.bazaar_list_item_.price_, 1));
+            //} break;
+            //case BAZAAR_WITHDRAW_ITEM: {
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::withdrawSellerItems(
+            //    &action.data_.bazaar_withdraw_item_.listing_id_, 1));
+            //} break;
+            //case BAZAAR_SELLER_REDEEM: {
+            //  unsigned int fake = 0;
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::withdrawSellerItems(&fake, 0));
+            //} break;
+            //case BAZAAR_GET_ITEMS_FOR_SALE: {
+            //  enet_peer_send(myENetServer, 1,
+            //    ::Evidyon::Network::Packet::Client::Encode::getItemsForSale(
+            //      action.data_.bazaar_get_items_for_sale_.minimum_listing_id_));
+            //} break;
+            //case BAZAAR_GET_SELLER_ITEMS: {
+            //  enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::getSellerStatus());
+            //} break;
+            case SPEAK: {
+              const char* tokens[] = {
+                "stats",
+                "help",
+                "/",
+              };
+              if (action.data_.speak_.text_[0] == '/') {
+                for (int i = 0; i < sizeof(tokens)/sizeof(const char*); ++i) {
+                  if (0 != strncmp(tokens[i],
+                                  &action.data_.speak_.text_[1],
+                                   strlen(tokens[i]))) {
+                    continue;
+                  }
+
+                  switch (i) {
+                    case 0: { // "/stats"
+                      // print stats
+                      enum Stats {
+                        ACTORS,
+                        NETWORK,
+                        MAPS,
+                        NUMBER_OF_STATS
+                      };
+                      for (int i = 0; i < NUMBER_OF_STATS; ++i) {
+                        char buffer[512];
+                        switch ((Stats)i) {
+                          case ACTORS:  global_actor_manager_.printDebugStats(buffer, 512); break;
+                          case NETWORK:
+                            sprintf_s(buffer, 512,
+                                      "Network: %lu Bps incoming / %lu Bps outgoing (%lu:%lu loss);  %lu ms average RTT/%lu ms best RTT/%lu variance",
+                                      myENetServer->incomingDataTotal,
+                                      myENetServer->outgoingDataTotal,
+                                      myENetServer->packetLoss,
+                                      ENET_PEER_PACKET_LOSS_SCALE,
+                                      myENetServer->roundTripTime,
+                                      myENetServer->lowestRoundTripTime,
+                                      myENetServer->roundTripTimeVariance);
+                            break;
+                          case MAPS:    global_map_manager_.printDebugStats(buffer, 512); break;
+                        }
+                        DEBUG_INFO("/stats:  %s", buffer);
+                        chat_log.addSystemText(buffer);
+                        chat_display.addSystemText(buffer);
+                      }
+                    } break;
+
+                    case 1: { // "/help"
+                      std::string help("/stats - display debugging information,  //*** - write *** to the debug log");
+                      chat_log.addSystemText(help);
+                      chat_display.addSystemText(help);
+                    } break;
+
+                    case 2: { // "//[text]"
+                      std::string message = &action.data_.speak_.text_[strlen(tokens[i]) + 1];
+                      DEBUG_INFO("%s", message.c_str());
+                      chat_log.addSystemText(message);
+                      chat_display.addSystemText(message);
+                    } break;
+                  }
+
+                  // found a match
+                  break;
+                }
+
+                // don't send to the server
+                break;
+              }
+              last_spoken_text_line = action.data_.speak_.text_;
+              if (false == last_spoken_text_line.empty()) {
+                using namespace ::Evidyon::Network::Packet::Client;
+                enet_peer_send(myENetServer,
+                               1,
+                               Encode::requestSpeak(action.data_.speak_.text_));
+              }
+            } break;
+
+            case SAY_AGAIN: {
+              if (last_spoken_text_line.empty()) break; // don't send nothing
+              using namespace ::Evidyon::Network::Packet::Client;
+              enet_peer_send(myENetServer,
+                             1,
+                             Encode::requestSpeak(action.data_.speak_.text_));
+            } break;
+
+            case INVENTORY_DROP_ITEMS: {
+              unsigned char itemIndices[128];
+              size_t selectedItems;
+              inventory.getSelectedItemsAndClearSelection(false, itemIndices, 128, &selectedItems);
+              using namespace ::Evidyon::Network::Packet::Client;
+              enet_peer_send(myENetServer,
+                             1,
+                             Encode::dropInventoryItems(itemIndices, selectedItems));
+            } break;
+
+            case INVENTORY_EQUIP_ITEMS: {
+              using namespace ::Evidyon::Network::Packet::Client;
+              unsigned char itemIndices[128];
+              size_t selectedItems;
+              inventory.getSelectedItemsAndClearSelection(false, itemIndices, 128, &selectedItems);
+              enet_peer_send(myENetServer,
+                             1,
+                             Encode::changeEquippedState(itemIndices, selectedItems));
+
+              // Predict update
+              int highest_index = ++myCharacter.highest_inventory_update_index_;
+              for (int i = 0; i < selectedItems; ++i) {
+                myCharacter.inventory_update_indices_[itemIndices[i]] = highest_index;
+              }
+              item_drop_screen.update(myCharacter.inventory,myCharacter.inventory_update_indices_);
+              inventory.updateInventory(myCharacter.inventory,myCharacter.inventory_update_indices_);
+            } break;
+
+            case INVENTORY_UNEQUIP_ITEMS: {
+              unsigned char itemIndices[128];
+              size_t selectedItems;
+              inventory.getSelectedItemsAndClearSelection(true, itemIndices, 128, &selectedItems);
+              enet_peer_send(myENetServer, 1, ::Evidyon::Network::Packet::Client::Encode::changeEquippedState(itemIndices, selectedItems));
+
+              // Predict update
+              int highest_index = ++myCharacter.highest_inventory_update_index_;
+              for (int i = 0; i < selectedItems; ++i)
+                myCharacter.inventory_update_indices_[itemIndices[i]] = highest_index;
+              item_drop_screen.update(myCharacter.inventory,myCharacter.inventory_update_indices_);
+              inventory.updateInventory(myCharacter.inventory,myCharacter.inventory_update_indices_);
+            } break;
+            case CLOSE_INVENTORY: {
+              currently_visible_dialog = DIALOG_NONE;
+              inventory.hideDisplay();
+              worldInteractionManager.monitorInput(true);
+            } break;
+            case CLOSE_KEY_BINDINGS: {
+              currently_visible_dialog = DIALOG_NONE;
+              unsigned int keyToEffectMapping[256];
+              keyBindingScreen.getKeyBindings(keyToEffectMapping,world_keyboard_input_sentinel.getBoundActionKeys());
+              worldInteractionManager.setKeyToEffectMapping(keyToEffectMapping);
+
+              // Save the key mapping to disk
+              char keymapName[MAX_AVATAR_NAME_LENGTH + 16];
+              sprintf_s(keymapName, sizeof(keymapName), "%s.keys", myCharacter.name);
+              dc::dcFileStream fs;
+              if (fs.open(keymapName, STREAM_OVERWRITE)) {
+                fs.write(keyToEffectMapping, sizeof(unsigned int) * 256);
+                int action_version = UserActions::USER_ACTION_VERSION;
+                fs.write(&action_version, sizeof(int));
+                fs.write(world_keyboard_input_sentinel.getBoundActionKeys(),UserActions::NUMBER_OF_BOUND_ACTION_KEYS*sizeof(GUIKey));
+                fs.close();
+              }
+
+              keyBindingScreen.hideDisplay();
+              worldInteractionManager.monitorInput(true);
+            } break;
+            case CLOSE_STAT_DISPLAY: {
+              currently_visible_dialog = DIALOG_NONE;
+              statDisplay.hideDisplay();
+              worldInteractionManager.monitorInput(true);
+            } break;
+            case ATTRIBUTES_ADD_ABILITY_POINT: {
+              using namespace Evidyon::Network::Packet::Client::Encode;
+              enet_peer_send(myENetServer, 0, askMyAvatarStats(action.data_.add_ability_point_.ability));
+            } break;
+            case TOGGLE_VIEW_ANGLE: {
+              overheadViewMode = !overheadViewMode;
+              myIsometricCamera.enableTopdownView(overheadViewMode);
+            } break;
+            case TOGGLE_SHOW_NAMES: {
+              showPlayerNames = !showPlayerNames;
+            } break;
+            case TOGGLE_CHAT_LOG: {
+              if (currently_visible_dialog != DIALOG_NONE) break; // don't toggle the log unless no other dialog is visible
+              if (chat_log.visible()) {
+                chat_log.hide();
+                chat_display.show(&gui_primary_layer_);
+                currently_visible_dialog = DIALOG_NONE;
+              } else {
+                chat_display.hide();
+                chat_log.show(&gui_primary_layer_);
+              }
+            } break;
+            case TAKE_SCREENSHOT: {
+              take_screenshot = true; // this has to be done just after writing image data
+            } break;
+          }
+
+          switch (dialog_to_close) {
+            case DIALOG_CHAT:         chat_text_input.show(NULL); break;
+            case DIALOG_KEY_BINDINGS: keyBindingScreen.hideDisplay(); break;
+            case DIALOG_STAT_DISPLAY: statDisplay.hideDisplay(); break;
+            case DIALOG_INVENTORY:    inventory.hideDisplay(); break;
+            case DIALOG_DROP_ITEMS:   item_drop_screen.hide(); break;
+            case DIALOG_BAZAAR:       bazaar_display.hide(); break;
+          }
+
+          if (dialog_to_close == currently_visible_dialog && dialog_to_close != DIALOG_NONE) {  // if we closed the current dialog, return to main state
+            currently_visible_dialog = DIALOG_NONE;
+            worldInteractionManager.monitorInput(true);
+          }
+        }
+
+        // Update locations of things that only need to be done once / visible frame
+        bool renderCurrentFrame = allowFrameToBeRendered(thisFrame);
+        double timeSinceLastRenderedFrame = thisFrame - lastRenderedFrameTime;
+        if (renderCurrentFrame) {
+
+          current_fps = (FPS_EXP_WEIGHT) * (1.0 / timeSinceLastRenderedFrame) +
+                        (1.0 - FPS_EXP_WEIGHT) * current_fps;
+
+          lastRenderedFrameTime = thisFrame;
+
+          // Advance the actors' states.  Do this before advancing special effects
+          // to make sure moving actors dont make weird things happen
+          global_actor_manager_.update(thisFrame, timeSinceLastRenderedFrame);
+          if (global_actor_manager_.actorsNeedDescriptions()) {
+            enet_peer_send(myENetServer, 0, global_actor_manager_.buildRequestActorDescriptionPacket());
+          }
+
+          static float interpolatedViewX = myActor->getX(), interpolatedViewY = myActor->getY();
+          float delta = timeSinceLastRenderedFrame;
+          delta = min(delta, 1.0f);
+          interpolatedViewX = myActor->getX();
+          interpolatedViewY = myActor->getY();
+
+
+          // Set the camera location
+          {
+            //interpolatedViewX = max(interpolatedViewX, 8.0f);
+            //interpolatedViewY = max(interpolatedViewY, 8.0f);
+            myIsometricCamera.setPosition(interpolatedViewX, interpolatedViewY);
+          }
+
+          { // update the mouse-over-actor
+            Evidyon::ActorID actor_id;
+            float x, y;
+            GUIPoint mouse = myMouseInputSource.getMousePosition();
+            myIsometricCamera.getWorldLocation(mouse.x, mouse.y, &x, &y);
+            global_actor_manager_.findActorNearLocation(x, y, 0, &actor_id, false);
+            Actor* actor = global_actor_manager_.get(actor_id);
+            mouse_over_name_display.setText(actor == NULL ? "" : actor->getName());
+          }
+
+          global_map_manager_.update(interpolatedViewX, interpolatedViewY);
+          special_fx_manager_.update(thisFrame, timeSinceLastRenderedFrame);
+
+          myIsometricCamera.rebuildXenimusCamera(myD3DParams.BackBufferWidth, myD3DParams.BackBufferHeight);
+
+          // Set up a material. The material here just has the diffuse and ambient
+          // colors set to yellow. Note that only one material can be used at a time.
+          D3DMATERIAL9 mtrl;
+          ZeroMemory(&mtrl, sizeof(D3DMATERIAL9));
+          mtrl.Diffuse.r = mtrl.Ambient.r = 1.0f;
+          mtrl.Diffuse.g = mtrl.Ambient.g = 1.0f;
+          mtrl.Diffuse.b = mtrl.Ambient.b = 1.0f;
+          mtrl.Diffuse.a = mtrl.Ambient.a = 1.0f;
+          myD3DDevice->SetMaterial(&mtrl);
+
+          // Set up a white, directional light, with an oscillating direction.
+          // Note that many lights may be active at a time (but each one slows down
+          // the rendering of our scene). However, here we are just using one. Also,
+          // we need to set the D3DRS_LIGHTING renderstate to enable lighting
+          {
+            //D3DXVECTOR3 vecDir;
+            //D3DLIGHT9 light;
+            //ZeroMemory(&light, sizeof(D3DLIGHT9));
+            //light.Type = D3DLIGHT_SPOT;
+            //light.Diffuse.r = 1.0f;
+            //light.Diffuse.g = 1.0f;
+            //light.Diffuse.b = 1.0f;
+
+            //GUIPoint coord = myMouseInputSource.getMousePosition();
+            //myIsometricCamera.getWorldLocation(coord.x, coord.y, &light.Position.x, &light.Position.z);
+            //light.Position.x -= interpolatedViewX;
+            //light.Position.z -= interpolatedViewY;
+            //light.Position.y = 20.0f;
+            //light.Attenuation0 = 0.0f;
+            //light.Attenuation1 = 2.1f;
+            //light.Attenuation2 = 0.0f;
+            //light.Falloff = 1.0f;
+
+            //light.Direction.x =  0.0f;
+            //light.Direction.y = -1.0f;
+            //light.Direction.z =  0.0f;
+            //light.Range = 1000.0f;
+
+            //light.Theta = atan2f((myIsometricCamera.topdownViewEnabled() ? 40.0f : 5.0f)/2.0f, light.Position.y);
+            //light.Phi = atan2f((myIsometricCamera.topdownViewEnabled() ? 40.0f : 6.0f)/2.0f, light.Position.y);
+
+            //myD3DDevice->SetLight(0, &light);
+            //myD3DDevice->LightEnable(0, TRUE);
+            //light.Position.x = 0.0f;
+            //light.Position.z = 0.0f;
+            //light.Attenuation1 = 1.0f;
+            //myD3DDevice->SetLight(1, &light);
+            //myD3DDevice->LightEnable(1, TRUE);
+          }
+
+          myD3DDevice->LightEnable(0, FALSE);
+          myD3DDevice->LightEnable(1, FALSE);
+          myD3DDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
+          //myD3DDevice->SetRenderState(D3DRS_NORMALIZENORMALS, TRUE);
+          myD3DDevice->SetRenderState(D3DRS_NORMALIZENORMALS, FALSE);
+
+
+          // Finally, turn on some ambient light.
+          BYTE b = (BYTE)fabsf(cosf((thisFrame - time_of_day_adjustment_)/(60.0*5)) * 255.0);
+          if (b > 0xB0) b = 0xB0;
+          if (b < 0x35) b = 0x35;
+          //b = 0xFF;
+          myD3DDevice->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(b,b,b));
+          //myD3DDevice->SetRenderState(D3DRS_AMBIENT, D3DCOLOR_XRGB(0xFF,0xFF,0xFF));
+
+        }
+
+
+        // Render
+        if (renderCurrentFrame) {
+          //myD3DDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+          //myD3DDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+
+          myD3DDevice->Clear(0, NULL, D3DCLEAR_TARGET|D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0,0,0), 1.0f, 0);
+
+          // Begin the scene
+          if (SUCCEEDED(myD3DDevice->BeginScene()))
+          {
+              // Initialize rendering
+              myIsometricCamera.initialize3DRendering(myD3DDevice);
+              //myD3DDevice->SetRenderState(D3DRS_FILLMODE, debuggingFlags[0] ? D3DFILL_SOLID : D3DFILL_WIREFRAME);
+              //myD3DDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+
+              // Draw the 3D scene
+              for (unsigned int i = 0; i < global_rendering_manager_.numberOfTextures(); ++i) {
+                CONFIRM(mySceneryRenderer.renderTextureSubset(&myIsometricCamera, i, &global_rendering_manager_));
+                CONFIRM(global_map_manager_.render(&myIsometricCamera, i));
+                special_fx_manager_.render(i, &myIsometricCamera, &global_rendering_manager_);
+
+                // actor lighting only works in software mode :/
+                //myD3DDevice->SetRenderState(D3DRS_LIGHTING, debuggingFlags[0] || myUsingSoftwareDeviceFlag);
+                CONFIRM(global_actor_manager_.render(myD3DDevice, i, &myIsometricCamera, &global_rendering_manager_));
+                //myD3DDevice->SetRenderState(D3DRS_LIGHTING, TRUE);
+              }
+
+              // Don't fog during special effects; it looks really weird
+              myD3DDevice->SetRenderState(D3DRS_FOGENABLE, FALSE);
+              //myD3DDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
+
+              global_rendering_manager_.resetCurrentTexture();
+              special_fx_manager_.renderFX(&myIsometricCamera);
+
+              // Draw the new GUI elements
+              CONFIRM(SUCCEEDED(myD3DDevice->Clear(0, NULL, D3DCLEAR_ZBUFFER, 0, 1.0f, 0)));
+
+              // Switch to the font texture
+              gui_primary_layer_.reinitializeD3DDeviceState();
+              global_rendering_manager_.changeCurrentD3DStage0Texture(speechFont.getTexture());
+
+              { // Display player speech
+                GlobalActorManager::ActorMap::const_iterator begin = global_actor_manager_.allActorsBegin();
+                GlobalActorManager::ActorMap::const_iterator end = global_actor_manager_.allActorsEnd();
+                for (GlobalActorManager::ActorMap::const_iterator i = begin; i != end; ++i) {
+                    Actor* actor = i->second;
+                    const char* speech = actor->getSpeech();
+                    if (speech == NULL) continue;
+                    float x, y;
+                    myIsometricCamera.getScreenLocation(actor->getX(),
+                                                        2.0f,           // the height of the actor's head
+                                                        actor->getY(),
+                                                        &x,
+                                                        &y);
+                    GUIRect area = { (short)x, (short)y,
+                                     (short)x, (short)y };
+                    GUIPoint pt;
+                    speechFont.centerTextInArea(speech,
+                                                -1,
+                                                &area,
+                                                &pt);
+                    CONFIRM(speechFont.renderText(&gui_primary_layer_,
+                                                  0,  // no clipping rectangle
+                                                  pt.x,
+                                                  pt.y,
+                                                  1.0f,
+                                                  speech,
+                                                  -1,
+                                                  D3DCOLOR_XRGB(255,255,255))); // rendering color
+                  }
+
+                {
+                  char current_fps_text[128];
+                  sprintf_s(current_fps_text, 128, "FPS:  %.02f", (float)current_fps);
+                  speechFont.renderText(&gui_primary_layer_,
+                                        0,
+                                        0,
+                                        0,
+                                        1.0f,
+                                        current_fps_text,
+                                        -1,
+                                        D3DCOLOR_XRGB(255,255,255));
+                }
+
+                  gui_primary_layer_.flush();
+              }
+
+              //// Render actor names
+              //if (showPlayerNames) {
+              //  myD3DDevice->SetTexture(0, font.getTexture());
+
+              //  for (ActorTable::iterator i = myActorTable.begin(); i != myActorTable.end(); ++i) {
+              //      CONFIRM(i->second) else continue;
+              //      float x, y;
+              //      {
+              //          myIsometricCamera.getScreenLocation(i->second->getX(), 0.0f, i->second->getY(), &x, &y);
+              //          GUIRect area = { (short)x, (short)y, (short)x, (short)y };
+              //          GUIPoint pt;
+              //          font.centerTextInArea(i->second->name.c_str(), -1, &area, &pt);
+              //          CONFIRM(font.renderText(&gui_primary_layer_, 0, pt.x, pt.y, 1.0f, i->second->name.c_str(), -1, D3DCOLOR_ARGB(100,255,255,255)));
+              //      }
+              //  }
+
+              //  gui_primary_layer_.flush();
+              //}
+
+
+              CONFIRM(gui_primary_layer_.render());
+
+              // End the scene
+              myD3DDevice->EndScene();
+
+              // this is ugly, but it has to be done here because it is the only place the back-buffer has the
+              // correct image data in it.
+              if (take_screenshot) {
+                take_screenshot = false;
+
+                LPDIRECT3DSURFACE9 back_buffer_surface;
+                HRESULT hr = myD3DDevice->GetBackBuffer(0, 0, D3DBACKBUFFER_TYPE_MONO, &back_buffer_surface);
+                CONFIRM(SUCCEEDED(hr)) else break;
+                char date[MAX_PATH];
+                SYSTEMTIME st;
+                GetSystemTime(&st);
+                GetDateFormatA(LOCALE_USER_DEFAULT,
+                               0,
+                               &st,
+                               "yyyy-MM-dd",
+                               date,
+                               sizeof(date));
+                char file_name[MAX_PATH];
+                sprintf_s(file_name, sizeof(file_name), "%s - %lu%lu%lu.png", date, st.wHour, st.wMinute, st.wSecond);
+                hr = D3DXSaveSurfaceToFile(file_name,
+                                           D3DXIFF_PNG,
+                                           back_buffer_surface,
+                                           NULL,
+                                           NULL);
+                SAFE_RELEASE(back_buffer_surface);
+                CONFIRM(SUCCEEDED(hr)) else break;
+
+
+                {
+                  std::string message = "Screenshot saved as \"";
+                  message.append(file_name);
+                  message.append("\"");
+                  DEBUG_INFO("%s", message);
+                  chat_log.addSystemText(message);
+                  chat_display.addSystemText(message);
+                }
+              }
+          }
+
+        }
+
+        if (renderCurrentFrame)
+        {
+            // Present the backbuffer contents to the display
+            HRESULT hr;
+            CONFIRM(SUCCEEDED(hr = myD3DDevice->Present(NULL, NULL, NULL, NULL))) else
+            {
+                myStateMachine.jumpState(VCS_LOST_D3DDEVICE);
+                myStateMachine.queueState(VCS_LOGGED_INTO_ACCOUNT);
+                enet_peer_send(myENetServer, 0, ::Evidyon::Network::Packet::Client::Encode::leaveWorld());
+            }
+        }
+
+        lastFrameTime = thisFrame;
+    }
+
+
+    SetCursor(LoadCursor(NULL, IDC_ARROW));
+    ShowCursor(TRUE);
+
+    chat_text_input.destroy();
+    chat_log.destroy();
+    chat_display.destroy();
+
+    // Free class-based information used in this method
+    global_actor_manager_.reset();
+    mySceneryRenderer.clear();
+    global_rendering_manager_.resetCurrentTexture();
+
+    // Clean up stuff specific to this method
+    worldInteractionManager.destroy();
+
+
+    inventory.destroy();
+    keyBindingScreen.destroy();
+    statDisplay.destroy();
+    item_drop_screen.destroy();
+    bazaar_display.destroy();
+
+    gui_primary_layer_.unregisterElement(&mouse_over_name_display);
+
+    gui_primary_layer_.unregisterElement(&mpBar);
+    gui_primary_layer_.unregisterElement(&hpBar);
+    gui_primary_layer_.unregisterElement(&expBar);
+    gui_primary_layer_.unregisterElement(&barBackground);
+
+    
+    gui_primary_layer_.removeTexture(font.getTextureID());
+    gui_primary_layer_.removeTexture(speechFont.getTextureID());
+
+    speechFont.destroy();
+    font.destroy();
+
+    //destroySpecialEffectBuffers();
+}

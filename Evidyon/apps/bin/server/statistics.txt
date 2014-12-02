@@ -1,0 +1,4 @@
+CharacterEnteredWorld	1892795	1	Ecrofresia
+CharacterLeftWorld	1892795	1	Ecrofresia
+CharacterEnteredWorld	1892795	5	Sorcerer
+CharacterLeftWorld	1892795	5	Sorcerer

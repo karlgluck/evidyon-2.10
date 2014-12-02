@@ -1,0 +1,17 @@
+wood/cloth/leather - 3
+
+bronze		4
+
+steel		5
+
+bone		8	+hp multiplier
+
+russet		12	HP regen
+
+aurelian	15      Mp regen, movement speed, hp steal
+
+azure		19      mp mult, mp regen,
+
+argent		22      movement speed, attack speed, mp steal
+
+platinum	29     hp steal, mp steal

@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{82D291D9-C942-4F14-8EF8-3148F993B3B9}</ProjectGuid>
+    <RootNamespace>dcx</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)lib\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)build\$(ProjectName)\$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Lib>
+      <OutputFile>$(OutDir)$(ProjectName)_d.lib</OutputFile>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="dcx\dcxasyncdebugout.h" />
+    <ClInclude Include="dcx\dcxasyncfilewriter.h" />
+    <ClInclude Include="dcx\dcxasynchronoussisothreaddatacontroller.h" />
+    <ClInclude Include="dcxbitmask.h" />
+    <ClInclude Include="dcx\dcxclassallocator.h" />
+    <ClInclude Include="dcx\dcxclock.h" />
+    <ClInclude Include="dcx\dcxcpu.h" />
+    <ClInclude Include="dcx\dcxeventtimer.h" />
+    <ClInclude Include="dcx\dcxguaranteedmemorypool.h" />
+    <ClInclude Include="dcx\dcxinifilereader.h" />
+    <ClInclude Include="dcx\dcxinifilewriter.h" />
+    <ClInclude Include="dcx\dcxmanagedmemorypool.h" />
+    <ClInclude Include="dcx\dcxmemorypool.h" />
+    <ClInclude Include="dcx\dcxperiodiceventlimiter.h" />
+    <ClInclude Include="dcx\dcxscheduler.h" />
+    <ClInclude Include="dcx\dcxstatemachine.h" />
+    <ClInclude Include="dcx\dcxtimerpool.h" />
+    <ClInclude Include="dcx\dcxvector3.h" />
+    <ClInclude Include="dcx\dcxwin32internetstream.h" />
+    <ClInclude Include="dcx\dcxd3d.h" />
+    <ClInclude Include="dcx\dcxd3dcolor.h" />
+    <ClInclude Include="dcx\dcxd3ddialogcontroller.h" />
+    <ClInclude Include="dcx\dcxd3dxmatrix.h" />
+    <ClInclude Include="dcx\dcxwin32.h" />
+    <ClInclude Include="dcx\dcxwin32clock.h" />
+    <ClInclude Include="dcx\dcxwin32dialogcontroller.h" />
+    <ClInclude Include="dcx\dcxwin32dialogtemplate.h" />
+    <ClInclude Include="dcx\dcxwin32keyboard.h" />
+    <ClInclude Include="dcx\dcxwin32mouse.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dcx\asyncdebugout" />
+    <None Include="dcx\asyncfilewriter" />
+    <None Include="dcx\asynchronoussisothreaddatacontroller" />
+    <None Include="dcx\bitmask" />
+    <None Include="dcx\classallocator" />
+    <None Include="dcx\cpu" />
+    <None Include="dcx\d3d" />
+    <None Include="dcx\d3dcolor" />
+    <None Include="dcx\d3dxmatrix" />
+    <None Include="dcx\eventtimer" />
+    <None Include="dcx\guaranteedmemorypool" />
+    <None Include="dcx\inifilereader" />
+    <None Include="dcx\inifilewriter" />
+    <None Include="dcx\managedmemorypool" />
+    <None Include="dcx\memorypool" />
+    <None Include="dcx\statemachine" />
+    <None Include="dcx\time" />
+    <None Include="dcx\vector3" />
+    <None Include="dcx\win32" />
+    <None Include="design.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dcxasyncdebugout.cpp" />
+    <ClCompile Include="src\dcxasyncfilewriter.cpp" />
+    <ClCompile Include="src\dcxclock.cpp" />
+    <ClCompile Include="src\dcxcpu.cpp" />
+    <ClCompile Include="src\dcxd3d.cpp" />
+    <ClCompile Include="src\dcxd3ddialogcontroller.cpp" />
+    <ClCompile Include="src\dcxd3dxmatrix.cpp" />
+    <ClCompile Include="src\dcxeventtimer.cpp" />
+    <ClCompile Include="src\dcxinifilereader.cpp" />
+    <ClCompile Include="src\dcxinifilewriter.cpp" />
+    <ClCompile Include="src\dcxwin32.cpp" />
+    <ClCompile Include="src\dcxwin32clock.cpp" />
+    <ClCompile Include="src\dcxwin32dialogcontroller.cpp" />
+    <ClCompile Include="src\dcxwin32dialogtemplate.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32internetstream.cpp" />
+    <ClCompile Include="src\dcxwin32keyboard.cpp" />
+    <ClCompile Include="src\dcxwin32mouse.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="dc.vcxproj">
+      <Project>{3f3ddd1c-7a66-4cd0-9c26-f8f3f6a3fdc8}</Project>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

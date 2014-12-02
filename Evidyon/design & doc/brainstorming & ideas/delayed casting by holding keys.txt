@@ -1,0 +1,5 @@
+ex. 'a' is linked to teleport:
+
+'a', click will teleport
+press 'a', click-click-click, release 'a' will teleport to the first location, teleport to the second, teleport to the third using the same
+delays as they were "recorded"

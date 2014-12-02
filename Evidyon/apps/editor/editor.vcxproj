@@ -1,0 +1,401 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Win32">
+      <Configuration>Profile</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C1B3C522-9D27-4C89-A229-75FB5939E6D4}</ProjectGuid>
+    <RootNamespace>editor</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_d.exe</OutputFile>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_profile.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="actordescriptiontemplatecompiler.h" />
+    <ClInclude Include="allgameresources.h" />
+    <ClInclude Include="compileproject.h" />
+    <ClInclude Include="contributor.h" />
+    <ClInclude Include="credits.h" />
+    <ClInclude Include="editresourcedialog.h" />
+    <ClInclude Include="projectvolucris.h" />
+    <ClInclude Include="projectvolucriseditor.h" />
+    <ClInclude Include="rescalemeshesdialog.h" />
+    <ClInclude Include="resourceactions.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="..\shared\actordescriptiontemplate.h" />
+    <ClInclude Include="..\shared\compiledatlasformat.h" />
+    <ClInclude Include="..\shared\evidyon_accounts.h" />
+    <ClInclude Include="..\shared\evidyon_actor.h" />
+    <ClInclude Include="..\shared\evidyon_avatar.h" />
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h" />
+    <ClInclude Include="..\shared\evidyon_enchantments.h" />
+    <ClInclude Include="..\shared\evidyon_gamefile.h" />
+    <ClInclude Include="..\shared\evidyon_magic.h" />
+    <ClInclude Include="..\shared\evidyon_map.h" />
+    <ClInclude Include="..\shared\evidyon_network.h" />
+    <ClInclude Include="..\shared\evidyon_npc.h" />
+    <ClInclude Include="..\shared\evidyon_server_map.h" />
+    <ClInclude Include="..\shared\evidyon_version.h" />
+    <ClInclude Include="..\shared\evidyon_world.h" />
+    <ClInclude Include="..\shared\geometry.h" />
+    <ClInclude Include="..\shared\networkdecl.h" />
+    <ClInclude Include="..\shared\client-editor\client_gamefile.h" />
+    <ClInclude Include="..\shared\client-editor\clientenchantmentdescription.h" />
+    <ClInclude Include="..\shared\client-editor\clientprojectiledescription.h" />
+    <ClInclude Include="..\shared\client-editor\clientspelldescription.h" />
+    <ClInclude Include="..\shared\server-editor\compiledtreasure.h" />
+    <ClInclude Include="..\shared\server-editor\evidyon_gameplay_design.h" />
+    <ClInclude Include="..\shared\server-editor\lifeformaidescription.h" />
+    <ClInclude Include="..\shared\server-editor\magicdescription.h" />
+    <ClInclude Include="..\shared\server-editor\server_gamefile.h" />
+    <ClInclude Include="..\shared\server-editor\serverprojectiledescription.h" />
+    <ClInclude Include="..\shared\server-editor\serverspelldescription.h" />
+    <ClInclude Include="..\shared\server-editor\swarmspawndescription.h" />
+    <ClInclude Include="..\common\isometriccamera.h" />
+    <ClInclude Include="..\common\null.h" />
+    <ClInclude Include="..\common\safemacros.h" />
+    <ClInclude Include="..\common\unseenskinnedmesh\unseenskinnedmesh.h" />
+    <ClInclude Include="..\common\lzf\lzf.h" />
+    <ClInclude Include="..\common\lzf\lzfP.h" />
+    <ClInclude Include="..\common\vld-10\vld.h" />
+    <ClInclude Include="..\common\vld-10\vldapi.h" />
+    <ClInclude Include="animatedtexture.h" />
+    <ClInclude Include="circlingtexture.h" />
+    <ClInclude Include="colorkey.h" />
+    <ClInclude Include="compositeimage.h" />
+    <ClInclude Include="d3dximage.h" />
+    <ClInclude Include="image.h" />
+    <ClInclude Include="mdjmesh.h" />
+    <ClInclude Include="mesh.h" />
+    <ClInclude Include="packimage.h" />
+    <ClInclude Include="packmesh.h" />
+    <ClInclude Include="resourcepack.h" />
+    <ClInclude Include="scenery.h" />
+    <ClInclude Include="skin.h" />
+    <ClInclude Include="skinnedmeshattachmentpoint.h" />
+    <ClInclude Include="slidingtexture.h" />
+    <ClInclude Include="statictexture.h" />
+    <ClInclude Include="texture.h" />
+    <ClInclude Include="unseenkeyframeanimation.h" />
+    <ClInclude Include="unseenskinnedmeshresource.h" />
+    <ClInclude Include="wavsound.h" />
+    <ClInclude Include="xmesh.h" />
+    <ClInclude Include="actortype.h" />
+    <ClInclude Include="avatarclasslist.h" />
+    <ClInclude Include="avatarmodifier.h" />
+    <ClInclude Include="avatarracelist.h" />
+    <ClInclude Include="leveldefinitions.h" />
+    <ClInclude Include="playercharacterclass.h" />
+    <ClInclude Include="playercharacterclasslevelspells.h" />
+    <ClInclude Include="playercharacterrace.h" />
+    <ClInclude Include="detailedmagic.h" />
+    <ClInclude Include="enchantment.h" />
+    <ClInclude Include="enchantmentclass.h" />
+    <ClInclude Include="enchantmentclassimpl.h" />
+    <ClInclude Include="enchantmentclasslist.h" />
+    <ClInclude Include="magic.h" />
+    <ClInclude Include="projectile.h" />
+    <ClInclude Include="spell.h" />
+    <ClInclude Include="rarityscale.h" />
+    <ClInclude Include="treasure.h" />
+    <ClInclude Include="treasureclass.h" />
+    <ClInclude Include="treasuregeneration.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="itemavataractortypemodifier.h" />
+    <ClInclude Include="itemavatarmodifier.h" />
+    <ClInclude Include="itemavatarmodifierfield.h" />
+    <ClInclude Include="aicharactertype.h" />
+    <ClInclude Include="aimeleeattack.h" />
+    <ClInclude Include="interactivenpclifeformai.h" />
+    <ClInclude Include="lifeformai.h" />
+    <ClInclude Include="normalmeleemonsterlifeformai.h" />
+    <ClInclude Include="normalmeleemonsterlifeformaiactortype.h" />
+    <ClInclude Include="atlas.h" />
+    <ClInclude Include="atlascompilationcontext.h" />
+    <ClInclude Include="atlaseditdialog.h" />
+    <ClInclude Include="atlasterrainmesh.h" />
+    <ClInclude Include="location.h" />
+    <ClInclude Include="mapcolormask.h" />
+    <ClInclude Include="maplayer.h" />
+    <ClInclude Include="maplink.h" />
+    <ClInclude Include="maplocationspecialfunction.h" />
+    <ClInclude Include="spawndensity.h" />
+    <ClInclude Include="spawnlevel.h" />
+    <ClInclude Include="swarmspawn.h" />
+    <ClInclude Include="swarmspawner.h" />
+    <ClInclude Include="terrain.h" />
+    <ClInclude Include="terrainrule.h" />
+    <CustomBuildStep Include="beameffectvisualization.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <ClInclude Include="magicfx.h" />
+    <CustomBuildStep Include="particletraileffectvisualization.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="sceneryeffectvisualization.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </CustomBuildStep>
+    <CustomBuildStep Include="visualfx.h" />
+    <ClInclude Include="visualfx_orbitingparticles.h" />
+    <ClInclude Include="visualfx_particletrail.h" />
+    <ClInclude Include="visualfx_swirlingparticles.h" />
+    <ClInclude Include="visualfximage.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bitmap1.bmp" />
+    <None Include="black.bmp" />
+    <None Include="blue.bmp" />
+    <None Include="darkblue.bmp" />
+    <None Include="darkred.bmp" />
+    <None Include="green.bmp" />
+    <None Include="red.bmp" />
+    <None Include="white.bmp" />
+    <None Include="worldeditoricon.ico" />
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+    <None Include="resource" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="resource.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\shared\evidyon_avatar.cpp" />
+    <ClCompile Include="..\shared\evidyon_world.cpp" />
+    <ClCompile Include="..\shared\geometry.cpp" />
+    <ClCompile Include="..\shared\server-editor\evidyon_gameplay_design.cpp" />
+    <ClCompile Include="..\shared\server-editor\server_gamefile.cpp" />
+    <ClCompile Include="..\shared\server-editor\swarmspawndescription.cpp" />
+    <ClCompile Include="..\common\dclib.cpp" />
+    <ClCompile Include="..\common\isometriccamera.cpp" />
+    <ClCompile Include="..\common\unseenskinnedmesh\unseenskinnedmesh.cpp" />
+    <ClCompile Include="..\common\lzf\lzf_c.c" />
+    <ClCompile Include="..\common\lzf\lzf_d.c" />
+    <ClCompile Include="actordescriptiontemplatecompiler.cpp" />
+    <ClCompile Include="compileproject.cpp" />
+    <ClCompile Include="contributor.cpp" />
+    <ClCompile Include="dxlib.cpp" />
+    <ClCompile Include="editresourcedialog.cpp" />
+    <ClCompile Include="projectvolucris.cpp" />
+    <ClCompile Include="projectvolucriseditor.cpp" />
+    <ClCompile Include="rescalemeshesdialog.cpp" />
+    <ClCompile Include="resourceactions.cpp" />
+    <ClCompile Include="winmain.cpp" />
+    <ClCompile Include="animatedtexture.cpp" />
+    <ClCompile Include="circlingtexture.cpp" />
+    <ClCompile Include="colorkey.cpp" />
+    <ClCompile Include="compositeimage.cpp" />
+    <ClCompile Include="d3dximage.cpp" />
+    <ClCompile Include="image.cpp" />
+    <ClCompile Include="mdjmesh.cpp" />
+    <ClCompile Include="mesh.cpp" />
+    <ClCompile Include="packimage.cpp" />
+    <ClCompile Include="packmesh.cpp" />
+    <ClCompile Include="resourcepack.cpp" />
+    <ClCompile Include="scenery.cpp" />
+    <ClCompile Include="skin.cpp" />
+    <ClCompile Include="skinnedmeshattachmentpoint.cpp" />
+    <ClCompile Include="slidingtexture.cpp" />
+    <ClCompile Include="statictexture.cpp" />
+    <ClCompile Include="texture.cpp" />
+    <ClCompile Include="unseenkeyframeanimation.cpp" />
+    <ClCompile Include="unseenskinnedmeshresource.cpp" />
+    <ClCompile Include="wavsound.cpp" />
+    <ClCompile Include="xmesh.cpp" />
+    <ClCompile Include="actortype.cpp" />
+    <ClCompile Include="avatarclasslist.cpp" />
+    <ClCompile Include="avatarmodifier.cpp" />
+    <ClCompile Include="avatarracelist.cpp" />
+    <ClCompile Include="enum_actorattack.cpp" />
+    <ClCompile Include="enum_actorsound.cpp" />
+    <ClCompile Include="leveldefinitions.cpp" />
+    <ClCompile Include="playercharacterclass.cpp" />
+    <ClCompile Include="playercharacterclasslevelspells.cpp" />
+    <ClCompile Include="playercharacterrace.cpp" />
+    <ClCompile Include="detailedmagic.cpp" />
+    <ClCompile Include="enchantment.cpp" />
+    <ClCompile Include="enchantmentclass.cpp" />
+    <ClCompile Include="enchantmentclasslist.cpp" />
+    <ClCompile Include="enum_magicdescriptionpowertype.cpp" />
+    <ClCompile Include="enum_magicdescriptionstageeffecttype.cpp" />
+    <ClCompile Include="enum_magicdescriptionstagetargetingtype.cpp" />
+    <ClCompile Include="magic.cpp" />
+    <ClCompile Include="projectile.cpp" />
+    <ClCompile Include="spell.cpp" />
+    <ClCompile Include="treasure.cpp" />
+    <ClCompile Include="treasureclass.cpp" />
+    <ClCompile Include="treasuregeneration.cpp" />
+    <ClCompile Include="enum_itemavatarmodifierfieldstate.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="itemavataractortypemodifier.cpp" />
+    <ClCompile Include="itemavatarmodifier.cpp" />
+    <ClCompile Include="aicharactertype.cpp" />
+    <ClCompile Include="aimeleeattack.cpp" />
+    <ClCompile Include="enum_npcinteractiontype.cpp" />
+    <ClCompile Include="interactivenpclifeformai.cpp" />
+    <ClCompile Include="lifeformai.cpp" />
+    <ClCompile Include="normalmeleemonsterlifeformai.cpp" />
+    <ClCompile Include="normalmeleemonsterlifeformaiactortype.cpp" />
+    <ClCompile Include="atlas.cpp" />
+    <ClCompile Include="atlascompilationcontext.cpp" />
+    <ClCompile Include="atlaseditdialog.cpp" />
+    <ClCompile Include="atlaseditdialog_createterrainmesh.cpp" />
+    <ClCompile Include="location.cpp" />
+    <ClCompile Include="mapcolormask.cpp" />
+    <ClCompile Include="maplayer.cpp" />
+    <ClCompile Include="maplink.cpp" />
+    <ClCompile Include="maplocationspecialfunction.cpp" />
+    <ClCompile Include="scenerymaplayer.cpp" />
+    <ClCompile Include="spawnlevel.cpp" />
+    <ClCompile Include="swarmspawn.cpp" />
+    <ClCompile Include="swarmspawner.cpp" />
+    <ClCompile Include="terrain.cpp" />
+    <ClCompile Include="terrainrule.cpp" />
+    <ClCompile Include="beameffectvisualization.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="magicfx.cpp" />
+    <ClCompile Include="particletraileffectvisualization.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="sceneryeffectvisualization.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="visualfx.cpp" />
+    <ClCompile Include="visualfx_orbitingparticles.cpp" />
+    <ClCompile Include="visualfx_particletrail.cpp" />
+    <ClCompile Include="visualfx_swirlingparticles.cpp" />
+    <ClCompile Include="visualfximage.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

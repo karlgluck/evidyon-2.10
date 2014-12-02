@@ -1,0 +1,516 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\packets">
+      <UniqueIdentifier>{4db97006-74b5-45b1-8aae-1b659880e289}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Shared">
+      <UniqueIdentifier>{13500acc-6213-4499-b27d-09810d442e07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Editor">
+      <UniqueIdentifier>{d99706e3-3c5a-42b2-80bf-5a8a3d9b2acf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shared\with Client">
+      <UniqueIdentifier>{22cccabe-03b2-4e7d-82fe-e7acf9455fc8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common">
+      <UniqueIdentifier>{a497fa67-67e2-46a1-96ab-080c109838e3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\enet">
+      <UniqueIdentifier>{cd514cf8-6190-4f4e-9235-4d35afbabf52}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\sqlite">
+      <UniqueIdentifier>{5199de38-8685-49f4-9bc4-299c034f37f3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Common\mtrand">
+      <UniqueIdentifier>{9ca65b8b-7d8d-45a1-9172-aba70caa800b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Global Managers">
+      <UniqueIdentifier>{a170247f-ae1c-4470-8f51-fe59b6db7e11}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="actor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actorcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actorgroup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="client.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="clientenchantmentcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="decodepackets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="encodepackets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="item.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magiccontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magicgenerator.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magictargeter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magictargeterprojectile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="magictargetertimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="meleecombatcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="randf.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="randint32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="regionswarmspawner.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="statisticslogger.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="uniqueavatarnamechecker.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="worldregion.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="packets\slowsync-encoder.cpp">
+      <Filter>Source Files\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="packets\tellactorfulldescriptions-encoder.cpp">
+      <Filter>Source Files\packets</Filter>
+    </ClCompile>
+    <ClCompile Include="time.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\actorid.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\evidyon_world.cpp">
+      <Filter>Shared</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\server-editor\evidyon_gameplay_design.cpp">
+      <Filter>Shared\with Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\server-editor\server_gamefile.cpp">
+      <Filter>Shared\with Editor</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\client-server\packetencoder.cpp">
+      <Filter>Shared\with Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\shared\client-server\packets.cpp">
+      <Filter>Shared\with Client</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\dclib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="enetlib.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\templateserializer.cpp">
+      <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\callbacks.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\host.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\list.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\packet.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\peer.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\protocol.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\enet\win32.c">
+      <Filter>Common\enet</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\sqlite\sqlite3.c">
+      <Filter>Common\sqlite</Filter>
+    </ClCompile>
+    <ClCompile Include="..\common\mtrand\mtrand.cpp">
+      <Filter>Common\mtrand</Filter>
+    </ClCompile>
+    <ClCompile Include="globalactormanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalclientmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globaldatabasemanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalgamefilemanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalitemmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globallifeformaimanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalmagicmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalnetworkmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="globalworldmanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="interactivenpclifeformaicontroller.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="interactivenpclifeformaimanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="normalmeleemonsterlifeformaicontroller.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+    <ClCompile Include="normalmeleemonsterlifeformaimanager.cpp">
+      <Filter>Global Managers</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="packets\slowsync-encoder.h">
+      <Filter>Source Files\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="packets\tellactorfulldescriptions-encoder.h">
+      <Filter>Source Files\packets</Filter>
+    </ClInclude>
+    <ClInclude Include="actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actor_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actorcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actorgroup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actorpointer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="avatarattributes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="avatarinventoryitem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="client.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="client_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="clientconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="clientenchantmentcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="databaseinventoryitem.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="decodepackets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="encodepackets.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="instantiatedmagic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="item.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="itemidtype.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magiccontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magicgenerator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magictargeter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magictargeterprojectile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="magictargetertimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="main.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meleeattack.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meleeblock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="meleecombatcontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="null.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randf.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randint32.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="regionswarmspawner.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="serverstorage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="statisticslogger.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="time.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="uniqueavatarnamechecker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="worldregion.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="worldregion_inline.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="worldregion_items.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\actorid.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_accounts.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_actor.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatar.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_enchantments.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_magic.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_map.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_network.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_npc.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_specialfx.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_storage.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_version.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\evidyon_world.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\networkdecl.h">
+      <Filter>Shared</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\evidyon_gameplay_design.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\lifeformaidescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\magicdescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\maplocationspecialfunction.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\server_gamefile.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\serveratlas.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\serverprojectiledescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\server-editor\serverspelldescription.h">
+      <Filter>Shared\with Editor</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\actordescription.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\actorsync.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\askactorfulldescriptions.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\fastsync.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\packetencoder.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\packets.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\slowsync.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\tellactorfulldescriptions.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\shared\client-server\tradeitemdescription.h">
+      <Filter>Shared\with Client</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\null.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\safemacros.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\templateserializer.h">
+      <Filter>Common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\callbacks.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\enet.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\list.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\protocol.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\time.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\types.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\utility.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\enet\win32.h">
+      <Filter>Common\enet</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\sqlite\sqlite3.h">
+      <Filter>Common\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\sqlite\sqlite3ext.h">
+      <Filter>Common\sqlite</Filter>
+    </ClInclude>
+    <ClInclude Include="..\common\mtrand\mtrand.h">
+      <Filter>Common\mtrand</Filter>
+    </ClInclude>
+    <ClInclude Include="globalactormanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalclientmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globaldatabasemanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalgamefilemanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalitemmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globallifeformaimanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalmagicmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalnetworkmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="globalworldmanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="interactivenpclifeformaicontroller.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="interactivenpclifeformaimanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="normalmeleemonsterlifeformaicontroller.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+    <ClInclude Include="normalmeleemonsterlifeformaimanager.h">
+      <Filter>Global Managers</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\server\config.ini" />
+    <None Include="..\bin\server\database.cfg" />
+    <None Include="..\bin\install-evidyon\install-evidyon.msi" />
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+  </ItemGroup>
+</Project>

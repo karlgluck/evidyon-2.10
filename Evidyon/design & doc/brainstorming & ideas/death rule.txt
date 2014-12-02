@@ -1,0 +1,13 @@
+ - share storage for account
+ - when die, never drop items on you:
+	-> sum up value of equipped items
+	-> sum up value of inventory
+	-> drop inventory and enough items from storage to make up the value of the equipped item(s) that *would* have been dropped
+
+
+clone item?  grab "design" from character to make your own!!!
+
+
+
+
+diablo II - blahblahblah's ear on death, take to merch to claim reward

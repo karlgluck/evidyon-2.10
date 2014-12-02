@@ -1,0 +1,4 @@
+"recover" when die; then menu and u can either respawn (no xp loss) or get up where u are
+
+
+high constitution shortens this time

@@ -1,0 +1,4 @@
+wacky idea:  don't lose EXP when you die & respawn;  you lose "soul".  When your soul points decrease to 0, your character is dead.
+to bring the character back, you must venture with another character on your account to the end of a dungeon to resurrect him.
+a character gains a soul point each time he or she levels; soul points don't apply to characters under level 10 (thus, all characters
+start with 10 soul points)

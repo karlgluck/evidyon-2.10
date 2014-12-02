@@ -1,0 +1,3 @@
+#include "../dc/dcinternal_begin.h"
+#include "dcxclassallocator.h"
+#include "../dc/dcinternal_end.h"

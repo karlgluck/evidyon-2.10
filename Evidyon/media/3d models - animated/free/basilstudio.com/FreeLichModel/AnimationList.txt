@@ -1,0 +1,10 @@
+The model uses bone animation via interpolation u need to adjust the fps/ticks in ur engine
+for the individual sequences. 
+
+Idle 0-6
+Death 7-15
+ClawAttack 16-23
+Move 24-27
+
+Issues: MDL7 seem to have troubles with interpolation based animation though conitec
+will upgrades to to a new better format soon.

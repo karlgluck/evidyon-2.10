@@ -1,0 +1,201 @@
+the original mesh and skin were  obtained from Dark Matter Models, free DarkGDK Content from thegamecreators.com
+I have redone the animations using fragMOTION.
+
+
+Original License Agreement:
+
+
+
+Dark Matter End User Licence Agreement
+
+The copyright in this software ("the Software") and its associated 
+documentation is owned by The Game Creators Limited ("the Owner"). 
+By installing or otherwise using the Software or any part of it, including 
+without limitation any 3D model contained on this Collection ("Model"), 
+you (an individual or legal entity) agree with the Owner to be bound by 
+the terms of this Agreement which will govern your use of the Software 
+and your limited right to exploit a part of the Software.  In this Agreement 
+the term "Software" includes all and any Models.
+
+1.	Licence
+
+1.1	You are permitted on a non exclusive basis to:
+
+(a)	load the Software into and use it on a single computer which is 
+under your control;
+(b)	transfer the Software from one computer to another provided it 
+is used on only one computer at any one time; 
+(c)	use the Software on a computer network provided you have 
+purchased such number of copies of the Software equal to the 
+maximum number of copies of the Software in use on that 
+network at any one time;
+(d)	incorporate Models within (and solely as an integral part of) 
+Games (as Games are defined in paragraph 1.4 below) and 
+copy and issue copies of those Games to the public (subject 
+always to the provisions of section 4 below);
+(e)	make a copy of the Software for back-up purposes only in 
+support of the permitted use. The copies must reproduce and 
+include the Owner's copyright notice; and
+(f)	provided that the prohibition in section 1.2(c) below does not 
+apply, transfer the Software (complete with all its associated 
+documentation) and the benefit of this Agreement to another 
+person provided he has agreed to accept the terms of this 
+Agreement and you contemporaneously transfer all copies of 
+the Software you have made to that person or destroy all copies 
+not transferred. If any transferee does not accept such terms 
+then this Agreement shall automatically terminate. The 
+transferor does not retain any rights under this Agreement in 
+respect of the transferred Software.
+
+1.2	You are not permitted:
+
+(a)	to load the Software on to a network server for the purposes of 
+distribution to one or more other computer(s) on that network 
+or to effect such distribution (such use requiring a separate 
+licence);
+(b)	except as expressly permitted by this Agreement and save to 
+the extent and in the circumstances expressly required to be 
+permitted by law, to rent, lease, sub-license, loan, copy, 
+modify, adapt, merge, translate, reverse engineer, decompile, 
+disassemble or create derivative works based on the whole or 
+any part of the Software or its associated documentation or use, 
+reproduce, exploit or deal in the Software or any part of it in 
+any way;
+(c)	to copy or distribute to the public or otherwise exploit (on 
+either a commercial or a non-commercial basis) any Models 
+other than within and as an integral part of a Game; or
+(d)	to transfer the Software or the benefit of this Agreement to any 
+person if you have already incorporated any part of this 
+Software into any Game.
+
+1.3	To the extent that local law gives you the right to decompile the 
+Software in order to obtain information necessary to render the 
+Software interoperable with other computer programs, the Owner 
+undertakes to make that information readily available to you. The 
+Owner shall have the right to impose reasonable conditions such as a 
+reasonable fee for doing so. In order to ensure that you receive the 
+appropriate information, you must first give the Owner sufficient 
+details of your objectives and the other software concerned. Requests 
+for the appropriate information should be made to 
+info@thegamecreators.com.
+
+1.4	For the purposes of this Agreement the term "Game" means an 
+interactive entertainment software game whose sole purpose is to 
+entertain its user without further modification.  Notwithstanding this, 
+the term Game expressly excludes: 
+
+(a)	any software tool or software product which can (or might) be 
+used in order to create further games or other software 
+products; and
+(b)	any software library, compilation or collection of graphics and / 
+or sounds from which a particular graphic or sound may be 
+extracted to be used independently of the software in which it 
+was first incorporated;
+in each case irrespective of whether or not the primary purpose of such 
+software is to entertain its user.
+
+2.	Term
+
+This Agreement is effective until you terminate it by destroying the 
+Software and its documentation together with all copies.  It will also 
+terminate if you fail to abide by its terms.  Upon termination you agree 
+to destroy all copies of the Software and its documentation including 
+any Software stored on the hard disk of any computer under your 
+control.
+
+3.	Ownership
+
+You own only the media (or authorised replacement) on which the 
+Software is recorded.  You may retain that media on termination of 
+this Agreement provided the Software has been erased.  The Owner 
+shall at all times retain ownership of the Software (including all 
+Models) as recorded on the original Collection and all subsequent 
+copies of the same regardless of form.  This Agreement applies to the 
+grant of the licence contained in this Agreement only and not to the 
+contract of sale of the media..
+
+4.	Exploitation of Games
+
+You shall ensure that, in respect of all Games which incorporate any 
+part of the Software and which are created by you or with your 
+permission: 
+
+(a)	the terms on which any such Games are used or exploited 
+(including by way of sale or licence) by any person include 
+terms binding on all persons using or exploiting the Software 
+which confirm the Owner's ownership of the Software; and
+(b)	the packaging and media containing any such Games and any 
+marketing or promotional text referring to such Games shall 
+each include the legend "3D Models (c) The Game Creators 
+Limited.  All Rights Reserved.  Used under licence." 
+
+5.	Warranties
+
+5.1	The Owner warrants that the media on which the Software is supplied 
+will be free from defects in materials and workmanship under normal 
+use for a period of 90 days after the date on which the media is first 
+purchased ("the Warranty Period"). If a defect in the media shall 
+occur during the Warranty Period it may be returned with proof of 
+purchase to the Owner who will replace it free of charge.
+
+5.2	The Owner warrants that during the Warranty Period the Software will 
+perform substantially in accordance with its accompanying 
+documentation (including the Readme file contained on this CD- 
+ROM) which may include documentation posted on the Owner's 
+Internet site at www.thegamecreators.com (provided always that the Software 
+is properly used on the computer and with the operating system for 
+which it was designed) and that the documentation correctly describes 
+the operation of the Software in all material respects. If the Owner is 
+notified of significant failures of the Software to comply with the 
+above warranty during the Warranty Period it will use its reasonable 
+endeavours to correct the Software or its documentation within a 
+reasonable time so that it complies with the above warranty or (at its 
+option) to procure or authorise a refund (against return of the Software 
+and its documentation).
+
+5.3	The above represent your sole remedies for any breach of the Owner's 
+warranties, which are given only to the original registered user.
+
+5.4	The express terms of this Agreement are in lieu of all warranties, 
+conditions, undertakings, terms and obligations implied by statute, 
+common law, trade usage, course of dealing or otherwise all of which 
+are hereby excluded to the fullest extent permitted by law.
+
+5.5	The Owner does not warrant that the Software will meet your 
+requirements or will be suitable for creating commercial products or 
+that the operation of the Software will be uninterrupted or error-free or 
+that defects in the Software will be corrected. You shall load and use 
+the Software at your own risk and in no event will the Owner be liable 
+to you for any loss or damage of any kind (except personal injury or 
+death resulting from the Owner's negligence or loss or damage 
+resulting from any fraudulent misrepresentation made by the Owner) 
+including lost profits or other economic loss or any consequential loss 
+arising from your use of or inability to use the Software or from errors 
+or deficiencies in it whether caused by negligence or otherwise except 
+as expressly provided herein. In no event shall the Owner's liability 
+exceed the amount paid by you for the Software.
+
+6.	Support
+
+The Owner's technical support staff will endeavour to answer by email 
+any queries in English the original registered user may have regarding 
+the use of the Software or its application for a period of 60 days after 
+the first support service email, which must be made within the 
+Warranty Period. For email support please email info@thegamecreators.com
+and the Owner shall endeavour to respond within two working days of 
+receipt of your email.
+
+7.	Law
+
+7.1	This Agreement shall be governed by and construed in accordance 
+with English law.
+
+7.2	Each of the parties irrevocably submits for all purposes in connection 
+with this Agreement to the exclusive jurisdiction of the courts of 
+England.
+
+8.	Exclusion of third party rights
+
+No term of this Agreement is enforceable pursuant to the Contracts 
+(Rights of Third Parties) Act 1999 by any person who is not a party to 
+it.

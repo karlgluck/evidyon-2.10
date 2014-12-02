@@ -1,0 +1,171 @@
+B0 - dustygrass
+B1 - sandstone
+D0 - graydirt
+D1 - redsand
+D2 - reddirt
+D3 - greendirt
+G0 - grass
+G1 - lightgrass
+G2 - overgrownpath
+G3 - grassypath
+P0 - leafyfloor
+P1 - forestfloor
+R0 - ridgerock
+S0 - lightstone
+S1 - blackstone
+S2 - brick
+S3 - graystone
+S4 - fancystone
+S5 - brokenstone
+
+rules to create:
+	brick-graydirt
+	brokenstone-grass
+	fancystone-grass
+	fancystone-graydirt
+	fancystone-lightstone(A)
+	fancystone-lightstone(B)
+	forestfloor-grass
+	grass-lightstone
+	grassypath-grass
+	graydirt-dustygrass
+	graydirt-grass
+	graystone-grass
+	greendirt-reddirt
+	leafyfloor-grass
+	lightgrass-grass
+	overgrownpath-grass
+	reddirt-grass
+	redsand-grass
+	redsand-brick
+	redsand-dustygrass
+	ridgerock-graydirt
+	sandstone-blackstone
+	sandstone-dustygrass
+
+
+rule order:
+	notching (N,E,S,W) -> half/half
+
+rules for:
+	surrounded
+	notches
+		N
+		E
+		S
+		W
+	outside corner
+		NW
+		NE
+		SE
+		Sw
+	inside corner
+		NW
+		NE
+		SE
+		SW
+	edges
+		N
+		E
+		S
+		W
+
+terrain permutation replacements
+
+=== FIRST ROUND ===
+
+[e] [e]		[s]-0
+[e] [n]		[e]-0
+[e] [s]		[w]-0
+[e] [w]		[n]-0
+
+[n] [e]		[e]-1
+[n] [n]		[n]-1
+[n] [s]		[s]-1
+[n] [w]		[w]-1
+
+[ne-i] [e]	[se-i]
+[ne-i] [n]	[ne-i]
+[ne-i] [s]	[sw-i]
+[ne-i] [w]	[nw-i]
+
+[ne-o] [e]	[se-o]
+[ne-o] [n]	[ne-o]
+[ne-o] [s]	[sw-o]
+[ne-o] [w]	[nw-o]
+
+=== SECOND ROUND ===
+
+[e]-0 [e]	[s]-0
+[e]-0 [n]	[e]-0
+[e]-0 [s]	[w]-0
+[e]-0 [w]	[n]-0
+
+[n]-0 [e]	[e]-1
+[n]-0 [n]	[n]-1
+[n]-0 [s]	[s]-1
+[n]-0 [w]	[w]-1
+
+[ne-o]-0 [e]	[se-o]-0
+[ne-o]-0 [n]	[ne-o]-0
+[ne-o]-0 [s]	[sw-o]-0
+[ne-o]-0 [w]	[nw-o]-0
+
+[ne-i]-0 [e]	[se-i]-0
+[ne-i]-0 [n]	[ne-i]-0
+[ne-i]-0 [s]	[sw-i]-0
+[ne-i]-0 [w]	[nw-i]-0
+
+=== THIRD ROUND ===
+
+[e]-1 [e]	[s]-2
+[e]-1 [n]	[e]-2
+[e]-1 [s]	[w]-2
+[e]-1 [w]	[n]-2
+
+[n]-1 [e]	[e]-3
+[n]-1 [n]	[n]-3
+[n]-1 [s]	[s]-3
+[n]-1 [w]	[w]-3
+
+[ne-o]-1 [e]	[se-o]-1
+[ne-o]-1 [n]	[ne-o]-1
+[ne-o]-1 [s]	[sw-o]-1
+[ne-o]-1 [w]	[nw-o]-1
+
+[ne-i]-1 [e]	[se-i]-1
+[ne-i]-1 [n]	[ne-i]-1
+[ne-i]-1 [s]	[sw-i]-1
+[ne-i]-1 [w]	[nw-i]-1
+
+=== FOURTH ROUND ===
+
+[e]-2 [e]	[s]-4
+[e]-2 [n]	[e]-4
+[e]-2 [s]	[w]-4
+[e]-2 [w]	[n]-4
+
+[n]-2 [e]	[e]-5
+[n]-2 [n]	[n]-5
+[n]-2 [s]	[s]-5
+[n]-2 [w]	[w]-5
+
+[ne-o]-2 [e]	[se-o]-2
+[ne-o]-2 [n]	[ne-o]-2
+[ne-o]-2 [s]	[sw-o]-2
+[ne-o]-2 [w]	[nw-o]-2
+
+[ne-i]-2 [e]	[se-i]-2
+[ne-i]-2 [n]	[ne-i]-2
+[ne-i]-2 [s]	[sw-i]-2
+[ne-i]-2 [w]	[nw-i]-2
+
+
+
+
+TODO:
+
+generate rotated versions of
+fancystone-lightstone[e]-A0...etc and rename
+create terrain rules
+create terrain blending map

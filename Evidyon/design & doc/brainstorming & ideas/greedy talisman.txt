@@ -1,0 +1,12 @@
+
+
+
+	the greedy talisman is an item that prevents you from dropping
+	any equipped items when you die (or those that would have been
+	pulled from storage).  however, after it is used, it will
+	unequip a random item (move it from equipped -> inventory).  the
+        greedy talisman disappears when you die & respawn.
+
+	the disadvantage here is that if you die in a hostile area,
+	resurrect, and die again before equipping the item, it will
+	drop the item that was unequipped.

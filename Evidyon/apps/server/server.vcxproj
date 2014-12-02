@@ -1,0 +1,313 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Profile|Win32">
+      <Configuration>Profile</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C6574349-2D0A-4967-A06A-757117040AD5}</ProjectGuid>
+    <RootNamespace>server</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>NotSet</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.40219.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">true</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../bin/$(ProjectName)/\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">../build/$(ProjectName)/$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkIncremental>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(Configuration)\</IntDir>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">false</LinkIncremental>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_CONSOLE;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <TargetMachine>MachineX86</TargetMachine>
+      <OutputFile>$(OutDir)$(ProjectName)_d.exe</OutputFile>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <ExceptionHandling>
+      </ExceptionHandling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <RuntimeTypeInfo>false</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;DC_ENABLE_DEBUGGING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\..\DirectCraft\;$(SolutionDir)common\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <OutputFile>$(OutDir)$(ProjectName)_profile.exe</OutputFile>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Console</SubSystem>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\DirectCraft\lib\;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="actor.cpp" />
+    <ClCompile Include="actorcontroller.cpp" />
+    <ClCompile Include="actorgroup.cpp" />
+    <ClCompile Include="client.cpp" />
+    <ClCompile Include="clientenchantmentcontroller.cpp" />
+    <ClCompile Include="decodepackets.cpp" />
+    <ClCompile Include="encodepackets.cpp" />
+    <ClCompile Include="item.cpp" />
+    <ClCompile Include="magiccontroller.cpp" />
+    <ClCompile Include="magicgenerator.cpp" />
+    <ClCompile Include="magictargeter.cpp" />
+    <ClCompile Include="magictargeterprojectile.cpp" />
+    <ClCompile Include="magictargetertimer.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="meleecombatcontroller.cpp" />
+    <ClCompile Include="randf.cpp" />
+    <ClCompile Include="randint32.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Profile|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.obj</ObjectFileName>
+      <XMLDocumentationFileName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(IntDir)%(Filename)1.xdc</XMLDocumentationFileName>
+    </ClCompile>
+    <ClCompile Include="regionswarmspawner.cpp" />
+    <ClCompile Include="statisticslogger.cpp" />
+    <ClCompile Include="uniqueavatarnamechecker.cpp" />
+    <ClCompile Include="worldregion.cpp" />
+    <ClCompile Include="packets\slowsync-encoder.cpp" />
+    <ClCompile Include="packets\tellactorfulldescriptions-encoder.cpp" />
+    <ClCompile Include="time.cpp" />
+    <ClCompile Include="..\shared\actorid.cpp" />
+    <ClCompile Include="..\shared\evidyon_world.cpp" />
+    <ClCompile Include="..\shared\server-editor\evidyon_gameplay_design.cpp" />
+    <ClCompile Include="..\shared\server-editor\server_gamefile.cpp" />
+    <ClCompile Include="..\shared\client-server\packetencoder.cpp" />
+    <ClCompile Include="..\shared\client-server\packets.cpp" />
+    <ClCompile Include="..\common\dclib.cpp" />
+    <ClCompile Include="enetlib.cpp" />
+    <ClCompile Include="..\common\templateserializer.cpp" />
+    <ClCompile Include="..\common\enet\callbacks.c" />
+    <ClCompile Include="..\common\enet\host.c" />
+    <ClCompile Include="..\common\enet\list.c" />
+    <ClCompile Include="..\common\enet\packet.c" />
+    <ClCompile Include="..\common\enet\peer.c" />
+    <ClCompile Include="..\common\enet\protocol.c" />
+    <ClCompile Include="..\common\enet\win32.c" />
+    <ClCompile Include="..\common\sqlite\sqlite3.c" />
+    <ClCompile Include="..\common\mtrand\mtrand.cpp" />
+    <ClCompile Include="globalactormanager.cpp" />
+    <ClCompile Include="globalclientmanager.cpp" />
+    <ClCompile Include="globaldatabasemanager.cpp" />
+    <ClCompile Include="globalgamefilemanager.cpp" />
+    <ClCompile Include="globalitemmanager.cpp" />
+    <ClCompile Include="globallifeformaimanager.cpp" />
+    <ClCompile Include="globalmagicmanager.cpp" />
+    <ClCompile Include="globalnetworkmanager.cpp" />
+    <ClCompile Include="globalworldmanager.cpp" />
+    <ClCompile Include="interactivenpclifeformaicontroller.cpp" />
+    <ClCompile Include="interactivenpclifeformaimanager.cpp" />
+    <ClCompile Include="normalmeleemonsterlifeformaicontroller.cpp" />
+    <ClCompile Include="normalmeleemonsterlifeformaimanager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="packets\slowsync-encoder.h" />
+    <ClInclude Include="packets\tellactorfulldescriptions-encoder.h" />
+    <ClInclude Include="actor.h" />
+    <ClInclude Include="actor_inline.h" />
+    <ClInclude Include="actorcontroller.h" />
+    <ClInclude Include="actorgroup.h" />
+    <ClInclude Include="actorpointer.h" />
+    <ClInclude Include="avatarattributes.h" />
+    <ClInclude Include="avatarinventoryitem.h" />
+    <ClInclude Include="client.h" />
+    <ClInclude Include="client_inline.h" />
+    <ClInclude Include="clientconfig.h" />
+    <ClInclude Include="clientenchantmentcontroller.h" />
+    <ClInclude Include="databaseinventoryitem.h" />
+    <ClInclude Include="decodepackets.h" />
+    <ClInclude Include="encodepackets.h" />
+    <ClInclude Include="instantiatedmagic.h" />
+    <ClInclude Include="item.h" />
+    <ClInclude Include="itemidtype.h" />
+    <ClInclude Include="magic.h" />
+    <ClInclude Include="magiccontroller.h" />
+    <ClInclude Include="magicgenerator.h" />
+    <ClInclude Include="magictargeter.h" />
+    <ClInclude Include="magictargeterprojectile.h" />
+    <ClInclude Include="magictargetertimer.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="meleeattack.h" />
+    <ClInclude Include="meleeblock.h" />
+    <ClInclude Include="meleecombatcontroller.h" />
+    <ClInclude Include="null.h" />
+    <ClInclude Include="randf.h" />
+    <ClInclude Include="randint32.h" />
+    <ClInclude Include="regionswarmspawner.h" />
+    <ClInclude Include="serverstorage.h" />
+    <ClInclude Include="statisticslogger.h" />
+    <ClInclude Include="time.h" />
+    <ClInclude Include="uniqueavatarnamechecker.h" />
+    <ClInclude Include="worldregion.h" />
+    <ClInclude Include="worldregion_inline.h" />
+    <ClInclude Include="worldregion_items.h" />
+    <ClInclude Include="..\shared\actorid.h" />
+    <ClInclude Include="..\shared\evidyon_accounts.h" />
+    <ClInclude Include="..\shared\evidyon_actor.h" />
+    <ClInclude Include="..\shared\evidyon_avatar.h" />
+    <ClInclude Include="..\shared\evidyon_avatarinventory.h" />
+    <ClInclude Include="..\shared\evidyon_enchantments.h" />
+    <ClInclude Include="..\shared\evidyon_magic.h" />
+    <ClInclude Include="..\shared\evidyon_map.h" />
+    <ClInclude Include="..\shared\evidyon_network.h" />
+    <ClInclude Include="..\shared\evidyon_npc.h" />
+    <ClInclude Include="..\shared\evidyon_specialfx.h" />
+    <ClInclude Include="..\shared\evidyon_storage.h" />
+    <ClInclude Include="..\shared\evidyon_version.h" />
+    <ClInclude Include="..\shared\evidyon_world.h" />
+    <ClInclude Include="..\shared\networkdecl.h" />
+    <ClInclude Include="..\shared\server-editor\evidyon_gameplay_design.h" />
+    <ClInclude Include="..\shared\server-editor\lifeformaidescription.h" />
+    <ClInclude Include="..\shared\server-editor\magicdescription.h" />
+    <ClInclude Include="..\shared\server-editor\maplocationspecialfunction.h" />
+    <ClInclude Include="..\shared\server-editor\server_gamefile.h" />
+    <ClInclude Include="..\shared\server-editor\serveratlas.h" />
+    <ClInclude Include="..\shared\server-editor\serverprojectiledescription.h" />
+    <ClInclude Include="..\shared\server-editor\serverspelldescription.h" />
+    <ClInclude Include="..\shared\client-server\actordescription.h" />
+    <ClInclude Include="..\shared\client-server\actorsync.h" />
+    <ClInclude Include="..\shared\client-server\askactorfulldescriptions.h" />
+    <ClInclude Include="..\shared\client-server\fastsync.h" />
+    <ClInclude Include="..\shared\client-server\packetencoder.h" />
+    <ClInclude Include="..\shared\client-server\packets.h" />
+    <ClInclude Include="..\shared\client-server\slowsync.h" />
+    <ClInclude Include="..\shared\client-server\tellactorfulldescriptions.h" />
+    <ClInclude Include="..\shared\client-server\tradeitemdescription.h" />
+    <ClInclude Include="..\common\null.h" />
+    <ClInclude Include="..\common\safemacros.h" />
+    <ClInclude Include="..\common\templateserializer.h" />
+    <ClInclude Include="..\common\enet\callbacks.h" />
+    <ClInclude Include="..\common\enet\enet.h" />
+    <ClInclude Include="..\common\enet\list.h" />
+    <ClInclude Include="..\common\enet\protocol.h" />
+    <ClInclude Include="..\common\enet\time.h" />
+    <ClInclude Include="..\common\enet\types.h" />
+    <ClInclude Include="..\common\enet\utility.h" />
+    <ClInclude Include="..\common\enet\win32.h" />
+    <ClInclude Include="..\common\sqlite\sqlite3.h" />
+    <ClInclude Include="..\common\sqlite\sqlite3ext.h" />
+    <ClInclude Include="..\common\mtrand\mtrand.h" />
+    <ClInclude Include="globalactormanager.h" />
+    <ClInclude Include="globalclientmanager.h" />
+    <ClInclude Include="globaldatabasemanager.h" />
+    <ClInclude Include="globalgamefilemanager.h" />
+    <ClInclude Include="globalitemmanager.h" />
+    <ClInclude Include="globallifeformaimanager.h" />
+    <ClInclude Include="globalmagicmanager.h" />
+    <ClInclude Include="globalnetworkmanager.h" />
+    <ClInclude Include="globalworldmanager.h" />
+    <ClInclude Include="interactivenpclifeformaicontroller.h" />
+    <ClInclude Include="interactivenpclifeformaimanager.h" />
+    <ClInclude Include="normalmeleemonsterlifeformaicontroller.h" />
+    <ClInclude Include="normalmeleemonsterlifeformaimanager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\bin\server\config.ini" />
+    <None Include="..\bin\server\database.cfg" />
+    <None Include="..\bin\install-evidyon\install-evidyon.msi" />
+    <None Include="..\..\design &amp; doc\plan-for-progress.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

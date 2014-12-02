@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Library Headers">
+      <UniqueIdentifier>{35542a11-0315-4102-9ec8-d1b3a7b3c1ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="d3d">
+      <UniqueIdentifier>{47683b50-b036-494e-9b7f-5f97c78e65df}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="audio">
+      <UniqueIdentifier>{80feb163-ac65-406e-b83a-994a2dc8d646}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="win32">
+      <UniqueIdentifier>{32b685a8-7ba4-496c-afaa-743ae6b69b52}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="dcx\dcxasyncdebugout.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxasyncfilewriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxasynchronoussisothreaddatacontroller.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcxbitmask.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxclassallocator.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxclock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxcpu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxeventtimer.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxguaranteedmemorypool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxinifilereader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxinifilewriter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxmanagedmemorypool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxmemorypool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxperiodiceventlimiter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxscheduler.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxstatemachine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxtimerpool.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxvector3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32internetstream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxd3d.h">
+      <Filter>d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxd3dcolor.h">
+      <Filter>d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxd3ddialogcontroller.h">
+      <Filter>d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxd3dxmatrix.h">
+      <Filter>d3d</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32clock.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32dialogcontroller.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32dialogtemplate.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32keyboard.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+    <ClInclude Include="dcx\dcxwin32mouse.h">
+      <Filter>win32</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="dcx\asyncdebugout">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\asyncfilewriter">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\asynchronoussisothreaddatacontroller">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\bitmask">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\classallocator">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\cpu">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\d3d">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\d3dcolor">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\d3dxmatrix">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\eventtimer">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\guaranteedmemorypool">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\inifilereader">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\inifilewriter">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\managedmemorypool">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\memorypool">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\statemachine">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\time">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\vector3">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="dcx\win32">
+      <Filter>Library Headers</Filter>
+    </None>
+    <None Include="design.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\dcxasyncdebugout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxasyncfilewriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxclock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxcpu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxd3d.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxd3ddialogcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxd3dxmatrix.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxeventtimer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxinifilereader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxinifilewriter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32clock.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32dialogcontroller.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32dialogtemplate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32internetstream.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32keyboard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\dcxwin32mouse.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>

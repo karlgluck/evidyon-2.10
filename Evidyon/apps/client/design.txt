@@ -1,0 +1,303 @@
+
+heres some thing tho, Wisdom gives Casters extra magical deffence,
+  what about melee Str AttackP/like 5 defence points or something, or more.?
+
+Also you gotto make Steals work, and the robur buff.
+Realllyyyyyyy fix steals:P
+
+
+
+
+
+
+
+
+
+
+Yes, there will be more classes.  I hope to release 2 but up to 4 new classes before beta:
+
+[b]Hunter[/b] - Ranger/thief/rogue with woodland abilities such as tracking players by their footsteps, spying from afar, shapeshifting into monsters combined with wielding fast, lethal attacks.
+[b]Leyshaper[/b] - Uses the environment for offense and defense.  Special attributes include reflecting projectiles, absorbing/redirecting physical and magical damage, creating illusions (fake walls/objects/people), summoning minions, creating portals, self duplication, invisibility, polymorphing (into objects), phasing through walls and more.
+[b]Artisan[/b] - Crafter class.  Although all classes can add special properties to items and wield them, the Artisan derives his or her abilities almost entirely from the items wielded and is able to see properties of items at a much deeper level.  For example, what appears to be a bronze sword with +1 ability level to a non-artisan, the Artisan may see as a +1 ability level sword that grants him or her the ability to cast Multi Ignis and Whirlwind.  With sets of items equipped in combination, Artisans can get almost any ability from other classes (and some abilities no other class gets!)  Artisans are also the only source of Evidyon's equivalent to the LSA and magic bag, and are able to craft all sorts of other potions, charms and amulets.
+
+[b]cleric-y type class[/b] - I haven't really thought about this one, but it's needed.  General buffs/healing class.
+
+
+
+
+
+easy stuff to add:
+- footstep sounds
+- button-click sound
+- special fx targeter that locks in on scenery (to create special items)
+- beam spell
+- vertical shaking spell
+
+
+
+ADD MORE MAP
+
+fixed for 2.9.1 (mini-update):
+- mouse cursor changes for casting spells.  weird side effect: when you click on something to attack it, the mouse flips
+- high level monsters drop items now!
+- the bug where you don't stop moving after releasing the mouse button is fixed
+- put putesco back at level 7 for Sorcerers but reduced the damage
+- extended the length of all buff spells to 5-6 minutes
+- if the server goes down while you're still connected, the server will definitely
+  save your character in its current state and will gracefully disconnect you
+  (you won't be left hanging with a frozen client)
+
+
+fixed for 2.9.0:
+======================================================
+- items stay on map for longer
+- items on ground don't mistakenly disappear anymore
+- can't walk through walls
+- new "old skool" sword mouse cursor
+- icons for enchantments
+- sound fx volume decreases with distance
+- sounds pan left/right
+- spawning special fx to warn of monsters coming on-screen
+- fixed bug that was spawning monsters en mass around characters
+- physical hit sound (and special effect!) fixed a bit
+- swirling particle effect (divinus)
+- fixed memory leak in special FX manager
+- fixed lag when clicking on a character in account screen
+- new item types, lots of new items
+
+
+- confirm delete character
+
+
+
+
+
+
+
+enum ActorCombatState {
+  ACTORWEAPON_NONE,
+  ACTORWEAPON_BOW,
+  ACTORWEAPON_POLEARM,
+  ACTORWEAPON_1HWEAPON,
+  ACTORWEAPON_2HWEAPON,
+  ACTORWEAPON_PIKE,
+  ACTORWEAPON_BIGGUN, // lol :D
+  ACTORCOMBAT_NINJA_LOW,
+  ACTORCOMBAT_GODLIKE, // float in air...
+};
+
+
+- have animation "profiles" for each combat state
+- must be able to copy profiles! actors w/o profiles should be easy to create...
+->list o' profiles...
+
+
+class ActorCombatProfile {
+public:
+  dc::dcEnum<ActoCombatState> state;
+  Animation<>::Reference animations[];
+};
+
+
+buff icons!
+
+
+shade
+shard
+shadran
+shaad
+shaed
+nightshade
+nightwalker
+shadowalker
+darkwalker
+shadar
+shader
+human shader
+shadran
+shadris
+ninja
+shinja
+Shaydin
+shin
+core, root, vein ley
+
+Leyshade
+Leywalker
+Leyfarer
+
+LEYSHAPER
+ - teleport swap
+ - mimic
+ - instantly transport to nearest geosid
+ - 2 second reflect all projectiles spell
+ - mirror (1 sec) - turn attacks on source, disable own attacks
+ - nightfall - darken area
+ - shadowjump: teleport without special effect
+ - bind : mark target HP when bind starts; reduction in own HP steals
+          HP from target to regenerate when bind ends.  (increase in
+          own hp increases target HP to reduce)
+ - summon pet
+ - follow: you go to the same place as a portaling player
+ - shadowwalk: teleport to a random location where you've been before
+
+
+
+A player doesn't drop ANY ITEMS AT ALL if PKed by someone who is one of their last
+five PKers:
+  - if you kill one of your last PKers, it's REVENGE
+      > they always drop an equipped item
+      > they are removed from your last pkers list
+  - if you kill someone not on your last PKers list, the list is cleared. this
+    makes it so that continual pkers can be killed...over and over and over...
+    
+      
+
+Instead of banning a player, just "hobble" them--make it so that they can't talk
+and can't cast spells on or attack any other player
+
+
+
+
+BALANCING FACTOR FOR COMBAT
+let 'f' be a percentage greater than or equal to 0
+the damage that one PLAYER deals to another PLAYER is:
+    dmg = raw + balancing
+    raw = dmg * (1-f), minimum zero
+    
+    balancing = min( (percent damage dealt of attacker's hp) * (target's hp), f * dmg)
+    balancing = min( (dmg / attacker_hp) * target_hp, f*dmg )
+    
+'f' is based on the difference in attacker/target levels:
+f = (a - b)^2 / (a^2+b^2)
+
+
+
+
+
+
+
+
+use VLC for playing media!!!
+
+
+Ranger:
+    tracking skill - everyone leaves footprints!  can select a trail
+                     and it will be highlighted
+    hunt - "tag" someone and they blaze a trail as long as you are close to them
+    slayers - locate the last few actors to kill another actor
+    hide
+    backstab
+    multishot
+    eagleye
+    [skill to increase critical hit %]
+
+Artisan
+    enchanting objects
+
+Illusioner
+    summoning skills
+    doppleganger
+    transform self
+    duplicate self
+    imitate object
+
+    
+Warrior:
+    rage skill - higher damage at lower hp (more pts = increased dmg%, increased max hp%)
+  * rancor - half hp, does double damage until you miss
+    whirlwind - deflect projectiles
+    leap - like teleport, but can only pass over low walls (can't jump high walls)
+  * charge - push people out of the way and run toward target
+
+Knight - holy warrior    
+    
+
+vagabond/blackguard/rogue/ranger
+
+
+magician
+conjurer
+enchantress
+diabolist
+exorcister
+genie
+illusionist
+marvel
+medium
+necromancer
+seer
+siren
+sorcerer
+
+voodoo
+warlock
+witch
+wizard
+enchanter
+shaman
+
+
+
+
+
+
+
+
+
+Altus: high, matured, great, deep, noble, ancient, old, secret.
+
+Validus: mighty, powerful, exceeding, vigorous, strong, robust, able.
+
+Veneficus: poisonous, magical, witch, wizard, caster of spells.
+
+Luna: moon.
+
+Fulsi: to flash, shine, beam.
+
+Lux Lucis: light.
+
+Servo: to preserve, guard, to watch over, keep, protect, observe, save.
+
+Totus: whole, entire, complete, all.
+
+Rememdium: cure, remedy, medicine.
+
+Mortuus: dead, deceased, passed away, departed.
+
+Contego: to cover, shield, protect, defend, to conceal
+
+Alacritas: rapidity, quickness, animation, sharpness, eagerness.
+
+Victus: victuals, sustenance, living, manner of life, nourishment, food.
+
+Tribuo: to give out, divide, allot, assign, grant, give, allow.
+
+Tendo: to direct, try, attempt, stretch, tend, extend, present, give, to strive, heighten.
+
+Socius: partner, companion, sharing, comrade, associated, allied, ally, fellow.
+
+Valde: Intensely, strongly, very much, powerfully, extremely, greatly, exceedingly.
+
+Grandis: great, grand, powerful.
+
+Grandire: increase.
+
+Vigoratus: stout, hale, heale (heal), hearty.
+
+Curatus: attention, medical attention, healing, curing.
+
+Vires: force, power, strength, might, influence.
+
+Telum: javelin, spear, arrow, bolt, dart, armament, weapon.
+
+Terra: earth, ground, land, country, soil.
+
+Transtuli: carry across, transfer.
+
+Persultare: leap, skip, range (over), scour/
+
+Trans: across, over, beyond.
+
+
+

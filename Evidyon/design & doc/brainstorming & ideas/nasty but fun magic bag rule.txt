@@ -1,0 +1,18 @@
+Magic Bags will keep your gear equipped if you die and do not disappear if
+
+you die w/ EXP loss.  However, there is a small chance that the bag will "return
+
+to its owner" when used, and will both disappear and steal a random item
+
+from the player with it equipped.  This item will randomly be equipped to a
+
+boss character, be put in a chest or be distroyed (50% chance of destruction).
+
+
+Other Names:
+==================
+Cursed Bag of Holding <-- no, *implies* bad things >:)
+Greedy Sack
+Sorcerer's Magic Bag
+Magician's Bag of Tricks
+Keeping Talisman

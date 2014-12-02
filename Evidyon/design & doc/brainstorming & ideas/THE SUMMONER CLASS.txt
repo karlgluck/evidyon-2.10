@@ -1,0 +1,26 @@
+- no summoned creature heal; do this by setting its max HP to 1, but giving it an initial HP higher than that.
+
+- basic version would create a duplicate of yourself at a given location that stands still, does nothing and has 1 HP.  level 1 spell.  Useful only as a distraction tool if a PKer comes.  Born with 25% of your HP.
+
+- slightly higher level version works like a teleport, except you jump to the clicked location and leave copy of yourself behind.  Especially good for PKers since they think you're still there.  Born with half of your HP.
+
+- higher level than that would be a version of the spell that leaves behind a copy that runs in the opposite direction from that which you transported.  Born with half of caster's HP.
+
+- even higher level would be a version that instantly teleports you away to any marked location, leaving a clone behind.
+
+- create a copy of yourself that moves exactly the opposite way you do; you transport left, it transports right; you walk up, it walks down
+- would be very distracting in combat!
+- should have low HP so it's easy to kill
+- could have advanced version which creates three dopplegangers:  each moves at subsequent right angles to you
+
+- another advanced version would create four (or eight) copies in all cardinal (and intermediate) directions; however, none of them--including yourself--can move.  They all have the same HP as you, and can't be healed.  They all face the same direction and will always face the same direction you are.  The only way to move is by swapping places with a doppleganger, or canceling the spell by re-casting it.
+
+
+
+it seems like the class that would use this set of techniques should also have summoning/indirect damage abilities such as:
+
+- create a skull that, when summoned, always faces away from you and breathes flame continuously
+     ? same for ice?
+- create a "lightning rod" that zaps anything that comes near it
+     ? can be combined to generate a "lightning grid" from 4, 9, etc. rods that zaps anything inside the square
+- create illusionary walls that last up to 15 seconds

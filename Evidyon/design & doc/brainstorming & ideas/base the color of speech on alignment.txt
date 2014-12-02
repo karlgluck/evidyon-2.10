@@ -1,0 +1,1 @@
+By making text color based on chaotic-lawful alignment (red-white), this makes it passively obvious what a player's alignment is

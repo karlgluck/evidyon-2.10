@@ -1,0 +1,11 @@
+# File created by luuv TSX
+# Created on: Mon Jun 04 13:05:19 2007 -1
+
+newmtl NoName,1
+Ns 0
+Ka 0.290000 0.290000 0.290000
+Kd 1.000000 0.509804 0.509804
+Ks 0.100000 0.100000 0.100000
+d 0.996078
+map_Kd shop_texture.png 
+# End

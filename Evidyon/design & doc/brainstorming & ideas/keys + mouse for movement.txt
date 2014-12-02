@@ -1,0 +1,4 @@
+ - have forward/back move away from/toward the mouse
+ - have left/right strafe the character away from directly moving in the direction of the mouse to the left or right
+ - have special fighter combat moves like slide (scoots player quickly in current movement direction) or telejump
+   (makes player skip 10 paces in current direction)

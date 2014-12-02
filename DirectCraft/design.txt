@@ -1,0 +1,54 @@
+//------------------------------------------------------------------------------------------------
+// File:    .h
+//
+// Desc:    
+//
+// Copyright (c) 2007-2008 Unseen Studios.   All rights reserved.
+//------------------------------------------------------------------------------------------------
+#ifndef ___H__
+#define ___H__
+
+#endif
+
+TODO: change dcResourceTrader to dcResourceManipulator, and clean up the class + add callbacks
+
+TODO:  here's an interesting idea!  what if we had a resource type for all the basic Object types
+that, instead of storing a value explicitly, just referenced a non-resource value in its parent's
+class?  this would allow the user to easily set up a structure for editing:
+
+class dcCharArrayField;
+class dcStringPointerField;
+class dcIntegerField;
+class dcFloatField;
+class dcDoubleField;
+class dcIndex16Field;
+class dcIndex32Field;
+class dcByteField;
+class dcBooleanField;
+
+class dcxWin32WindowClass : public dcObject<dcxWin32WindowClass,WNDCLASSEX>
+{
+
+    public:
+    
+        dcxWin32WindowClass()
+            : myClassName( &myValue.lpszClassName ),
+              myStyle( &myValue.dwStyle )
+        {
+            myClassName.setValue( "Classy!" );
+            myStyle.setValue( 85 );
+        }
+    
+    protected:
+    
+        dcStringBufferPointer myClassName;
+
+        dcIndex32Pointer myStyle;
+};
+
+dcStringBufferPointer - References a character array where a string is stored
+dcBufferedStringPointer - Keeps track of a string locally, and references a pointer to that buffer
+
+
+dcFlags<StructName>
+

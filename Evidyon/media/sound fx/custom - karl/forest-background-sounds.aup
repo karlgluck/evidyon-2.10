@@ -1,0 +1,223 @@
+<?xml version="1.0"?>
+<audacityproject projname="forest-background-sounds_data" version="1.1.0" audacityversion="1.2.6" sel0="24.6590101217" sel1="24.6590101217" vpos="0" h="0.0000000000" zoom="42.1752533806" rate="22050.000000" >
+	<tags title="" artist="" album="" track="-1" year="" genre="-1" comments="" id3v2="1" />
+	<wavetrack name="cricket" channel="2" linked="0" offset="0.00000000" rate="22050.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="95881" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00092.au' len='95881' min='-0.090002' max='0.038443' rms='0.003310'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='2'>
+			<controlpoint t='2.030652596372' val='1.000000000000'/>
+			<controlpoint t='2.030657596372' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Audio Track" channel="2" linked="0" offset="0.00000000" rate="22050.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="748676" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00004.au' len='157616' min='-0.040558' max='0.037445' rms='0.007000'/>
+			</waveblock>
+			<waveblock start="157616" >
+				<simpleblockfile filename='b00007.au' len='157616' min='-0.040558' max='0.037445' rms='0.007000'/>
+			</waveblock>
+			<waveblock start="315232" >
+				<simpleblockfile filename='b00010.au' len='157616' min='-0.040558' max='0.037445' rms='0.007000'/>
+			</waveblock>
+			<waveblock start="472848" >
+				<simpleblockfile filename='b00016.au' len='137914' min='-0.040558' max='0.037445' rms='0.006458'/>
+			</waveblock>
+			<waveblock start="610762" >
+				<simpleblockfile filename='b00017.au' len='137914' min='-0.040558' max='0.037445' rms='0.006636'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='36'>
+			<controlpoint t='1.787022682360' val='1.000000000000'/>
+			<controlpoint t='1.787027682360' val='1.000000000000'/>
+			<controlpoint t='3.574050364720' val='1.000000000000'/>
+			<controlpoint t='3.574055364720' val='1.000000000000'/>
+			<controlpoint t='5.361078047080' val='1.000000000000'/>
+			<controlpoint t='5.361083047080' val='1.000000000000'/>
+			<controlpoint t='7.148105729440' val='1.000000000000'/>
+			<controlpoint t='7.148110729440' val='1.000000000000'/>
+			<controlpoint t='8.935133411800' val='1.000000000000'/>
+			<controlpoint t='8.935138411800' val='1.000000000000'/>
+			<controlpoint t='10.722161094160' val='1.000000000000'/>
+			<controlpoint t='10.722166094160' val='1.000000000000'/>
+			<controlpoint t='12.509188776521' val='1.000000000000'/>
+			<controlpoint t='12.509193776521' val='1.000000000000'/>
+			<controlpoint t='14.296216458881' val='1.000000000000'/>
+			<controlpoint t='14.296221458881' val='1.000000000000'/>
+			<controlpoint t='16.083244141241' val='1.000000000000'/>
+			<controlpoint t='16.083249141241' val='1.000000000000'/>
+			<controlpoint t='17.870271823601' val='1.000000000000'/>
+			<controlpoint t='17.870276823601' val='1.000000000000'/>
+			<controlpoint t='19.657299505961' val='1.000000000000'/>
+			<controlpoint t='19.657304505961' val='1.000000000000'/>
+			<controlpoint t='21.444327188321' val='1.000000000000'/>
+			<controlpoint t='21.444332188321' val='1.000000000000'/>
+			<controlpoint t='23.231354870681' val='1.000000000000'/>
+			<controlpoint t='23.231359870681' val='1.000000000000'/>
+			<controlpoint t='25.018382553041' val='1.000000000000'/>
+			<controlpoint t='25.018387553041' val='1.000000000000'/>
+			<controlpoint t='26.805410235401' val='1.000000000000'/>
+			<controlpoint t='26.805415235401' val='1.000000000000'/>
+			<controlpoint t='28.592437917761' val='1.000000000000'/>
+			<controlpoint t='28.592442917761' val='1.000000000000'/>
+			<controlpoint t='30.379465600121' val='1.000000000000'/>
+			<controlpoint t='30.379470600121' val='1.000000000000'/>
+			<controlpoint t='32.166493282481' val='1.000000000000'/>
+			<controlpoint t='32.166498282481' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="cricket2" channel="2" linked="0" offset="0.00000000" rate="16000.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="482263" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00233.au' len='212067' min='-0.095581' max='0.088196' rms='0.005872'/>
+			</waveblock>
+			<waveblock start="212067" >
+				<simpleblockfile filename='b00234.au' len='132632' min='-0.070313' max='0.075439' rms='0.003614'/>
+			</waveblock>
+			<waveblock start="344699" >
+				<simpleblockfile filename='b00149.au' len='137564' min='-0.095581' max='0.093414' rms='0.004978'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='12'>
+			<controlpoint t='4.740057500000' val='1.000000000000'/>
+			<controlpoint t='4.740062500000' val='1.000000000000'/>
+			<controlpoint t='5.498838890220' val='1.000000000000'/>
+			<controlpoint t='5.498843890220' val='1.000000000000'/>
+			<controlpoint t='9.758653015528' val='1.000000000000'/>
+			<controlpoint t='9.758658015528' val='1.000000000000'/>
+			<controlpoint t='10.517434405748' val='1.000000000000'/>
+			<controlpoint t='10.517439405748' val='1.000000000000'/>
+			<controlpoint t='17.352446292750' val='1.000000000000'/>
+			<controlpoint t='17.352451292750' val='1.000000000000'/>
+			<controlpoint t='18.111227682970' val='1.000000000000'/>
+			<controlpoint t='18.111232682970' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="insectnoise" channel="2" linked="0" offset="0.00000000" rate="22050.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="703761" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00063.au' len='153550' min='-0.036326' max='0.040408' rms='0.006622'/>
+			</waveblock>
+			<waveblock start="153550" >
+				<simpleblockfile filename='b00093.au' len='164975' min='-0.013585' max='0.013623' rms='0.000844'/>
+			</waveblock>
+			<waveblock start="318525" >
+				<simpleblockfile filename='b00094.au' len='164975' min='-0.036326' max='0.040408' rms='0.005572'/>
+			</waveblock>
+			<waveblock start="483500" >
+				<simpleblockfile filename='b00095.au' len='220261' min='-0.036326' max='0.040408' rms='0.006378'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='34'>
+			<controlpoint t='1.392715286606' val='1.000000000000'/>
+			<controlpoint t='1.392720286606' val='1.000000000000'/>
+			<controlpoint t='2.785435573212' val='1.000000000000'/>
+			<controlpoint t='2.785440573212' val='1.000000000000'/>
+			<controlpoint t='4.178155859818' val='1.000000000000'/>
+			<controlpoint t='4.178160859818' val='1.000000000000'/>
+			<controlpoint t='5.570876146424' val='1.000000000000'/>
+			<controlpoint t='5.570881146424' val='1.000000000000'/>
+			<controlpoint t='6.963596433030' val='1.000000000000'/>
+			<controlpoint t='6.963601433030' val='1.000000000000'/>
+			<controlpoint t='16.356316719636' val='1.000000000000'/>
+			<controlpoint t='16.356321719636' val='1.000000000000'/>
+			<controlpoint t='17.749037006241' val='1.000000000000'/>
+			<controlpoint t='17.749042006241' val='1.000000000000'/>
+			<controlpoint t='19.141757292847' val='1.000000000000'/>
+			<controlpoint t='19.141762292847' val='1.000000000000'/>
+			<controlpoint t='20.534477579453' val='1.000000000000'/>
+			<controlpoint t='20.534482579453' val='1.000000000000'/>
+			<controlpoint t='21.927197866059' val='1.000000000000'/>
+			<controlpoint t='21.927202866059' val='1.000000000000'/>
+			<controlpoint t='23.319918152665' val='1.000000000000'/>
+			<controlpoint t='23.319923152665' val='1.000000000000'/>
+			<controlpoint t='24.712638439271' val='1.000000000000'/>
+			<controlpoint t='24.712643439271' val='1.000000000000'/>
+			<controlpoint t='26.105358725877' val='1.000000000000'/>
+			<controlpoint t='26.105363725877' val='1.000000000000'/>
+			<controlpoint t='27.498079012483' val='1.000000000000'/>
+			<controlpoint t='27.498084012483' val='1.000000000000'/>
+			<controlpoint t='28.890799299089' val='1.000000000000'/>
+			<controlpoint t='28.890804299089' val='1.000000000000'/>
+			<controlpoint t='30.283519585695' val='1.000000000000'/>
+			<controlpoint t='30.283524585695' val='1.000000000000'/>
+			<controlpoint t='31.676239872301' val='1.000000000000'/>
+			<controlpoint t='31.676244872301' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="owl" channel="2" linked="0" offset="0.00000000" rate="22050.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="293528" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00088.au' len='258016' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="258016" >
+				<simpleblockfile filename='b00235.au' len='35512' min='-0.022890' max='0.023351' rms='0.006008'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='2'>
+			<controlpoint t='11.701406540571' val='1.000000000000'/>
+			<controlpoint t='11.701411540571' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="owl2" channel="2" linked="0" offset="0.00000000" rate="16000.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="430806" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00075.au' len='215403' min='0.000000' max='0.000000' rms='0.000000'/>
+			</waveblock>
+			<waveblock start="215403" >
+				<simpleblockfile filename='b00236.au' len='215403' min='-0.029448' max='0.000000' rms='0.002283'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='0'>
+		</envelope>
+	</wavetrack>
+	<wavetrack name="Low End Rumble Loop 02" channel="2" linked="0" offset="0.00000000" rate="44100.000000" gain="1.000000" pan="0.000000" >
+		<sequence maxsamples="262144" sampleformat="262159" numsamples="1463369" >
+			<waveblock start="0" >
+				<simpleblockfile filename='b00217.au' len='184459' min='-0.011490' max='0.009710' rms='0.002674'/>
+			</waveblock>
+			<waveblock start="184459" >
+				<simpleblockfile filename='b00218.au' len='184459' min='-0.011490' max='0.009710' rms='0.002666'/>
+			</waveblock>
+			<waveblock start="368918" >
+				<simpleblockfile filename='b00219.au' len='184459' min='-0.011490' max='0.009710' rms='0.002669'/>
+			</waveblock>
+			<waveblock start="553377" >
+				<simpleblockfile filename='b00220.au' len='184459' min='-0.011490' max='0.009710' rms='0.002669'/>
+			</waveblock>
+			<waveblock start="737836" >
+				<simpleblockfile filename='b00221.au' len='184459' min='-0.011490' max='0.009710' rms='0.002669'/>
+			</waveblock>
+			<waveblock start="922295" >
+				<simpleblockfile filename='b00222.au' len='184459' min='-0.011490' max='0.009710' rms='0.002669'/>
+			</waveblock>
+			<waveblock start="1106754" >
+				<simpleblockfile filename='b00223.au' len='184459' min='-0.011490' max='0.009710' rms='0.002669'/>
+			</waveblock>
+			<waveblock start="1291213" >
+				<simpleblockfile filename='b00227.au' len='172156' min='-0.011490' max='0.009710' rms='0.002563'/>
+			</waveblock>
+		</sequence>
+		<envelope numpoints='16'>
+			<controlpoint t='4.173058251371' val='1.000000000000'/>
+			<controlpoint t='4.173063251371' val='1.000000000000'/>
+			<controlpoint t='8.355802015544' val='1.000000000000'/>
+			<controlpoint t='8.355807015544' val='1.000000000000'/>
+			<controlpoint t='8.365482528345' val='1.000000000000'/>
+			<controlpoint t='8.365487528345' val='1.000000000000'/>
+			<controlpoint t='12.548226292517' val='1.000000000000'/>
+			<controlpoint t='12.548231292517' val='1.000000000000'/>
+			<controlpoint t='16.730970056689' val='1.000000000000'/>
+			<controlpoint t='16.730975056689' val='1.000000000000'/>
+			<controlpoint t='20.913713820862' val='1.000000000000'/>
+			<controlpoint t='20.913718820862' val='1.000000000000'/>
+			<controlpoint t='25.096457585034' val='1.000000000000'/>
+			<controlpoint t='25.096462585034' val='1.000000000000'/>
+			<controlpoint t='29.279201349206' val='1.000000000000'/>
+			<controlpoint t='29.279206349206' val='1.000000000000'/>
+		</envelope>
+	</wavetrack>
+</audacityproject>
